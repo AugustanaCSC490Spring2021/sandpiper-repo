@@ -1,16 +1,26 @@
 import { Container, Content, Text, Header, Button, StyleProvider } from 'native-base';
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import * as React from 'react';
 // import 'react-native-gesture-handler';
+const extraWidth = Dimensions.get('window').width/30;
+const extraHeight = Dimensions.get('window').height/30;
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#002F6C'
+  },
+  content: {
+    flexDirection: 'row',
+    flex: 1
+  },
   button: {
     marginBottom:25,
-    marginTop:25,
-    marginLeft:25,
-    marginRight:25,
+    marginLeft:0,
+    marginRight:(windowWidth / 2),
     backgroundColor: '#FFDD00'
   },
   text: {
@@ -38,12 +48,54 @@ class MainScreen extends React.Component {
 
   render() {
     return (
-      <Container style={{ backgroundColor: '#002F6C'}}>
-        <Content>
+      <Container style={styles.container}>
+        <Content padder style = {styles.content}>
           <Button block
             style = {styles.button}>
             <Text style= {styles.text}>
               Emergency Contacts
+            </Text>
+          </Button>
+          <Button block
+          style = {styles.button}>
+            <Text style = {styles.text}>
+              Friend Walk
+            </Text>
+          </Button>
+          <Button block
+          style = {styles.button}>
+            <Text style = {styles.text}>
+              Resources
+            </Text>
+          </Button>
+          <Button block
+          style = {styles.button}>
+            <Text style = {styles.text}>
+              Map
+            </Text>
+          </Button>
+          <Button block
+          style = {styles.button}>
+            <Text style = {styles.text}>
+              Report Incident
+            </Text>
+          </Button>
+          <Button block
+          style = {styles.button}>
+            <Text style = {styles.text}>
+              Covid
+            </Text>
+          </Button>
+          <Button block
+          style = {styles.button}>
+            <Text style = {styles.text}>
+              Weather
+            </Text>
+          </Button>
+          <Button block
+          style = {styles.button}>
+            <Text style = {styles.text}>
+              News
             </Text>
           </Button>
           <Button block
