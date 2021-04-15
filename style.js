@@ -1,0 +1,25 @@
+import { StyleSheet, Dimensions } from "react-native"
+
+const extraWidth = Dimensions.get('window').width/30;
+const extraHeight = Dimensions.get('window').height/30;
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
+export default StyleSheet.create({
+container: {
+    backgroundColor: '#002F6C'
+},
+content: {
+  flexDirection: 'row',
+  flex: 1
+},
+button: {
+  marginBottom:25,
+  marginLeft:0,
+  marginRight:(windowWidth / 2),
+  backgroundColor: '#FFDD00'
+},
+text: {
+  color: '#000000'
+}
+})
