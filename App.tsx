@@ -3,16 +3,8 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import MainScreen from './MainScreen.js';
+import ResourcePage from './ResourcePage.js';
 import { StyleSheet } from "react-native";
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 const Stack = createStackNavigator();
 
@@ -24,6 +16,10 @@ class App extends React.Component {
           <Stack.Screen
             name="Home"
             component={MainScreen}
+          />
+          <Stack.Screen
+            name="Resources"
+            component={ResourcePage}
           />
         </Stack.Navigator>
       </NavigationContainer>

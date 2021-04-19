@@ -1,4 +1,4 @@
-import { Container, Content, Text, Header, Button, StyleProvider } from 'native-base';
+import { Container, Content, Text, Header, Button, StyleProvider, Card } from 'native-base';
 import { StyleSheet, Dimensions } from "react-native";
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
@@ -20,59 +20,49 @@ class MainScreen extends React.Component {
     return (
       <Container style={styles.container}>
         <Content padder style = {styles.content}>
-          <Button block
-            style = {styles.button}>
-            <Text style= {styles.text}>
-              Emergency Contacts
+          <Button style = {styles.button}>
+            <Text style = {styles.text}>
+              Secure in place
             </Text>
           </Button>
-          <Button block
-          style = {styles.button}>
+          <Button style = {styles.button}>
             <Text style = {styles.text}>
-              Friend Walk
+              Shelter in place
             </Text>
           </Button>
-          <Button block
-          style = {styles.button}
-          onPress={() => this.props.navigation.navigate('Resources')}>
+          <Button style = {styles.button}>
             <Text style = {styles.text}>
-              Resources
+              Evacuation
             </Text>
           </Button>
-          <Button block
-          style = {styles.button}>
+          <Button style = {styles.button}>
             <Text style = {styles.text}>
-              Map
+              Concerning Behavior
             </Text>
           </Button>
-          <Button block
-          style = {styles.button}>
+          <Button style = {styles.button}>
             <Text style = {styles.text}>
-              Report Incident
+              Hazardous Material
             </Text>
           </Button>
-          <Button block
-          style = {styles.button}>
+          <Button style = {styles.button}>
             <Text style = {styles.text}>
-              Covid
+              Facility Emergency
             </Text>
           </Button>
-          <Button block
-          style = {styles.button}>
+          <Button style = {styles.button}>
             <Text style = {styles.text}>
-              Weather
+              Weather Emergency
             </Text>
           </Button>
-          <Button block
-          style = {styles.button}>
+          <Button style = {styles.button}>
             <Text style = {styles.text}>
-              News
+              Medical Emergency
             </Text>
           </Button>
-          <Button block
-          style = {styles.button}>
+          <Button style = {styles.button}>
             <Text style = {styles.text}>
-              About the app
+              Physical Threat Emergency
             </Text>
           </Button>
         </Content>
