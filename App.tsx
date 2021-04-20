@@ -13,28 +13,31 @@ import { Ionicons } from '@expo/vector-icons';
 
 const Stack = createStackNavigator();
 
-export default class App extends React.Component {
+
+
+class App extends React.Component {
   constructor(props) {
     super(props);
+    this.componentDidMount();
     this.state = {
       isReady: false,
     };
   }
-  
+
 //This starter was included in the native-base docs: https://docs.nativebase.io/docs/GetStarted.html
 //But was broken so I found this answer from user 'Jose Paez': https://stackoverflow.com/questions/57066075/console-error-fontfamily-roboto-medium-is-not-a-system-font-and-has-not-been
-  async componentDidMount() {
-    await Font.loadAsync({
-      'Roboto': require('native-base/Fonts/Roboto.ttf'),
-      'Roboto_medium' : require('native-base/Fonts/Roboto_medium.ttf'),
-      ...Ionicons.font,
-    });
-    this.setState({ isReady: true });
-  }
+async componentDidMount() {
+  await Font.loadAsync({
+     Roboto: require('native-base/Fonts/Roboto.ttf'),
+     Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
+     ...Ionicons.font,
+  });
+  this.setState({ isReady: true });
+}
 
   render() {
     if (!this.state.isReady) {
-     <View></View>
+     return <View></View>
    }
 
 
