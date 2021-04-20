@@ -9,6 +9,17 @@ export default StyleSheet.create({
 container: {
     backgroundColor: '#002F6C'
 },
+textBlock:{
+  backgroundColor: '#FFDD00',
+  width: 'auto',
+  height: 'auto',
+  marginBottom:25,
+  alignSelf: "baseline",
+  padding: 15,
+  //flexDirection: 'column',
+
+
+},
 content: {
   flexDirection: 'row',
   flex: 1

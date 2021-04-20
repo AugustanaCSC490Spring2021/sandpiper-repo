@@ -21,7 +21,9 @@ class MainScreen extends React.Component {
       <Container style={styles.container}>
         <Content padder style = {styles.content}>
           <Button block
-            style = {styles.button}>
+            style = {styles.button}
+            onPress={() => this.props.navigation.navigate('Emergency')}>
+
             <Text style= {styles.text}>
               Emergency Contacts
             </Text>

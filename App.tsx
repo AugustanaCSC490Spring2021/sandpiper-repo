@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import MainScreen from './MainScreen.js';
 import ResourcePage from './ResourcePage.js';
+import Emergency from './EmergencyContactPage.js';
 import { StyleSheet } from "react-native";
 
 const Stack = createStackNavigator();
@@ -20,6 +21,10 @@ class App extends React.Component {
           <Stack.Screen
             name="Resources"
             component={ResourcePage}
+          />
+          <Stack.Screen
+            name="Emergency"
+            component={Emergency}
           />
         </Stack.Navigator>
       </NavigationContainer>
