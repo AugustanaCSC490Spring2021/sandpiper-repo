@@ -15,7 +15,7 @@ class App extends React.Component {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
-            name="Home"
+            name="Viking Ready"
             component={MainScreen}
           />
           <Stack.Screen
@@ -23,7 +23,7 @@ class App extends React.Component {
             component={ResourcePage}
           />
           <Stack.Screen
-            name="Emergency"
+            name="Emergency Contacts"
             component={Emergency}
           />
         </Stack.Navigator>

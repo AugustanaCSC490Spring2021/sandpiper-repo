@@ -22,19 +22,19 @@ class MainScreen extends React.Component {
         <Content padder style={styles.content}>
           <Grid>
             <Col style={styles.leftContent}>
-            <Button style={styles.textBlock}>
+            <Button style={styles.textBlockWIP}>
             <Text style={styles.text}>
               911 {'\n'}
             </Text>
           </Button>
-          <Button style={styles.textBlock}>
+          <Button style={styles.textBlockWIP}>
             <Text style={styles.text}>
               Public Safety{'\n'}
               309-794-7000
             </Text>
 
           </Button>
-          <Button style={styles.textBlock}>
+          <Button style={styles.textBlockWIP}>
             <Text style={styles.text}>
               Rock Island Police Department
               {'\n'}
@@ -43,19 +43,19 @@ class MainScreen extends React.Component {
           </Button>
             </Col>
             <Col style={styles.rightContent}>
-            <Button style={styles.textBlock}>
+            <Button style={styles.textBlockWIP}>
             <Text style={styles.text}>
               National Suicide Prevention Line {'\n'}
               800-273-8255
             </Text>
           </Button>
-          <Button style={styles.textBlock}>
+          <Button style={styles.textBlockWIP}>
             <Text style={styles.text}>
               Poison Control Center  {'\n'}
               800-222-1222
             </Text>
           </Button>
-          <Button style={styles.textBlock}>
+          <Button style={styles.textBlockWIP}>
             <Text style={styles.text}>
               Dean Of Students{'\n'}
               309-794-7533{'\n'}
@@ -64,8 +64,8 @@ class MainScreen extends React.Component {
           </Button>
             </Col>
           </Grid>
-          
-         
+
+
         </Content>
       </Container>
     );

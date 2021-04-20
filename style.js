@@ -17,8 +17,15 @@ textBlock:{
   alignSelf: "baseline",
   padding: 15,
   //flexDirection: 'column',
-
-
+},
+textBlockWIP:{
+  backgroundColor: '#474747',
+  width: 'auto',
+  height: 'auto',
+  marginBottom:25,
+  alignSelf: "baseline",
+  padding: 15,
+  //flexDirection: 'column',
 },
 content: {
   flexDirection: 'row',
@@ -29,6 +36,12 @@ button: {
   marginLeft:0,
   marginRight:(windowWidth / 2),
   backgroundColor: '#FFDD00'
+},
+buttonWIP: {
+  marginBottom:25,
+  marginLeft:0,
+  marginRight:(windowWidth / 2),
+  backgroundColor: '#474747'
 },
 text: {
   color: '#000000'
