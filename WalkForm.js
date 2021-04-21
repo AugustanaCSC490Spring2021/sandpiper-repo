@@ -33,7 +33,7 @@ var firebaseConfig = {
 class WalkForm extends React.Component {
   constructor(props) {
     super(props);
-    firebase.initializeApp(firebaseConfig);
+    // firebase.initializeApp(firebaseConfig);
     this.state = {
       name: '',
       studentID: '',
