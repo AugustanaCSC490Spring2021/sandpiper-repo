@@ -7,6 +7,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import MainScreen from './MainScreen.js';
 import ResourcePage from './ResourcePage.js';
 import Emergency from './EmergencyContactPage.js';
+import FriendWalk from './FriendWalk.js'
+import WalkForm from './WalkForm.js'
 import { StyleSheet, View } from "react-native";
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
@@ -16,6 +18,7 @@ const Stack = createStackNavigator();
 
 
 class App extends React.Component {
+
   constructor(props) {
     super(props);
     this.componentDidMount();
@@ -36,30 +39,37 @@ async componentDidMount() {
 }
 
   render() {
-    if (!this.state.isReady) {
-     return <View></View>
-   }
-
-
-    return (
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen
-            name="Viking Ready"
-            component={MainScreen}
-          />
-          <Stack.Screen
-            name="Resources"
-            component={ResourcePage}
-          />
-          <Stack.Screen
-            name="Emergency Contacts"
-            component={Emergency}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    );
+  //Checks to see if the font loaded, if it has not it displays a temp screen
+  if (!this.state.isReady) {
+    return <View></View>
   }
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Viking Ready"
+          component={MainScreen}
+        />
+        <Stack.Screen
+          name="Resources"
+          component={ResourcePage}
+        />
+        <Stack.Screen
+          name="Emergency Contacts"
+          component={Emergency}
+        />
+        <Stack.Screen
+          name="Friend Walk"
+          component={FriendWalk}
+        />
+        <Stack.Screen
+          name="Walk Form"
+          component={WalkForm}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 }
 
 export default App;

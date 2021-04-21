@@ -6,16 +6,7 @@ import * as React from 'react';
 import styles from './style.js';
 import 'react-native-gesture-handler';
 
-//code snippet obtained from: https://docs.nativebase.io/docs/GetStarted.html
 class MainScreen extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isReady: true,
-    };
-  }
-
-
   render() {
     return (
       <Container style={styles.container}>
