@@ -36,8 +36,12 @@ I can go through and install these with “expo install [package name]”
 
 ## TO RUN
 You will have to start the development server by running
+
 yarn start
 
 This will start the development server
 
 From there you can startup an ios emulator or android emulator.
+
+## Errors/Answers
+There has been a problem running the web app version of the app with the native base dependency. We found an answer locally but have not been able to patch it globally yet. If you are having trouble with this please refer to: https://forums.expo.io/t/expo-start-web-failed-to-compile-after-import-native-base/40826 user: judipuak. We change the dependency to not refer to a specific package but instead default to the generic react-native-keyboard-aware-scroll-view.
