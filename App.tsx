@@ -15,8 +15,6 @@ import { Ionicons } from '@expo/vector-icons';
 
 const Stack = createStackNavigator();
 
-
-
 class App extends React.Component {
 
   constructor(props) {

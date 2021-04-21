@@ -6,9 +6,34 @@ import * as React from 'react';
 import styles from './style.js';
 import 'react-native-gesture-handler';
 
+// Firebase App (the core Firebase SDK) is always required and must be listed first
+import firebase from "firebase/app";
+// If you are using v7 or any earlier version of the JS SDK, you should import firebase using namespace import
+// import * as firebase from "firebase/app"
+
+// Add the Firebase products that you want to use
+import "firebase/auth";
+import "firebase/database";
+
+//import { REACT_APP_FIREBASE_API_KEY } from 'react-native-dotenv'
+// const API_KEY = process.env.REACT_APP_FIREBASE_API_KEY;
+
+// For Firebase JavaScript SDK v7.20.0 and later, `measurementId` is an optional field
+var firebaseConfig = {
+  // apiKey: API_KEY,
+  authDomain: "vikingready-d4167.firebaseapp.com",
+  databaseURL: "https://vikingready-d4167-default-rtdb.firebaseio.com",
+  projectId: "vikingready-d4167",
+  storageBucket: "vikingready-d4167.appspot.com",
+  messagingSenderId: "409187750267",
+  appId: "1:409187750267:web:793290bf3bb99f93fcedde",
+  measurementId: "G-CL5F67YSNN"
+};
+
 class WalkForm extends React.Component {
   constructor(props) {
     super(props);
+    firebase.initializeApp(firebaseConfig);
     this.state = {
       name: '',
       studentID: '',
