@@ -30,7 +30,8 @@ class MainScreen extends React.Component {
               Shelter in place
             </Text>
           </Button>
-          <Button style = {styles.button}>
+          <Button style = {styles.button}
+          onPress={() => this.props.navigation.navigate('ResourceDisplay', {pdfUrl: 'https://www.augustana.edu/files/2018-12/SwansonTLA_Emergency_Instruction_sm.pdf'})}>
             <Text style = {styles.text}>
               Evacuation
             </Text>
