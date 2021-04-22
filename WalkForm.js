@@ -30,10 +30,12 @@ var firebaseConfig = {
   measurementId: "G-CL5F67YSNN"
 };
 
+!firebase.apps.length ? firebase.initializeApp(config) : firebase.app();
+
+
 class WalkForm extends React.Component {
   constructor(props) {
     super(props);
-    // firebase.initializeApp(firebaseConfig);
     this.state = {
       name: '',
       studentID: '',
@@ -52,6 +54,16 @@ class WalkForm extends React.Component {
     if(this.state.name === '' && this.state.disabledSubmit === false){
       this.setState({disabledSubmit: true});
     }
+  }
+
+  Submit(){
+    this.updateDatabase();
+    this.props.navigation.navigate('Walk Queue');
+  }
+
+  updateDatabase(){
+    console.log("Updating database...")
+    return;
   }
 
   render() {
@@ -99,7 +111,7 @@ class WalkForm extends React.Component {
         </Form>
         <Button style={[styles.button, { backgroundColor: this.state.disabledSubmit ? '#474747' : '#FFDD00' }]}
           disabled={this.state.disabledSubmit}
-          onPress={() => this.props.navigation.navigate('Walk Queue')}>
+          onPress={() => this.Submit()}>
           <Text style={styles.text}>
             Submit
           </Text>
