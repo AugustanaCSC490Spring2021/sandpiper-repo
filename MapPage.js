@@ -7,7 +7,6 @@ import styles from './style.js';
 import 'react-native-gesture-handler';
 import MapView, {Marker} from 'react-native-maps';
 import * as Location from 'expo-location';
-import * as Permissions from 'expo-permissions';
 import Constants from 'expo-constants';
 
 //code snippet obtained from: https://docs.nativebase.io/docs/GetStarted.html
@@ -32,14 +31,13 @@ class Map extends React.Component {
 
 
   getLocationAsync = async () => {
-    let { status } = await Permissions.askAsync(Permissions.LOCATION);
-    if (status !== 'granted') {
-      this.setState({
-        errorMessage: 'Permission to access location was denied',
-      });
-    }
+    let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') {
+        setErrorMsg('Permission to access location was denied');
+        return;
+      }
 
-    let location = await Location.getCurrentPositionAsync({accuracy:Location.Accuracy.Highest});
+    let location = await Location.getCurrentPositionAsync({});
     const { latitude , longitude } = location.coords
     this.getGeocodeAsync({latitude, longitude})
     this.setState({ location: { latitude, longitude } });
@@ -51,7 +49,7 @@ class Map extends React.Component {
           longitudeDelta: 0.0421,
         },
     });
-    
+
   };
 
 
@@ -64,7 +62,7 @@ class Map extends React.Component {
   render(){
     const {location,geocode, errorMessage } = this.state
     return (
-      
+
       <View style={styles.containermap}>
         <MapView
           style={styles.map}
@@ -75,9 +73,9 @@ class Map extends React.Component {
                         coordinate={{"latitude": this.state.location.latitude, "longitude": this.state.location.longitude}}
                     />}
         </MapView>
-        
+
       </View>
-    
+
     );
   }
 }
