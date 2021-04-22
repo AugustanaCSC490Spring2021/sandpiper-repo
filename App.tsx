@@ -8,13 +8,15 @@ import MainScreen from './MainScreen.js';
 import ResourcePage from './ResourcePage.js';
 import ResourceDisplay from './ResourceDisplay.js';
 import Emergency from './EmergencyContactPage.js';
-import FriendWalk from './FriendWalk.js'
-import WalkForm from './WalkForm.js'
-import Map from './MapPage.js'
+import FriendWalk from './FriendWalk.js';
+import WalkForm from './WalkForm.js';
+import WalkQueue from './WalkQueue.js';
+import WatchQueue from './FriendWatch.js';
+import Map from './MapPage.js';
 import { StyleSheet, View } from "react-native";
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
-
+import About from './About';
 const Stack = createStackNavigator();
 
 class App extends React.Component {
@@ -67,12 +69,24 @@ async componentDidMount() {
           component={WalkForm}
         />
         <Stack.Screen
+          name="Walk Queue"
+          component={WalkQueue}
+        />
+        <Stack.Screen
+          name="Watch Queue"
+          component={WatchQueue}
+        />
+        <Stack.Screen
             name="ResourceDisplay"
             component={ResourceDisplay}
         />
         <Stack.Screen
             name="Map"
             component={Map}
+          />
+          <Stack.Screen
+            name="About"
+            component={About}
           />
       </Stack.Navigator>
     </NavigationContainer>

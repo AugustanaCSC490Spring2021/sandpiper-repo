@@ -72,7 +72,8 @@ class MainScreen extends React.Component {
           </Button>
 
           <Button block
-          style = {styles.buttonWIP}>
+          style = {styles.button}             onPress={() => this.props.navigation.navigate('About')}>
+          
             <Text style = {styles.text}>
               About the app
             </Text>
