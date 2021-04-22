@@ -10,6 +10,7 @@ import ResourceDisplay from './ResourceDisplay.js';
 import Emergency from './EmergencyContactPage.js';
 import FriendWalk from './FriendWalk.js'
 import WalkForm from './WalkForm.js'
+import Map from './MapPage.js'
 import { StyleSheet, View } from "react-native";
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
@@ -68,6 +69,10 @@ async componentDidMount() {
         <Stack.Screen
             name="ResourceDisplay"
             component={ResourceDisplay}
+        />
+        <Stack.Screen
+            name="Map"
+            component={Map}
           />
       </Stack.Navigator>
     </NavigationContainer>
