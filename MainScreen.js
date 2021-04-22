@@ -18,6 +18,7 @@ class MainScreen extends React.Component {
               Emergency Contacts
             </Text>
           </Button>
+
           <Button block
           style = {styles.button}
           onPress={() => this.props.navigation.navigate('Friend Walk')}>
@@ -25,6 +26,7 @@ class MainScreen extends React.Component {
               Friend Walk
             </Text>
           </Button>
+
           <Button block
           style = {styles.button}
           onPress={() => this.props.navigation.navigate('Resources')}>
@@ -32,42 +34,45 @@ class MainScreen extends React.Component {
               Resources
             </Text>
           </Button>
+
           <Button block
-          style = {styles.buttonWIP}>
+            style={styles.button}
+            onPress={() => this.props.navigation.navigate('Map')}>
             <Text style = {styles.text}>
               Map
             </Text>
           </Button>
+
           <Button block
           style = {styles.buttonWIP}>
             <Text style = {styles.text}>
               Report Incident
             </Text>
           </Button>
+
           <Button block
           style = {styles.buttonWIP}>
             <Text style = {styles.text}>
               Covid
             </Text>
           </Button>
-          <Button block
-          style = {styles.buttonWIP}>
-            <Text style = {styles.text}>
-              Weather
-            </Text>
-          </Button>
+
           <Button block
           style = {styles.buttonWIP}>
             <Text style = {styles.text}>
               News
             </Text>
           </Button>
+
           <Button block
-          style = {styles.buttonWIP}>
+          style = {styles.button}
+          onPress={() => this.props.navigation.navigate('About')}>
+          
             <Text style = {styles.text}>
               About the app
             </Text>
           </Button>
+
         </Content>
       </Container>
     );

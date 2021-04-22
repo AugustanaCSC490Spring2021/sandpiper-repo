@@ -6,6 +6,33 @@ import * as React from 'react';
 import styles from './style.js';
 import 'react-native-gesture-handler';
 
+// Firebase App (the core Firebase SDK) is always required and must be listed first
+import firebase from "firebase/app";
+// If you are using v7 or any earlier version of the JS SDK, you should import firebase using namespace import
+// import * as firebase from "firebase/app"
+
+// Add the Firebase products that you want to use
+import "firebase/auth";
+import "firebase/database";
+
+//import { REACT_APP_FIREBASE_API_KEY } from 'react-native-dotenv'
+// const API_KEY = process.env.REACT_APP_FIREBASE_API_KEY;
+
+// For Firebase JavaScript SDK v7.20.0 and later, `measurementId` is an optional field
+var firebaseConfig = {
+  apiKey: "",
+  authDomain: "vikingready-d4167.firebaseapp.com",
+  databaseURL: "https://vikingready-d4167-default-rtdb.firebaseio.com",
+  projectId: "vikingready-d4167",
+  storageBucket: "vikingready-d4167.appspot.com",
+  messagingSenderId: "409187750267",
+  appId: "1:409187750267:web:793290bf3bb99f93fcedde",
+  measurementId: "G-CL5F67YSNN"
+};
+
+!firebase.apps.length ? firebase.initializeApp(config) : firebase.app();
+
+
 class WalkForm extends React.Component {
   constructor(props) {
     super(props);
@@ -14,11 +41,34 @@ class WalkForm extends React.Component {
       studentID: '',
       destination: '',
       phoneNum: '',
-      friendsNum: ''
+      friendsNum: '',
+      disabledSubmit: true
     };
+
+  }
+
+  checkToDisable(){
+    if(this.state.name !== '' && this.state.disabledSubmit === true){
+      this.setState({disabledSubmit: false});
+    }
+    if(this.state.name === '' && this.state.disabledSubmit === false){
+      this.setState({disabledSubmit: true});
+    }
+  }
+
+  Submit(){
+    this.updateDatabase();
+    this.props.navigation.navigate('Walk Queue');
+  }
+
+  updateDatabase(){
+    console.log("Updating database...")
+    return;
   }
 
   render() {
+    this.checkToDisable()
+    //learned the switching of background color for a disabled button from: https://reactnativecode.com/disabled-button-state/
     return (
       <Container style={styles.container}>
         <Content padder>
@@ -59,7 +109,9 @@ class WalkForm extends React.Component {
           </Input>
         </Item>
         </Form>
-        <Button style={styles.button}>
+        <Button style={[styles.button, { backgroundColor: this.state.disabledSubmit ? '#474747' : '#FFDD00' }]}
+          disabled={this.state.disabledSubmit}
+          onPress={() => this.Submit()}>
           <Text style={styles.text}>
             Submit
           </Text>
