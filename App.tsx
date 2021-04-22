@@ -7,6 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import MainScreen from './MainScreen.js';
 import ResourcePage from './ResourcePage.js';
 import ResourceDisplay from './ResourceDisplay.js';
+import DormResourcePage from './DormResourcePage.js';
 import Emergency from './EmergencyContactPage.js';
 import FriendWalk from './FriendWalk.js'
 import WalkForm from './WalkForm.js'
@@ -70,6 +71,10 @@ async componentDidMount() {
         <Stack.Screen
             name="ResourceDisplay"
             component={ResourceDisplay}
+          />
+          <Stack.Screen
+            name="Dorm Resources"
+            component={DormResourcePage}
           />
       </Stack.Navigator>
     </NavigationContainer>
