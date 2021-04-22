@@ -65,11 +65,12 @@ class Map extends React.Component {
     const {location,geocode, errorMessage } = this.state
     return (
       
-      <View style={styles.containermap}>
+    <View style={styles.containermap}>
         <MapView
-          style={styles.map}
-          region={this.state.mapRegion}
-          onRegionChange={this.handleMapRegionChange}
+            provider={MapView.PROVIDER_GOOGLE}
+            style={styles.map}
+            region={this.state.mapRegion}
+            onRegionChange={this.handleMapRegionChange}
         >
         {!!this.state.location.latitude && !!this.state.location.longitude && <MapView.Marker
                         coordinate={{"latitude": this.state.location.latitude, "longitude": this.state.location.longitude}}

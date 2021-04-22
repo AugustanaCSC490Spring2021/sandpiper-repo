@@ -55,7 +55,7 @@ item: {
   color: '#000000',
   marginTop: 25
   },
-  
+
 map: {
     position: 'absolute',
     top: 0,
