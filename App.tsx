@@ -16,7 +16,7 @@ import Map from './MapPage.js';
 import { StyleSheet, View } from "react-native";
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
-
+import About from './About';
 const Stack = createStackNavigator();
 
 class App extends React.Component {
@@ -83,6 +83,10 @@ async componentDidMount() {
         <Stack.Screen
             name="Map"
             component={Map}
+          />
+          <Stack.Screen
+            name="About"
+            component={About}
           />
       </Stack.Navigator>
     </NavigationContainer>
