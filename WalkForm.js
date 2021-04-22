@@ -20,7 +20,7 @@ import "firebase/database";
 
 // For Firebase JavaScript SDK v7.20.0 and later, `measurementId` is an optional field
 var firebaseConfig = {
-  // apiKey: API_KEY,
+  apiKey: "",
   authDomain: "vikingready-d4167.firebaseapp.com",
   databaseURL: "https://vikingready-d4167-default-rtdb.firebaseio.com",
   projectId: "vikingready-d4167",
@@ -39,11 +39,24 @@ class WalkForm extends React.Component {
       studentID: '',
       destination: '',
       phoneNum: '',
-      friendsNum: ''
+      friendsNum: '',
+      disabledSubmit: true
     };
+
+  }
+
+  checkToDisable(){
+    if(this.state.name !== '' && this.state.disabledSubmit === true){
+      this.setState({disabledSubmit: false});
+    }
+    if(this.state.name === '' && this.state.disabledSubmit === false){
+      this.setState({disabledSubmit: true});
+    }
   }
 
   render() {
+    this.checkToDisable()
+    //learned the switching of background color for a disabled button from: https://reactnativecode.com/disabled-button-state/
     return (
       <Container style={styles.container}>
         <Content padder>
@@ -84,7 +97,8 @@ class WalkForm extends React.Component {
           </Input>
         </Item>
         </Form>
-        <Button style={styles.button}>
+        <Button style={[styles.button, { backgroundColor: this.state.disabledSubmit ? '#474747' : '#FFDD00' }]}
+          disabled={this.state.disabledSubmit}>
           <Text style={styles.text}>
             Submit
           </Text>
