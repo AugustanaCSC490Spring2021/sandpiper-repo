@@ -1,13 +1,14 @@
 import { Container, Content, Text, Header, Button, StyleProvider, Card, View } from 'native-base';
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Dimensions, Platform } from "react-native";
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
-import * as React from 'react';
+import React, {useState, useEffect} from 'react';
 import styles from './style.js';
 import 'react-native-gesture-handler';
 import MapView, {Marker} from 'react-native-maps';
 import * as Location from 'expo-location';
 import Constants from 'expo-constants';
+
 
 //code snippet obtained from: https://docs.nativebase.io/docs/GetStarted.html
 class Map extends React.Component {
@@ -21,6 +22,7 @@ class Map extends React.Component {
     }
   }
 
+
   componentDidMount() {
     this.getLocationAsync();
   }
@@ -29,14 +31,13 @@ class Map extends React.Component {
     this.setState({ mapRegion });
   };
 
-
+//Grabbed the permissions snippet from https://docs.expo.io/versions/v41.0.0/sdk/location/
   getLocationAsync = async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
         setErrorMsg('Permission to access location was denied');
         return;
       }
-
     let location = await Location.getCurrentPositionAsync({});
     const { latitude , longitude } = location.coords
     this.getGeocodeAsync({latitude, longitude})
