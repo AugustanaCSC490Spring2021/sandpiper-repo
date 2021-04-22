@@ -18,7 +18,7 @@ class Map extends React.Component {
       location: {coords: { latitude: 37.78825, longitude: -122.4324}},
       geocode: null,
       errorMessage: "",
-      mapRegion: 0,
+      mapRegion: null,
     }
   }
 
