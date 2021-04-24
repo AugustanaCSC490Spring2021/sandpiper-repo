@@ -30,7 +30,7 @@ var firebaseConfig = {
   measurementId: "G-CL5F67YSNN"
 };
 
-!firebase.apps.length ? firebase.initializeApp(config) : firebase.app();
+!firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
 
 
 class WalkForm extends React.Component {
@@ -63,11 +63,15 @@ class WalkForm extends React.Component {
 
   updateDatabase(){
     console.log("Updating database...")
+    firebase.put(this.state);
     return;
   }
 
-  render() {
+  componentDidUpdate(){
     this.checkToDisable()
+  }
+
+  render() {
     //learned the switching of background color for a disabled button from: https://reactnativecode.com/disabled-button-state/
     return (
       <Container style={styles.container}>
