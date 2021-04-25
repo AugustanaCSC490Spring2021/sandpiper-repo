@@ -5,6 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import * as React from 'react';
 import styles from './style.js';
 import 'react-native-gesture-handler';
+import uuid from "react-native-uuid";
 
 // Firebase App (the core Firebase SDK) is always required and must be listed first
 import firebase from "firebase/app";
@@ -37,12 +38,19 @@ class WalkForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      studentID: '',
-      destination: '',
-      phoneNum: '',
-      friendsNum: '',
-      disabledSubmit: true
+      walker_name: '',
+      walker_studentID: '',
+      walker_destination: '',
+      walker_phoneNum: '',
+      walker_friendsNum: '',
+      havePaired: false,
+      walker_gps_coordinates: '',
+      friendwalk_chat: [],
+      walker_uuid: uuid.v1(),
+      watcher_uuid: '',
+      isPinged: false,
+      disabledSubmit: true,
+
     };
 
   }
@@ -57,15 +65,15 @@ class WalkForm extends React.Component {
   }
 
   Submit(){
-    this.updateDatabase("dan");
+    this.updateDatabase(uuid.v1());
     this.props.navigation.navigate('Walk Queue');
   }
 
-  updateDatabase(userId){
+  updateDatabase(){
     console.log("Updating database...")
       firebase
         .database()
-        .ref('users/' + userId)
+        .ref('users/' + this.state.walker_uuid)
         .set(this.state);
   }
 
