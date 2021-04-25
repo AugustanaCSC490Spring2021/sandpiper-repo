@@ -20,7 +20,7 @@ import "firebase/database";
 
 // For Firebase JavaScript SDK v7.20.0 and later, `measurementId` is an optional field
 var firebaseConfig = {
-  apiKey: "",
+  apiKey: "AIzaSyAXhoMqorexwwYImNQuFUIBqFmaXz3SMqU",
   authDomain: "vikingready-d4167.firebaseapp.com",
   databaseURL: "https://vikingready-d4167-default-rtdb.firebaseio.com",
   projectId: "vikingready-d4167",
@@ -57,14 +57,16 @@ class WalkForm extends React.Component {
   }
 
   Submit(){
-    this.updateDatabase();
+    this.updateDatabase("dan");
     this.props.navigation.navigate('Walk Queue');
   }
 
-  updateDatabase(){
+  updateDatabase(userId){
     console.log("Updating database...")
-    firebase.put(this.state);
-    return;
+      firebase
+        .database()
+        .ref('users/' + userId)
+        .set(this.state);
   }
 
   componentDidUpdate(){
