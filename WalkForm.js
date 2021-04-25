@@ -20,7 +20,7 @@ import "firebase/database";
 
 // For Firebase JavaScript SDK v7.20.0 and later, `measurementId` is an optional field
 var firebaseConfig = {
-  apiKey: "",
+  apiKey: "AIzaSyAXhoMqorexwwYImNQuFUIBqFmaXz3SMqU",
   authDomain: "vikingready-d4167.firebaseapp.com",
   databaseURL: "https://vikingready-d4167-default-rtdb.firebaseio.com",
   projectId: "vikingready-d4167",
@@ -30,10 +30,12 @@ var firebaseConfig = {
   measurementId: "G-CL5F67YSNN"
 };
 
+!firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
+
+
 class WalkForm extends React.Component {
   constructor(props) {
     super(props);
-    // firebase.initializeApp(firebaseConfig);
     this.state = {
       name: '',
       studentID: '',
@@ -54,8 +56,24 @@ class WalkForm extends React.Component {
     }
   }
 
-  render() {
+  Submit(){
+    this.updateDatabase("dan");
+    this.props.navigation.navigate('Walk Queue');
+  }
+
+  updateDatabase(userId){
+    console.log("Updating database...")
+      firebase
+        .database()
+        .ref('users/' + userId)
+        .set(this.state);
+  }
+
+  componentDidUpdate(){
     this.checkToDisable()
+  }
+
+  render() {
     //learned the switching of background color for a disabled button from: https://reactnativecode.com/disabled-button-state/
     return (
       <Container style={styles.container}>
@@ -99,7 +117,7 @@ class WalkForm extends React.Component {
         </Form>
         <Button style={[styles.button, { backgroundColor: this.state.disabledSubmit ? '#474747' : '#FFDD00' }]}
           disabled={this.state.disabledSubmit}
-          onPress={() => this.props.navigation.navigate('Walk Queue')}>
+          onPress={() => this.Submit()}>
           <Text style={styles.text}>
             Submit
           </Text>
