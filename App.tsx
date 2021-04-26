@@ -14,6 +14,7 @@ import WalkForm from './WalkForm.js';
 import WalkQueue from './WalkQueue.js';
 import WatchQueue from './FriendWatch.js';
 import Map from './MapPage.js';
+import WatchMain from './watchMain.js';
 import { StyleSheet, View } from "react-native";
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
@@ -76,6 +77,10 @@ async componentDidMount() {
         <Stack.Screen
           name="Watch Queue"
           component={WatchQueue}
+        />
+        <Stack.Screen
+          name="Watch Main"
+          component={WatchMain}
         />
         <Stack.Screen
             name="ResourceDisplay"

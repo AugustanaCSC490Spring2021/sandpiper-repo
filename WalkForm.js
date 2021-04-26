@@ -5,6 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import * as React from 'react';
 import styles from './style.js';
 import 'react-native-gesture-handler';
+import uuid from "react-native-uuid";
 
 // Firebase App (the core Firebase SDK) is always required and must be listed first
 import firebase from "firebase/app";
@@ -20,7 +21,7 @@ import "firebase/database";
 
 // For Firebase JavaScript SDK v7.20.0 and later, `measurementId` is an optional field
 var firebaseConfig = {
-  apiKey: "",
+  apiKey: "AIzaSyAXhoMqorexwwYImNQuFUIBqFmaXz3SMqU",
   authDomain: "vikingready-d4167.firebaseapp.com",
   databaseURL: "https://vikingready-d4167-default-rtdb.firebaseio.com",
   projectId: "vikingready-d4167",
@@ -30,19 +31,26 @@ var firebaseConfig = {
   measurementId: "G-CL5F67YSNN"
 };
 
-!firebase.apps.length ? firebase.initializeApp(config) : firebase.app();
+!firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
 
 
 class WalkForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      studentID: '',
-      destination: '',
-      phoneNum: '',
-      friendsNum: '',
-      disabledSubmit: true
+      walker_name: '',
+      walker_studentID: '',
+      walker_destination: '',
+      walker_phoneNum: '',
+      walker_friendsNum: '',
+      havePaired: false,
+      walker_gps_coordinates: '',
+      friendwalk_chat: [],
+      walker_uuid: uuid.v1(),
+      watcher_uuid: '',
+      isPinged: false,
+      disabledSubmit: true,
+
     };
 
   }
@@ -57,17 +65,23 @@ class WalkForm extends React.Component {
   }
 
   Submit(){
-    this.updateDatabase();
+    this.updateDatabase(uuid.v1());
     this.props.navigation.navigate('Walk Queue');
   }
 
   updateDatabase(){
     console.log("Updating database...")
-    return;
+      firebase
+        .database()
+        .ref('users/' + this.state.walker_uuid)
+        .set(this.state);
+  }
+
+  componentDidUpdate(){
+    this.checkToDisable()
   }
 
   render() {
-    this.checkToDisable()
     //learned the switching of background color for a disabled button from: https://reactnativecode.com/disabled-button-state/
     return (
       <Container style={styles.container}>
