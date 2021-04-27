@@ -12,6 +12,7 @@ import FriendWalk from './FriendWalk.js';
 import WalkForm from './WalkForm.js';
 import WalkQueue from './WalkQueue.js';
 import WatchQueue from './FriendWatch.js';
+import WalkMain from './WalkMain.js';
 import Map from './MapPage.js';
 import WatchMain from './watchMain.js';
 import { StyleSheet, View } from "react-native";
@@ -72,6 +73,10 @@ async componentDidMount() {
         <Stack.Screen
           name="Walk Queue"
           component={WalkQueue}
+        />
+        <Stack.Screen
+          name="Walk Main"
+          component={WalkMain}
         />
         <Stack.Screen
           name="Watch Queue"
