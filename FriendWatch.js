@@ -15,18 +15,17 @@ class WatchQueue extends React.Component {
     super(props);
     this.state = {
       matched: false,
-      walker_uuid: ''
+      walker_uuid: '',
+      watcher_uuid: uuid.v1()
     };
   }
 
   async updateWalkers() {
-    var res = '';
-
     var database = firebase.database().ref("users");
 
     console.log("Updating walkers");
     //TODO make the list a queue so that no one is left behind
-    var snapshot = await database.limitToLast(1).orderByChild("havePaired").equalTo(false).once('value', (snapshot) => {
+    var snapshot = await database.limitToLast(1).orderByChild("havePaired").equalTo(false).on('value', (snapshot) => {
       console.log("Testing snapshot: " + snapshot);
       snapshot.forEach((childSnapshot) => {
         console.log("Parsing...");
@@ -38,8 +37,6 @@ class WatchQueue extends React.Component {
         this.setState({walker_uuid: childKey});
       })
     });
-
-  return res;
 }
 
 updateDatabase(userId){
@@ -48,7 +45,7 @@ updateDatabase(userId){
       .database()
       .ref('users/' + userId)
       .update({havePaired: true,
-            watcher_uuid: uuid.v1()});
+            watcher_uuid: this.state.watcher_uuid});
     this.setState({matched: true});
 }
 
@@ -59,7 +56,7 @@ async componentDidMount() {
 
 async componentDidUpdate() {
   if(this.state.matched == true){
-    this.props.navigation.navigate('Watch Main')
+    this.props.navigation.navigate('Watch Main', {watcher_uuid: this.state.watcher_uuid})
   }
   console.log("Component update with this state")
   console.log(this.state.toString())
@@ -81,17 +78,6 @@ async componentDidUpdate() {
           Insert loading animation
           </Text>
         </View>
-        <Button
-          onPress={() => this.updateWalkers()}>
-          <Text>
-          Update
-          </Text>
-        </Button>
-        <Button>
-          <Text>
-          Matched!
-          </Text>
-        </Button>
         </Content>
       </Container>
     );
