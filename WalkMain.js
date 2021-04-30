@@ -20,7 +20,10 @@ class WalkMain extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      walker_uuid: props.route.params.walker_uuid,
+     // walker_uuid: props.route.params.walker_uuid,
+     //uuid test
+      walker_uuid: "eaad70c1-a913-11eb-bdca-2dda598a2b65",
+      watcher_uuid: props.route.params.watcher_uuid,
       messageArray: [],
       messageInput: '',
 
@@ -48,6 +51,7 @@ class WalkMain extends React.Component {
     database.update({messages: this.state.messageArray});
   }
 
+<<<<<<< HEAD
   getLocationAsync = async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== 'granted') {
@@ -73,8 +77,32 @@ class WalkMain extends React.Component {
     console.log(this.state.location);
   }
 
+=======
+  async getMessage(){
+    console.log("getMessage");
+    var database = firebase.database().ref("users/" + this.state.walker_uuid);
+    var snapshot = await database.on('value', (snapshot) => {
+      snapshot.forEach((childSnapshot) => {
+        console.log("parsing data")
+        //var childKey = childSnapshot.key;
+        var childData = childSnapshot.val().messages;
+      /*     if(childData){
+          this.setState({isMatched: true});
+        } */
+        /* childData.forEach((dataMessage) => {
+          console.log(dataMessage.messageText);
+        }
+      ) */
+      console.log(childData(1).messageText)
+    })
+    });
+    
+
+  }
+>>>>>>> began getMessage method
   render() {
     return (
+      
       <Container style={styles.container}>
         <Content padder style={styles.content} style={{ padding: 10 }}>
           <Form style={styles.form}>
@@ -82,9 +110,16 @@ class WalkMain extends React.Component {
             <Input onChangeText = {value => this.setState({messageInput: value})}></Input>
           </Form>
           <Button style={styles.button} onPress={() => this.sendMessage()}><Text>Send</Text></Button>
+<<<<<<< HEAD
           <Button style={styles.button} onPress={() => this.sendLocation()}><Text>Share Location</Text></Button>
+=======
+          <Button style={styles.button} onPress={() => this.getMessage()}><Text>Get</Text></Button>
+
+>>>>>>> began getMessage method
         </Content>
+        
       </Container>
+
     );
   }
 }
