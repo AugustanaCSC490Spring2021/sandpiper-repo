@@ -15,7 +15,13 @@ class WalkMain extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+<<<<<<< HEAD
       walker_uuid: props.route.params.walker_uuid,
+=======
+     // walker_uuid: props.route.params.walker_uuid,
+     //uuid test
+      walker_uuid: "eaad70c1-a913-11eb-bdca-2dda598a2b65",
+>>>>>>> began getMessage method
       watcher_uuid: props.route.params.watcher_uuid,
       messageArray: [],
       messageInput: '',
@@ -81,6 +87,7 @@ class WalkMain extends React.Component {
     })
   }
 
+<<<<<<< HEAD
   createCards() {
     if (this.state.messageArray.length != 0) {
       console.log(this.state.messageArray);
@@ -100,6 +107,28 @@ class WalkMain extends React.Component {
       ));
       return cards;
     }
+=======
+  async getMessage(){
+    console.log("getMessage");
+    var database = firebase.database().ref("users/" + this.state.walker_uuid);
+    var snapshot = await database.on('value', (snapshot) => {
+      snapshot.forEach((childSnapshot) => {
+        console.log("parsing data")
+        //var childKey = childSnapshot.key;
+        var childData = childSnapshot.val().messages;
+      /*     if(childData){
+          this.setState({isMatched: true});
+        } */
+        /* childData.forEach((dataMessage) => {
+          console.log(dataMessage.messageText);
+        }
+      ) */
+      console.log(childData(1).messageText)
+    })
+    });
+    
+
+>>>>>>> began getMessage method
   }
   render() {
     return (
@@ -112,7 +141,11 @@ class WalkMain extends React.Component {
             <Input onChangeText = {value => this.setState({messageInput: value})} ref={(ref) => { this.input = ref }}></Input>
           </Form>
           <Button style={styles.button} onPress={() => this.sendMessage()}><Text>Send</Text></Button>
+<<<<<<< HEAD
           <Button style={styles.button} onPress={() => this.sendLocation()}><Text>Share Location</Text></Button>
+=======
+          <Button style={styles.button} onPress={() => this.getMessage()}><Text>Get</Text></Button>
+>>>>>>> began getMessage method
 
         </Content>
         
