@@ -28,15 +28,15 @@ class WalkQueue extends React.Component {
   async updateWalkers() {
     var database = firebase.database().ref("users");
 
-    console.log("Updating walkers");
+    //console.log("Updating walkers");
     //TODO make the list a queue so that no one is left behind
     var snapshot = await database.limitToLast(1).orderByChild("walker_uuid").equalTo(this.state.walker_uuid).on('value', (snapshot) => {
-      console.log("Testing snapshot: " + snapshot);
+      //console.log("Testing snapshot: " + snapshot);
       snapshot.forEach((childSnapshot) => {
-        console.log("Parsing...");
+        //console.log("Parsing...");
         var childKey = childSnapshot.key;
         var childData = childSnapshot.val().havePaired;
-        console.log("One result: " + childKey + " " + childData);
+        //console.log("One result: " + childKey + " " + childData);
         //Next: set havePaired to true, and set the watcher uuid to this device's uuid
         if(childData){
           this.setState({isMatched: true});
@@ -47,7 +47,7 @@ class WalkQueue extends React.Component {
 
     async componentDidMount() {
       this.updateWalkers()
-      console.log(this.state.walker_uuid)
+      //console.log(this.state.walker_uuid)
     }
 
     async componentDidUpdate(){
