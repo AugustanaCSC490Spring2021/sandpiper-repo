@@ -20,7 +20,7 @@ class WalkMain extends React.Component {
     this.state = {
      // walker_uuid: props.route.params.walker_uuid,
      //uuid test
-      walker_uuid: "eaad70c1-a913-11eb-bdca-2dda598a2b65",
+      walker_uuid: props.route.params.walker_uuid,
       watcher_uuid: props.route.params.watcher_uuid,
       messageArray: [],
       messageInput: ''
@@ -42,15 +42,10 @@ class WalkMain extends React.Component {
   }
 
   async getMessage(){
-    var FireArr = [];
-    firebase.database().ref("users/" + this.state.walker_uuid).on('value', (snapshot)=>{
-      snapshot.forEach((childSnapshot)=>{
-        
-        var childData = childSnapshot.val();
-        FireArr.push(childData);
-      })
+    firebase.database().ref("users/" + this.state.walker_uuid+"/messages/").on('value', (snapshot)=>{
+        this.state.messageArray= snapshot.val();
     })
-    console.log(FireArr);
+    console.log(this.state.messageArray);
     
     
 
