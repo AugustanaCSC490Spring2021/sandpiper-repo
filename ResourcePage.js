@@ -21,8 +21,7 @@ class MainScreen extends React.Component {
               Shelter in place
             </Text>
           </Button>
-          <Button style = {styles.button}
-          onPress={() => this.props.navigation.navigate('ResourceDisplay', {pdfUrl: 'https://www.augustana.edu/files/2018-12/SwansonTLA_Emergency_Instruction_sm.pdf'})}>
+          <Button style = {styles.buttonWIP}>
             <Text style = {styles.text}>
               Evacuation
             </Text>
@@ -32,7 +31,15 @@ class MainScreen extends React.Component {
               Concerning Behavior
             </Text>
           </Button>
-          <Button style = {styles.buttonWIP}>
+          <Button style = {styles.button}
+          onPress={() => this.props.navigation.navigate('Dorm Resources')}>
+            <Text style = {styles.text}>
+              Dorm Emergency Procedures
+            </Text>
+          </Button>
+          <Button style = {styles.button}
+          onPress={() => this.props.navigation.navigate('ResourceDisplay', 
+          {pdfUrl: 'https://www.augustana.edu/files/2019-03/Emergency%20Hazardous%20Spill%20Response%20%2719-20_0.pdf'})}>
             <Text style = {styles.text}>
               Hazardous Material
             </Text>

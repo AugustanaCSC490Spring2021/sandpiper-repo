@@ -1,18 +1,20 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
-import { AppLoading } from 'expo';
 import { Container, Text } from 'native-base';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import MainScreen from './MainScreen.js';
 import ResourcePage from './ResourcePage.js';
 import ResourceDisplay from './ResourceDisplay.js';
+import DormResourcePage from './DormResourcePage.js';
 import Emergency from './EmergencyContactPage.js';
 import FriendWalk from './FriendWalk.js';
 import WalkForm from './WalkForm.js';
 import WalkQueue from './WalkQueue.js';
 import WatchQueue from './FriendWatch.js';
+import WalkMain from './WalkMain.js';
 import Map from './MapPage.js';
+import WatchMain from './watchMain.js';
 import { StyleSheet, View } from "react-native";
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
@@ -73,8 +75,16 @@ async componentDidMount() {
           component={WalkQueue}
         />
         <Stack.Screen
+          name="Walk Main"
+          component={WalkMain}
+        />
+        <Stack.Screen
           name="Watch Queue"
           component={WatchQueue}
+        />
+        <Stack.Screen
+          name="Watch Main"
+          component={WatchMain}
         />
         <Stack.Screen
             name="ResourceDisplay"
@@ -87,6 +97,10 @@ async componentDidMount() {
           <Stack.Screen
             name="About"
             component={About}
+          />
+          <Stack.Screen
+            name="Dorm Resources"
+            component={DormResourcePage}
           />
       </Stack.Navigator>
     </NavigationContainer>

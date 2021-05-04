@@ -5,6 +5,9 @@ import { Ionicons } from '@expo/vector-icons';
 import * as React from 'react';
 import styles from './style.js';
 import 'react-native-gesture-handler';
+import uuid from "react-native-uuid";
+import { useRoute } from '@react-navigation/native';
+
 
 // Firebase App (the core Firebase SDK) is always required and must be listed first
 import firebase from "firebase/app";
@@ -37,40 +40,52 @@ class WalkForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      studentID: '',
-      destination: '',
-      phoneNum: '',
-      friendsNum: '',
-      disabledSubmit: true
+      walker_name: '',
+      walker_studentID: '',
+      walker_destination: '',
+      walker_phoneNum: '',
+      walker_friendsNum: '',
+      havePaired: false,
+      walker_gps_coordinates: '',
+      friendwalk_chat: [],
+      walker_uuid: uuid.v1(),
+      watcher_uuid: '',
+      isPinged: false,
+      disabledSubmit: true,
+
     };
 
   }
 
   checkToDisable(){
-    if(this.state.name !== '' && this.state.disabledSubmit === true){
+    //TODO:
+    if(this.state.walker_name !== '' && this.state.disabledSubmit === true){
       this.setState({disabledSubmit: false});
     }
-    if(this.state.name === '' && this.state.disabledSubmit === false){
+    if(this.state.walker_name === '' && this.state.disabledSubmit === false){
       this.setState({disabledSubmit: true});
     }
   }
 
   Submit(){
-    this.updateDatabase("dan");
-    this.props.navigation.navigate('Walk Queue');
+    this.updateDatabase();
+    this.props.navigation.navigate('Walk Queue', {walker_uuid: this.state.walker_uuid});
   }
 
-  updateDatabase(userId){
+  updateDatabase(){
     console.log("Updating database...")
       firebase
         .database()
-        .ref('users/' + userId)
+        .ref('users/' + this.state.walker_uuid)
         .set(this.state);
   }
 
   componentDidUpdate(){
     this.checkToDisable()
+  }
+
+  async compoentDidUnmount() {
+    firebase.close()
   }
 
   render() {
@@ -82,35 +97,35 @@ class WalkForm extends React.Component {
         <Item floatingLabel styles={styles.item}>
           <Label>Name: </Label>
           <Input
-          onChangeText= {value=>this.setState({name: value})}
+          onChangeText= {value=>this.setState({walker_name: value})}
           >
           </Input>
         </Item>
         <Item floatingLabel styles={styles.item}>
           <Label>Student ID: </Label>
           <Input
-          onChangeText= {value=>this.setState({studentID: value})}
+          onChangeText= {value=>this.setState({walker_studentID: value})}
           >
           </Input>
         </Item>
         <Item floatingLabel styles={styles.item}>
           <Label>Destination: </Label>
           <Input
-          onChangeText= {value=>this.setState({destination: value})}
+          onChangeText= {value=>this.setState({walker_destination: value})}
           >
           </Input>
         </Item>
         <Item floatingLabel styles={styles.item}>
           <Label>Phone Number: </Label>
           <Input
-          onChangeText= {value=>this.setState({phoneNum: value})}
+          onChangeText= {value=>this.setState({walker_phoneNum: value})}
           >
           </Input>
         </Item>
         <Item floatingLabel styles={styles.item}>
           <Label>Friend's Phone Number: </Label>
           <Input
-          onChangeText= {value=>this.setState({friendsNum: value})}
+          onChangeText= {value=>this.setState({walker_friendsNum: value})}
           >
           </Input>
         </Item>
