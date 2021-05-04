@@ -20,8 +20,6 @@ class WalkMain extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-     // walker_uuid: props.route.params.walker_uuid,
-     //uuid test
       walker_uuid: props.route.params.walker_uuid,
       watcher_uuid: props.route.params.watcher_uuid,
       messageArray: [],
@@ -49,9 +47,9 @@ class WalkMain extends React.Component {
     console.log("MESSAGE: " + Message.messageText + " " + Message.date + " " + Message.sender);
     this.state.messageArray.push(Message);
     database.update({messages: this.state.messageArray});
+    this.input._root.clear();
   }
 
-<<<<<<< HEAD
   getLocationAsync = async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== 'granted') {
@@ -77,33 +75,46 @@ class WalkMain extends React.Component {
     console.log(this.state.location);
   }
 
-=======
   async getMessage(){
     firebase.database().ref("users/" + this.state.walker_uuid+"/messages/").on('value', (snapshot)=>{
-        this.state.messageArray= snapshot.val();
+      this.setState({messageArray: snapshot.val()});  
     })
-    console.log(this.state.messageArray);
-    
-    
-
   }
->>>>>>> began getMessage method
+
+  createCards() {
+    if (this.state.messageArray.length != 0) {
+      console.log(this.state.messageArray);
+      let cards = this.state.messageArray.map(message => (
+        //Using a ternary operator for an if statement inside of map
+        //https://stackoverflow.com/questions/44969877/if-condition-inside-of-map-react
+        this.state.walker_uuid == message.sender ?
+        <Card style={{backgroundColor: 'yellow'}}>
+                <Text style={{textAlign: 'right'}}>{message.messageText}</Text>
+                <Text style={{textAlign: 'right'}}>{message.date}</Text>
+        </Card>
+        :
+        <Card style={{backgroundColor: 'red'}}>
+                <Text style={styles.text}>{message.messageText}</Text>
+                <Text style={styles.text}>{message.date}</Text>
+        </Card>
+      ));
+      return cards;
+    }
+  }
   render() {
     return (
       
       <Container style={styles.container}>
         <Content padder style={styles.content} style={{ padding: 10 }}>
+          {this.createCards()}
           <Form style={styles.form}>
             <Text style={styles.text}>Enter your message.</Text>
-            <Input onChangeText = {value => this.setState({messageInput: value})}></Input>
+            <Input onChangeText = {value => this.setState({messageInput: value})} ref={(ref) => { this.input = ref }}></Input>
           </Form>
           <Button style={styles.button} onPress={() => this.sendMessage()}><Text>Send</Text></Button>
-<<<<<<< HEAD
           <Button style={styles.button} onPress={() => this.sendLocation()}><Text>Share Location</Text></Button>
-=======
           <Button style={styles.button} onPress={() => this.getMessage()}><Text>Get</Text></Button>
 
->>>>>>> began getMessage method
         </Content>
         
       </Container>
