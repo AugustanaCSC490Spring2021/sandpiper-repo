@@ -75,9 +75,13 @@ class WalkMain extends React.Component {
 
   async getMessage(){
     firebase.database().ref("users/" + this.state.walker_uuid+"/messages/").on('value', (snapshot)=>{
+<<<<<<< HEAD
       if (snapshot.val() != null) {
         this.setState({messageArray: snapshot.val()});  
       }
+=======
+      this.setState({messageArray: snapshot.val()});  
+>>>>>>> Walker displays messages from the Firebase.
     })
   }
 
@@ -89,8 +93,13 @@ class WalkMain extends React.Component {
         //https://stackoverflow.com/questions/44969877/if-condition-inside-of-map-react
         this.state.walker_uuid == message.sender ?
         <Card style={{backgroundColor: 'yellow'}}>
+<<<<<<< HEAD
                 <Text style={{textAlign: 'right'}}>{message.messageText}</Text>
                 <Text style={{textAlign: 'right'}}>{message.date}</Text>
+=======
+                <Text style={styles.text}>{message.messageText}</Text>
+                <Text style={styles.text}>{message.date}</Text>
+>>>>>>> Walker displays messages from the Firebase.
         </Card>
         :
         <Card style={{backgroundColor: 'red'}}>
@@ -101,6 +110,7 @@ class WalkMain extends React.Component {
       return cards;
     }
   }
+
   render() {
     return (
       
