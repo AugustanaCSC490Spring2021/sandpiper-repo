@@ -11,7 +11,9 @@ import "firebase/auth";
 import "firebase/database";
 import * as firebase from 'firebase';
 import moment from 'moment';
+import * as Location from 'expo-location';
 import { valueToNode } from '@babel/types';
+
 
 class WalkMain extends React.Component {
 
@@ -20,7 +22,11 @@ class WalkMain extends React.Component {
     this.state = {
       walker_uuid: props.route.params.walker_uuid,
       messageArray: [],
-      messageInput: ''
+      messageInput: '',
+
+      location: {coords: { latitude: null, longitude: null}},
+      geocode: null,
+      errorMessage: "",
     }
   }
 
@@ -39,7 +45,36 @@ class WalkMain extends React.Component {
   }
 
 
-  
+  getLocationAsync = async () => {
+    let { status } = await Location.requestForegroundPermissionsAsync();
+    if (status !== 'granted') {
+      this.setState({
+        errorMessage: 'Permission to access location was denied',
+      });
+    }
+
+    let location = await Location.getCurrentPositionAsync({accuracy:Location.Accuracy.Highest});
+    const { latitude , longitude } = location.coords
+    this.getGeocodeAsync({latitude, longitude})
+    this.setState({ location: { latitude, longitude } });
+    
+  };
+
+
+
+    getGeocodeAsync = async (location) => {
+      let geocode = await Location.reverseGeocodeAsync(location)
+      this.setState({ geocode })
+    };
+
+    sendLocation(){
+      var database = firebase.database().ref("users/" + this.state.walker_uuid);
+      this.getLocationAsync();
+      database.update({ location: this.state.location });
+      
+      
+    }
+
 
   render() {
     return (
@@ -50,6 +85,7 @@ class WalkMain extends React.Component {
             <Input onChangeText = {value => this.setState({messageInput: value})}></Input>
           </Form>
           <Button style={styles.button} onPress={() => this.sendMessage()}><Text>Send</Text></Button>
+          <Button style={styles.button} onPress={() => this.sendLocation()}><Text>Share Location</Text></Button>
         </Content>
       </Container>
     );
