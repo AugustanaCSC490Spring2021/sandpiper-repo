@@ -42,23 +42,16 @@ class WalkMain extends React.Component {
   }
 
   async getMessage(){
-    console.log("getMessage");
-    var database = firebase.database().ref("users/" + this.state.walker_uuid);
-    var snapshot = await database.on('value', (snapshot) => {
-      snapshot.forEach((childSnapshot) => {
-        console.log("parsing data")
-        //var childKey = childSnapshot.key;
-        var childData = childSnapshot.val().messages;
-      /*     if(childData){
-          this.setState({isMatched: true});
-        } */
-        /* childData.forEach((dataMessage) => {
-          console.log(dataMessage.messageText);
-        }
-      ) */
-      console.log(childData(1).messageText)
+    var FireArr = [];
+    firebase.database().ref("users/" + this.state.walker_uuid).on('value', (snapshot)=>{
+      snapshot.forEach((childSnapshot)=>{
+        
+        var childData = childSnapshot.val();
+        FireArr.push(childData);
+      })
     })
-    });
+    console.log(FireArr);
+    
     
 
   }
