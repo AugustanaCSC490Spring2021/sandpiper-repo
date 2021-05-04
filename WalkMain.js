@@ -38,6 +38,9 @@ class WalkMain extends React.Component {
     database.update({messages: this.state.messageArray});
   }
 
+
+  
+
   render() {
     return (
       <Container style={styles.container}>

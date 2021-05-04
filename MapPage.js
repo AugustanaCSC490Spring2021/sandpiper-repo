@@ -32,7 +32,7 @@ class Map extends React.Component {
 
 
   getLocationAsync = async () => {
-    let { status } = await Permissions.askAsync(Permissions.LOCATION);
+    let { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== 'granted') {
       this.setState({
         errorMessage: 'Permission to access location was denied',
