@@ -1,14 +1,12 @@
 import { Container, Content, Text, Header, Button, StyleProvider, Card, View } from 'native-base';
-import { StyleSheet, Dimensions } from "react-native";
-import * as Font from 'expo-font';
-import { Ionicons } from '@expo/vector-icons';
 import * as React from 'react';
 import styles from './style.js';
 import 'react-native-gesture-handler';
 import MapView, {Marker} from 'react-native-maps';
 import * as Location from 'expo-location';
-import * as Permissions from 'expo-permissions';
-import Constants from 'expo-constants';
+//import * as TaskManager from "expo-task-manager";
+
+const LOCATION_TASK_NAME = "background-location-task";
 
 //code snippet obtained from: https://docs.nativebase.io/docs/GetStarted.html
 class Map extends React.Component {

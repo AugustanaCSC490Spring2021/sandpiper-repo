@@ -30,6 +30,10 @@ class WalkMain extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.getLocationAsync();
+  }
+
   sendMessage() {
     var database = firebase.database().ref("users/" + this.state.walker_uuid);
     let now = new Date();
@@ -67,13 +71,15 @@ class WalkMain extends React.Component {
       this.setState({ geocode })
     };
 
-    sendLocation(){
+  sendLocation() {
+      //this.getLocationAsync();
       var database = firebase.database().ref("users/" + this.state.walker_uuid);
-      this.getLocationAsync();
       database.update({ location: this.state.location });
+    console.log(this.state.location);
+  }
       
-      
-    }
+  
+  
 
 
   render() {
