@@ -43,18 +43,37 @@ class WalkMain extends React.Component {
 
   async getMessage(){
     firebase.database().ref("users/" + this.state.walker_uuid+"/messages/").on('value', (snapshot)=>{
-        this.state.messageArray= snapshot.val();
+      this.setState({messageArray: snapshot.val()});  
     })
-    console.log(this.state.messageArray);
-    
-    
-
   }
+
+  createCards() {
+    if (this.state.messageArray.length != 0) {
+      console.log(this.state.messageArray);
+      let cards = this.state.messageArray.map(message => (
+        //Using a ternary operator for an if statement inside of map
+        //https://stackoverflow.com/questions/44969877/if-condition-inside-of-map-react
+        this.state.walker_uuid == message.sender ?
+        <Card style={{backgroundColor: 'yellow'}}>
+                <Text style={styles.text}>{message.messageText}</Text>
+                <Text style={styles.text}>{message.date}</Text>
+        </Card>
+        :
+        <Card style={{backgroundColor: 'red'}}>
+                <Text style={styles.text}>{message.messageText}</Text>
+                <Text style={styles.text}>{message.date}</Text>
+        </Card>
+      ));
+      return cards;
+    }
+  }
+
   render() {
     return (
       
       <Container style={styles.container}>
         <Content padder style={styles.content} style={{ padding: 10 }}>
+          {this.createCards()}
           <Form style={styles.form}>
             <Text style={styles.text}>Enter your message.</Text>
             <Input onChangeText = {value => this.setState({messageInput: value})}></Input>
