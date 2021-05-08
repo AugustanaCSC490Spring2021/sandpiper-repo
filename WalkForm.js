@@ -12,7 +12,6 @@ import * as FriendWalkDB from './FriendWalkDB.js';
 class WalkForm extends React.Component {
   constructor(props) {
     super(props);
-    var disabledSubmit = true
     this.state = {
       walker_name: '',
       walker_studentID: '',
@@ -41,17 +40,8 @@ class WalkForm extends React.Component {
   }
 
   Submit(){
-    this.updateDatabase();
-    this.props.navigation.navigate('Walk Queue', {walker_uuid: this.state.walker_uuid});
-  }
-
-  updateDatabase(){
-    // console.log("Updating database...")
-    //   firebase
-    //     .database()
-    //     .ref('users/' + this.state.walker_uuid)
-    //     .set(this.state);
     FriendWalkDB.setDatabase(this.state.walker_uuid, this.state)
+    this.props.navigation.navigate('Walk Queue', {walker_uuid: this.state.walker_uuid});
   }
 
   componentDidUpdate(){

@@ -5,9 +5,6 @@ import { Ionicons } from '@expo/vector-icons';
 import * as React from 'react';
 import styles from './style.js';
 import 'react-native-gesture-handler';
-import "firebase/auth";
-import "firebase/database";
-import * as firebase from 'firebase';
 import uuid from "react-native-uuid";
 import * as FriendWalkDB from './FriendWalkDB.js';
 

@@ -48,7 +48,6 @@ class WalkMain extends React.Component {
     database.update({messages: this.state.messageArray});
   }
 
-
   getLocationAsync = async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== 'granted') {
@@ -56,15 +55,11 @@ class WalkMain extends React.Component {
         errorMessage: 'Permission to access location was denied',
       });
     }
-
     let location = await Location.getCurrentPositionAsync({accuracy:Location.Accuracy.Highest});
     const { latitude , longitude } = location.coords
     this.getGeocodeAsync({latitude, longitude})
     this.setState({ location: { latitude, longitude } });
-    
   };
-
-
 
     getGeocodeAsync = async (location) => {
       let geocode = await Location.reverseGeocodeAsync(location)
@@ -77,10 +72,6 @@ class WalkMain extends React.Component {
       database.update({ location: this.state.location });
     console.log(this.state.location);
   }
-      
-  
-  
-
 
   render() {
     return (
