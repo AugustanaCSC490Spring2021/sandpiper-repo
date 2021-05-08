@@ -24,15 +24,10 @@ class WalkMain extends React.Component {
       messageArray: [],
       messageInput: '',
 
-      location: {coords: { latitude: null, longitude: null}},
-      geocode: null,
-      errorMessage: "",
     }
   }
 
-  componentDidMount() {
-    this.getLocationAsync();
-  }
+ 
 
   sendMessage() {
     var database = firebase.database().ref("users/" + this.state.walker_uuid);
@@ -49,38 +44,8 @@ class WalkMain extends React.Component {
   }
 
 
-  getLocationAsync = async () => {
-    let { status } = await Location.requestForegroundPermissionsAsync();
-    if (status !== 'granted') {
-      this.setState({
-        errorMessage: 'Permission to access location was denied',
-      });
-    }
-
-    let location = await Location.getCurrentPositionAsync({accuracy:Location.Accuracy.Highest});
-    const { latitude , longitude } = location.coords
-    this.getGeocodeAsync({latitude, longitude})
-    this.setState({ location: { latitude, longitude } });
-    
-  };
-
-
-
-    getGeocodeAsync = async (location) => {
-      let geocode = await Location.reverseGeocodeAsync(location)
-      this.setState({ geocode })
-    };
-
-  sendLocation() {
-      //this.getLocationAsync();
-      var database = firebase.database().ref("users/" + this.state.walker_uuid);
-      database.update({ location: this.state.location });
-    console.log(this.state.location);
-  }
       
   
-  
-
 
   render() {
     return (

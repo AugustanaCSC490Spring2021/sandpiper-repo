@@ -14,6 +14,7 @@ import WalkQueue from './WalkQueue.js';
 import WatchQueue from './FriendWatch.js';
 import WalkMain from './WalkMain.js';
 import Map from './MapPage.js';
+import MapWalk from './MapWalk.js';
 import WatchMain from './watchMain.js';
 import { StyleSheet, View } from "react-native";
 import * as Font from 'expo-font';
@@ -101,6 +102,10 @@ async componentDidMount() {
           <Stack.Screen
             name="Dorm Resources"
             component={DormResourcePage}
+        />
+        <Stack.Screen
+            name="MapWalk"
+            component={MapWalk}
           />
       </Stack.Navigator>
     </NavigationContainer>
