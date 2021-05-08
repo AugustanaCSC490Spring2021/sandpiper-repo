@@ -9,6 +9,7 @@ import "firebase/auth";
 import "firebase/database";
 import * as firebase from 'firebase';
 import uuid from "react-native-uuid";
+import * as FriendWalkDB from './FriendWalkDB.js';
 
 class WatchQueue extends React.Component {
   constructor(props) {
@@ -20,46 +21,14 @@ class WatchQueue extends React.Component {
     };
   }
 
-  async updateWalkers() {
-    var database = firebase.database().ref("users");
-
-    console.log("Updating walkers");
-    //TODO make the list a queue so that no one is left behind
-    var snapshot = await database.limitToLast(1).orderByChild("havePaired").equalTo(false).on('value', (snapshot) => {
-      console.log("Testing snapshot: " + snapshot);
-      snapshot.forEach((childSnapshot) => {
-        console.log("Parsing...");
-        var childKey = childSnapshot.key;
-        var childData = childSnapshot.val().havePaired;
-        console.log("One result: " + childKey + " " + childData);
-        //Next: set havePaired to true, and set the watcher uuid to this device's uuid
-        this.updateDatabase(childSnapshot.key);
-        this.setState({walker_uuid: childKey});
-      })
-    });
-}
-
-updateDatabase(userId){
-  console.log("Updating database...")
-    firebase
-      .database()
-      .ref('users/' + userId)
-      .update({havePaired: true,
-            watcher_uuid: this.state.watcher_uuid});
-    this.setState({matched: true});
-}
-
 async componentDidMount() {
-  this.updateWalkers();
-  console.log(this.state)
+  FriendWalkDB.pairWatcher(this)
 }
 
 async componentDidUpdate() {
   if(this.state.matched == true){
     this.props.navigation.navigate('Watch Main', {watcher_uuid: this.state.watcher_uuid})
   }
-  console.log("Component update with this state")
-  console.log(this.state.toString())
 }
 
   render() {
