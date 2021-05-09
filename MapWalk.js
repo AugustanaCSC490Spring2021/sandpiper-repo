@@ -29,10 +29,6 @@ class MapWalk extends React.Component {
     const { status } = await Location.requestForegroundPermissionsAsync();
     if (status === "granted") {
       this.getLocationAsync();
-
-      //var database = firebase.database().ref("users/" + this.state.walker_uuid);
-      //database.update({ location_region: coord });
-      
     } else {
       this.setState({ error: "Locations services needed" });
     }
@@ -40,11 +36,8 @@ class MapWalk extends React.Component {
 
   
   getLocationAsync = async () => {
-    var database = firebase.database().ref("users/" + this.state.walker_uuid);
-    //var updateData = database.getInstance().getReference("location_region")
-//.//child(this.state.walker_uuid);
-    // watchPositionAsync Return Lat & Long on Position Change
-    
+    var database = firebase.database().ref("users/" + this.state.walker_uuid );
+   
     this.location = await Location.watchPositionAsync(
       {
         enableHighAccuracy: true,
@@ -53,7 +46,7 @@ class MapWalk extends React.Component {
       },
       newLocation => {
         let { coords } = newLocation;
-        //console.log(coords);
+        console.log(coords);
         let region = {
           latitude: coords.latitude,
           longitude: coords.longitude,
@@ -61,19 +54,26 @@ class MapWalk extends React.Component {
           longitudeDelta: 0.045
         };
         this.setState({ region: region });
-        console.log(this.state.region);
-        //this.state.region.push(region);
-        database.update(region)
-      },
-
-      //this.setState({ region: newLocation });
+        database.set({location_region: this.state.region}).then(() => {
+          console.log("Document successfully updated!");
+        }).catch((error) => {console.error("Error updating document: ", error);});
+      },   
       error => console.log(error),
+      
     )
+
     
-    //console.log("hhelo" + this.location.region);
-    //database.update({ location_region: this.state.region });
     return this.location;
   };
+
+  updateDatabase(userId, region){
+  console.log("Updating database oord...")
+    firebase
+      .database()
+      .ref('users/' + userId  )
+      .update({location_region: region});
+    //this.setState({region: region});
+}
 
   
   
