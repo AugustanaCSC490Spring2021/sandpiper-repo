@@ -56,7 +56,7 @@ async componentDidMount() {
 
 async componentDidUpdate() {
   if(this.state.matched == true){
-    this.props.navigation.navigate('Watch Main', {watcher_uuid: this.state.watcher_uuid})
+    this.props.navigation.navigate('Watch Main', {watcher_uuid: this.state.watcher_uuid}, {walker_uuid: this.state.walker_uuid})
   }
   console.log("Component update with this state")
   console.log(this.state.toString())

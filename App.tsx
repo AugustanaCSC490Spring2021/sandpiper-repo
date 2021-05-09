@@ -15,7 +15,8 @@ import WatchQueue from './FriendWatch.js';
 import WalkMain from './WalkMain.js';
 import Map from './MapPage.js';
 import MapWalk from './MapWalk.js';
-import WatchMain from './watchMain.js';
+import MapWatch from './MapWatch.js';
+import WatchMain from './WatchMain.js';
 import { StyleSheet, View } from "react-native";
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
@@ -106,7 +107,12 @@ async componentDidMount() {
         <Stack.Screen
             name="MapWalk"
             component={MapWalk}
-          />
+        />
+         <Stack.Screen
+            name="MapWatch"
+            component={MapWatch}
+        />
+        
       </Stack.Navigator>
     </NavigationContainer>
   );

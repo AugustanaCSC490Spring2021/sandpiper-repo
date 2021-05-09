@@ -63,7 +63,7 @@ class MapWalk extends React.Component {
         this.setState({ region: region });
         console.log(this.state.region);
         //this.state.region.push(region);
-        database.set(region)
+        database.update(region)
       },
 
       //this.setState({ region: newLocation });

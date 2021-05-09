@@ -31,7 +31,6 @@ var firebaseConfig = {
   messagingSenderId: "409187750267",
   appId: "1:409187750267:web:793290bf3bb99f93fcedde",
   measurementId: "G-CL5F67YSNN",
-  location: {coords: { latitude: 0, longitude: 0}},
 };
 
 !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
