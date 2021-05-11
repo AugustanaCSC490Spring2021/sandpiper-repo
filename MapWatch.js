@@ -15,18 +15,37 @@ class MapWatch extends React.Component {
         this.state = {
         walker_uuid: props.route.params.walker_uuid,
         watcher_uuid: props.route.params.watcher_uuid,
+        region: null,
         }
     }
+
+    
     
     render() {
-        return (
-        <Container style={styles.container}>
-            <Content padder style={styles.content} style={{ padding: 10 }}>
+    return (
+      <View style={stylemap.container}>
+        <MapView
+          initialRegion={this.state.region}
+          showsCompass={true}
+          showsUserLocation={true}
+          rotateEnabled={true}
+          ref={map => {
+            this.map = map;
+          }}
+          style={styles.map}
+        />
+      </View>
+    );
+  }
 
-            </Content>
-        </Container>
-        );
-    }
-    }
+  
+}
+
+const stylemap = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff"
+  }
+});
 
 export default MapWatch;

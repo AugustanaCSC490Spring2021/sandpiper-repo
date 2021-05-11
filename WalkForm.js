@@ -46,7 +46,12 @@ class WalkForm extends React.Component {
       walker_phoneNum: '',
       walker_friendsNum: '',
       havePaired: false,
-      location_region: '',  
+      location_region:  {
+          latitude: 10,
+          longitude: 20,
+          latitudeDelta: 0.045,
+          longitudeDelta: 0.045
+        },
       friendwalk_chat: [],
       walker_uuid: uuid.v1(),
       watcher_uuid: '',
