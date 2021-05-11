@@ -19,7 +19,12 @@ class MapWalk extends React.Component {
     this.state = {
       walker_uuid: props.route.params.walker_uuid,
 
-      region: null,
+      region: {
+          latitude: 10,
+          longitude: 20,
+          latitudeDelta: 0.045,
+          longitudeDelta: 0.045
+        },
       error: '',
     }
   }
@@ -54,7 +59,7 @@ class MapWalk extends React.Component {
           longitudeDelta: 0.045
         };
         this.setState({ region: region });
-        database.set({location_region: this.state.region}).then(() => {
+        database.update({location_region: this.state.region}).then(() => {
           console.log("Document successfully updated!");
         }).catch((error) => {console.error("Error updating document: ", error);});
       },   
@@ -94,6 +99,8 @@ class MapWalk extends React.Component {
       </View>
     );
   }
+
+  
 }
 
 const stylemap = StyleSheet.create({
