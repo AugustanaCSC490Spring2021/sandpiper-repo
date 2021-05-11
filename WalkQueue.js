@@ -40,6 +40,7 @@ class WalkQueue extends React.Component {
         //Next: set havePaired to true, and set the watcher uuid to this device's uuid
         if(childData){
           this.setState({isMatched: true});
+          database.off();
         }
       })
     });
@@ -52,6 +53,7 @@ class WalkQueue extends React.Component {
 
     async componentDidUpdate(){
       if(this.state.isMatched){
+      
         this.props.navigation.navigate('Walk Main', {walker_uuid: this.state.walker_uuid});
       }
     }

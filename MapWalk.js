@@ -34,11 +34,17 @@ class MapWalk extends React.Component {
     }
   }
 
+
+  async componentWillUnmount() {
+    this.location_listener.remove()
+   
+  }
+
   
   getLocationAsync = async () => {
     var database = firebase.database().ref("users/" + this.state.walker_uuid );
    
-    this.location = await Location.watchPositionAsync(
+    this.location_listener = await Location.watchPositionAsync(
       {
         enableHighAccuracy: true,
         distanceInterval: 1,
@@ -54,16 +60,17 @@ class MapWalk extends React.Component {
           longitudeDelta: 0.045
         };
         this.setState({ region: region });
-        database.update({location_region: this.state.region}).then(() => {
-          console.log("Document successfully updated!");
-        }).catch((error) => {console.error("Error updating document: ", error);});
+        database.set({location_region: this.state.region})
+        //.then(() => {
+         // console.log("Document successfully updated!");
+       // }).catch((error) => {console.error("Error updating document: ", error);});
       },   
       error => console.log(error),
       
     )
 
     
-    return this.location;
+    //return this.location;
   };
 
   updateDatabase(userId, region){
