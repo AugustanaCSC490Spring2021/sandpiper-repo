@@ -3,7 +3,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/database";
 
-var verbose = true //DEBUGGING
+var verbose = false //DEBUGGING LOG
 const dbHeader = '[DATABASE DEBUG] ';
 const databaseReference = "mapBranch/";
 

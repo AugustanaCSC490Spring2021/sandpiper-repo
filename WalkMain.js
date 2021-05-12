@@ -44,11 +44,6 @@ class WalkMain extends React.Component {
   }
 
 
-
-
-
-
-
   sendLocation() {
       this.props.navigation.navigate('MapWalk', {walker_uuid: this.state.walker_uuid});
   }
