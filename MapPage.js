@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
 import MapView from "react-native-maps";
 import * as Location from "expo-location";
+import * as Permissions from "expo-permissions";
+import * as TaskManager from "expo-task-manager";
 
 
-class Map extends React.Component {
+class MapPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,7 +26,7 @@ class Map extends React.Component {
   }
 
   getLocationAsync = async () => {
-    
+
     // watchPositionAsync Return Lat & Long on Position Change
     this.location = await Location.watchPositionAsync(
       {
@@ -50,7 +52,7 @@ class Map extends React.Component {
     return this.location;
   };
 
-  
+
 
   render() {
     return (
@@ -69,7 +71,18 @@ class Map extends React.Component {
     );
   }
 }
-
+// 
+// TaskManager.defineTask(LOCATION_TASK_NAME, async ({ data, error }) => {
+//   if (error) {
+//     console.log(error);
+//     return;
+//   }
+//   if (data) {
+//     const { locations } = data;
+//     let lat = locations[0].coords.latitude;
+//     let long = locations[0].coords.longitude;
+//   }
+// });
 
 
 const styles = StyleSheet.create({
@@ -79,4 +92,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Map
+export default MapPage;

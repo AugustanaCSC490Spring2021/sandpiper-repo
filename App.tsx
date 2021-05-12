@@ -21,13 +21,13 @@ import { StyleSheet, View } from "react-native";
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import About from './About';
+import * as FriendWalkDB from './FriendWalkDB.js';
 const Stack = createStackNavigator();
 
 class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.componentDidMount();
     this.state = {
       isReady: false,
     };
@@ -41,10 +41,11 @@ async componentDidMount() {
      Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
      ...Ionicons.font,
   });
+  FriendWalkDB.initializeDatabase();
   this.setState({ isReady: true });
 }
 
-  render() {
+render() {
   //Checks to see if the font loaded, if it has not it displays a temp screen
   if (!this.state.isReady) {
     return <View></View>
@@ -112,7 +113,7 @@ async componentDidMount() {
             name="MapWatch"
             component={MapWatch}
         />
-        
+
       </Stack.Navigator>
     </NavigationContainer>
   );

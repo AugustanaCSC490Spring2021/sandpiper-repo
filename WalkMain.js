@@ -27,7 +27,7 @@ class WalkMain extends React.Component {
     }
   }
 
- 
+
 
   sendMessage() {
     var database = firebase.database().ref("users/" + this.state.walker_uuid);
@@ -47,15 +47,11 @@ class WalkMain extends React.Component {
 
 
 
-    
+
 
   sendLocation() {
       this.props.navigation.navigate('MapWalk', {walker_uuid: this.state.walker_uuid});
   }
-      
-  
-  
-
 
   render() {
     return (
