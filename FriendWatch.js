@@ -24,13 +24,18 @@ async componentDidMount() {
 }
 
 async componentDidUpdate() {
-  if(this.state.matched == true){
-    this.props.navigation.navigate('Watch Main', {watcher_uuid: this.state.watcher_uuid})
+  if(this.state.matched == true && this.state.walker_uuid != ''){
+    console.log('Final State: ' + this.state.toString())
+    this.props.navigation.navigate('Watch Main', {watcher_uuid: this.state.watcher_uuid, walker_uuid: this.state.walker_uuid})
   }
+<<<<<<< HEAD
 }
 
 async componentWillUnmount(){
   FriendWalkDB.closeListener(listener);
+=======
+  console.log("Component update with this state");
+>>>>>>> Add chat function to Watcher, and aligned sender's chat to right.
 }
 
   render() {

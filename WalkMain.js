@@ -1,18 +1,16 @@
-import { Container, Content, Text, Header, Button, StyleProvider, Card, Input, Form } from 'native-base';
-import { StyleSheet, Dimensions } from "react-native";
-import * as Font from 'expo-font';
-import { Ionicons } from '@expo/vector-icons';
+import { Container, Content, Text, Button, Card, Input, Form } from 'native-base';
 import * as React from 'react';
-import { Col, Row, Grid } from 'react-native-easy-grid';
 import styles from './style.js';
-import { Linking } from 'react-native';
 import 'react-native-gesture-handler';
 import "firebase/auth";
 import "firebase/database";
 import * as firebase from 'firebase';
 import moment from 'moment';
+<<<<<<< HEAD
 import * as Location from 'expo-location';
 import { valueToNode } from '@babel/types';
+=======
+>>>>>>> Add chat function to Watcher, and aligned sender's chat to right.
 
 
 class WalkMain extends React.Component {
@@ -47,6 +45,7 @@ class WalkMain extends React.Component {
     console.log("MESSAGE: " + Message.messageText + " " + Message.date + " " + Message.sender);
     this.state.messageArray.push(Message);
     database.update({messages: this.state.messageArray});
+<<<<<<< HEAD
     this.input._root.clear();
   }
 
@@ -73,6 +72,9 @@ class WalkMain extends React.Component {
       var database = firebase.database().ref("users/" + this.state.walker_uuid);
       database.update({ location: this.state.location });
     console.log(this.state.location);
+=======
+    this.setState({messageInput: ''});
+>>>>>>> Add chat function to Watcher, and aligned sender's chat to right.
   }
 
   async getMessage(){
