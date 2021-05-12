@@ -18,7 +18,7 @@ var firebaseConfig = {
   measurementId: "G-CL5F67YSNN",
 };
 
-/**
+/** 
  * Using the firebaseConfig, initializeDatabase authenticates if the firebase hasn't already been initialized
  *
  */
@@ -144,4 +144,19 @@ export function pairWatcher(reactState) {
       })
     })
     return database; //returns the reference to the listener for closing.
-  };
+};
+  
+
+export function grabLocation(reactState, walker_uuid) {
+  var database = firebase.database().ref(databaseReference);
+  var snapshot = database.on('value', (snapshot) => {
+      if(verbose) console.log(dbHeader + "Testing snapshot: " + snapshot);
+      var childKey = snapshot.key;
+      var childData = snapshot.val().location_region;
+      if(verbose) console.log(dbHeader + "Uuid: " + childKey + " location_region " + childData);
+      reactState.setState({region: childData});
+      closeListener(database)
+    
+    })
+    return database; 
+}

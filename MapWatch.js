@@ -7,6 +7,8 @@ import { Col, Row, Grid } from 'react-native-easy-grid';
 import styles from './style.js';
 import { Linking } from 'react-native';
 import 'react-native-gesture-handler';
+import "firebase/auth";
+import "firebase/database";
 
 class MapWatch extends React.Component {
 
@@ -17,7 +19,28 @@ class MapWatch extends React.Component {
         watcher_uuid: props.route.params.watcher_uuid,
         region: null,
         }
-    }
+  }
+  
+  async componentDidMount() {
+    this.grabLocation()
+  }
+
+  async componentWillUnmount() {
+    var database = firebase.database().ref("users/" + this.state.walker_uuid);
+    database.off()
+  }
+
+
+  async grabLocation() {
+    var database = firebase.database().ref("users/" + this.state.walker_uuid );
+    var snapshot = database.on('value', (snapshot) => {
+      console.log(dbHeader + "Testing snapshot: " + snapshot);
+      var childKey = snapshot.key;
+      var childData = snapshot.val().location_region;
+      console.log(dbHeader + "Uuid: " + childKey + " location_region " + childData);
+      this.setState({region: childData});
+    })
+  }
 
     
     
