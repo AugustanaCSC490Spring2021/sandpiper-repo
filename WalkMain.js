@@ -1,17 +1,11 @@
-import { Container, Content, Text, Header, Button, StyleProvider, Card, Input, Form } from 'native-base';
-import { StyleSheet, Dimensions } from "react-native";
-import * as Font from 'expo-font';
-import { Ionicons } from '@expo/vector-icons';
+import { Container, Content, Text, Button, Card, Input, Form } from 'native-base';
 import * as React from 'react';
-import { Col, Row, Grid } from 'react-native-easy-grid';
 import styles from './style.js';
-import { Linking } from 'react-native';
 import 'react-native-gesture-handler';
 import "firebase/auth";
 import "firebase/database";
 import * as firebase from 'firebase';
 import moment from 'moment';
-import { valueToNode } from '@babel/types';
 
 class WalkMain extends React.Component {
 
@@ -39,6 +33,7 @@ class WalkMain extends React.Component {
     console.log("MESSAGE: " + Message.messageText + " " + Message.date + " " + Message.sender);
     this.state.messageArray.push(Message);
     database.update({messages: this.state.messageArray});
+    this.setState({messageInput: ''});
   }
 
   async getMessage(){
@@ -55,8 +50,8 @@ class WalkMain extends React.Component {
         //https://stackoverflow.com/questions/44969877/if-condition-inside-of-map-react
         this.state.walker_uuid == message.sender ?
         <Card style={{backgroundColor: 'yellow'}}>
-                <Text style={styles.text}>{message.messageText}</Text>
-                <Text style={styles.text}>{message.date}</Text>
+                <Text style={{textAlign: 'right'}}>{message.messageText}</Text>
+                <Text style={{textAlign: 'right'}}>{message.date}</Text>
         </Card>
         :
         <Card style={{backgroundColor: 'red'}}>
