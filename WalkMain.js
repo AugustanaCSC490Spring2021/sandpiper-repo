@@ -6,11 +6,8 @@ import "firebase/auth";
 import "firebase/database";
 import * as firebase from 'firebase';
 import moment from 'moment';
-<<<<<<< HEAD
 import * as Location from 'expo-location';
 import { valueToNode } from '@babel/types';
-=======
->>>>>>> Add chat function to Watcher, and aligned sender's chat to right.
 
 
 class WalkMain extends React.Component {
@@ -45,7 +42,8 @@ class WalkMain extends React.Component {
     console.log("MESSAGE: " + Message.messageText + " " + Message.date + " " + Message.sender);
     this.state.messageArray.push(Message);
     database.update({messages: this.state.messageArray});
-<<<<<<< HEAD
+    //Issue for clearing the input of an Input part from native base
+    //https://github.com/GeekyAnts/NativeBase/issues/320
     this.input._root.clear();
   }
 
@@ -72,9 +70,6 @@ class WalkMain extends React.Component {
       var database = firebase.database().ref("users/" + this.state.walker_uuid);
       database.update({ location: this.state.location });
     console.log(this.state.location);
-=======
-    this.setState({messageInput: ''});
->>>>>>> Add chat function to Watcher, and aligned sender's chat to right.
   }
 
   async getMessage(){
