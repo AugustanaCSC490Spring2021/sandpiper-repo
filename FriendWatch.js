@@ -11,6 +11,7 @@ import * as FriendWalkDB from './FriendWalkDB.js';
 class WatchQueue extends React.Component {
   constructor(props) {
     super(props);
+    var listener = null
     this.state = {
       matched: false,
       walker_uuid: '',
@@ -19,13 +20,17 @@ class WatchQueue extends React.Component {
   }
 
 async componentDidMount() {
-  FriendWalkDB.pairWatcher(this)
+  listener = FriendWalkDB.pairWatcher(this)
 }
 
 async componentDidUpdate() {
   if(this.state.matched == true){
     this.props.navigation.navigate('Watch Main', {watcher_uuid: this.state.watcher_uuid})
   }
+}
+
+async componentWillUnmount(){
+  FriendWalkDB.closeListener(listener);
 }
 
   render() {

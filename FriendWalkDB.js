@@ -35,11 +35,11 @@ export function initializeDatabase(){
  * @params {key value pair} keyValue, The key value pairs to set, can be multiple
  */
 export function setDatabase(uuid, keyValue){
-  if(verbose) console.log(dbHeader + "Setting " + uuid + " with value: " + value)
+  if(verbose) console.log(dbHeader + "Setting " + uuid + " with value: " + keyValue)
   firebase
     .database()
     .ref('users/' + uuid)
-    .set(value);
+    .set(keyValue);
   if(verbose) console.log(dbHeader + "Set!")
 }
 
@@ -50,7 +50,7 @@ export function setDatabase(uuid, keyValue){
  * @params {string} uuid, The uuid which will be used in the path.
  * @params {key value pair} keyValue, The key value pairs to set, can be multiple
  */
-export function updateDatabase(uuid, keyValue){
+export function updateDatabase(uuid, keyValue) {
 if(verbose) console.log(dbHeader + "Updating database...")
 firebase
   .database()
@@ -63,12 +63,11 @@ firebase
  * https://firebase.google.com/docs/database/admin/retrieve-data#section-event-types
  *
  * @params {firebase.database.Reference} listener, the Reference to the listener
- * @params {string} value, unsure why this is needed but each listener has a value attached to it,
  * so each off needs that value, should be 'value', ''
  */
-export function closeListener(listener, value) {
-  if(verbose) console.log(dbHeader + "Closing the listener " + listener + " with value: " + value)
-  ref.off(value, listener)
+export function closeListener(database) {
+  if(verbose) console.log(dbHeader + "Closing the listener " + database)
+  database.off()
   if(verbose) console.log(dbHeader + "Closed the database")
 }
 
@@ -77,6 +76,8 @@ export function closeListener(listener, value) {
  *
  * @params {react.Component} reactState, a reference to the class that calls the method (use this)
  * @params {string} uuid, the uuid of the connection you want to reference
+ *
+ * @returns {firebase.database.Reference} listener, used for closing later
  */
 export function checkIfPaired(reactState, uuid) {
     var database = firebase.database().ref("users/" + uuid);
@@ -91,7 +92,9 @@ export function checkIfPaired(reactState, uuid) {
       if(childData){
         reactState.setState({isMatched: true});
       }
+      //TODO CLOSE
     })
+    return database;
   };
 
 /**
@@ -99,6 +102,8 @@ export function checkIfPaired(reactState, uuid) {
  * if it finds an unpaired connection in the database, connect the two users.
  *
  * @params {react.Component} reactState, a reference to the class that calls the method (use this)
+ *
+ * @returns {firebase.database.Reference} listener, used for closing later
  */
 export function pairWatcher(reactState) {
   var database = firebase.database().ref("users");
@@ -114,4 +119,5 @@ export function pairWatcher(reactState) {
         }
       })
     })
+    return database;
   };

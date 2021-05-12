@@ -12,6 +12,7 @@ import * as FriendWalkDB from './FriendWalkDB.js';
 
 class WalkQueue extends React.Component {
   constructor(props) {
+    var listener = null
     super(props);
     this.state = {
       walker_uuid: props.route.params.walker_uuid,
@@ -19,13 +20,12 @@ class WalkQueue extends React.Component {
     };
   }
 
-  async updateWalkers() {
-    FriendWalkDB.checkIfPaired(this, this.state.walker_uuid);
-    FriendWalkDB.pair
+  async startPairing() {
+    listener = FriendWalkDB.checkIfPaired(this, this.state.walker_uuid);
 }
 
     async componentDidMount() {
-      this.updateWalkers()
+      this.startPairing()
       console.log(this.state.walker_uuid)
     }
 
@@ -33,6 +33,10 @@ class WalkQueue extends React.Component {
       if(this.state.isMatched){
         this.props.navigation.navigate('Walk Main', {walker_uuid: this.state.walker_uuid});
       }
+    }
+
+    async componentWillUnmount(){
+      FriendWalkDB.closeListener(listener);
     }
 
   render() {
@@ -51,7 +55,8 @@ class WalkQueue extends React.Component {
           Waiting to be matched...
           </Text>
         </View>
-        <Button>
+        <Button
+          onPress={() => this.setState(isMatched: true)}>
           <Text>
           Matched!
           </Text>
