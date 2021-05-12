@@ -67,18 +67,6 @@ class Map extends React.Component {
   }
 }
 
-TaskManager.defineTask(LOCATION_TASK_NAME, async ({ data, error }) => {
-  if (error) {
-    console.log(error);
-    return;
-  }
-  if (data) {
-    const { locations } = data;
-    let lat = locations[0].coords.latitude;
-    let long = locations[0].coords.longitude;
-  }
-});
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,

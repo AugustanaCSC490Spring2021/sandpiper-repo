@@ -34,7 +34,7 @@ export function initializeDatabase(){
  * @params {string} uuid, The uuid which will be used in the path.
  * @params {key value pair} keyValue, The key value pairs to set, can be multiple
  */
-export function setDatabase(uuid, keyValue){
+export function setDatabase(uuid, value){
   if(verbose) console.log(dbHeader + "Setting " + uuid + " with value: " + value)
   firebase
     .database()

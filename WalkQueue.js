@@ -31,6 +31,7 @@ class WalkQueue extends React.Component {
 
     async componentDidUpdate(){
       if(this.state.isMatched){
+      
         this.props.navigation.navigate('Walk Main', {walker_uuid: this.state.walker_uuid});
       }
     }
