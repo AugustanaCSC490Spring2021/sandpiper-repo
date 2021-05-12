@@ -3,7 +3,6 @@ import { StyleSheet, View } from "react-native";
 import MapView from "react-native-maps";
 import * as Location from "expo-location";
 
-
 class Map extends React.Component {
   constructor(props) {
     super(props);
@@ -17,13 +16,13 @@ class Map extends React.Component {
     // Asking for device location permission
     const { status } = await Location.requestForegroundPermissionsAsync();
     if (status === "granted") {
-      this.getLocationAsync();
+      this._getLocationAsync();
     } else {
       this.setState({ error: "Locations services needed" });
     }
   }
 
-  getLocationAsync = async () => {
+  _getLocationAsync = async () => {
     
     // watchPositionAsync Return Lat & Long on Position Change
     this.location = await Location.watchPositionAsync(
@@ -42,11 +41,9 @@ class Map extends React.Component {
           longitudeDelta: 0.045
         };
         this.setState({ region: region });
-       // console.log(this.state.region)
       },
       error => console.log(error)
     );
-    console.log(this.location.coords);
     return this.location;
   };
 
@@ -70,7 +67,17 @@ class Map extends React.Component {
   }
 }
 
-
+TaskManager.defineTask(LOCATION_TASK_NAME, async ({ data, error }) => {
+  if (error) {
+    console.log(error);
+    return;
+  }
+  if (data) {
+    const { locations } = data;
+    let lat = locations[0].coords.latitude;
+    let long = locations[0].coords.longitude;
+  }
+});
 
 const styles = StyleSheet.create({
   container: {
