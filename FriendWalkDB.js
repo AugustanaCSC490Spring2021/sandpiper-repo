@@ -5,6 +5,7 @@ import "firebase/database";
 
 var verbose = true //DEBUGGING
 const dbHeader = '[DATABASE DEBUG] ';
+const databaseReference = "master/";
 
 var firebaseConfig = {
   apiKey: "AIzaSyAXhoMqorexwwYImNQuFUIBqFmaXz3SMqU",
@@ -21,7 +22,7 @@ var firebaseConfig = {
  * Using the firebaseConfig, initializeDatabase authenticates if the firebase hasn't already been initialized
  *
  */
-export function initializeDatabase(){
+export function initializeDatabase() {
   if(verbose) console.log(dbHeader + "Attempting to Authenticate...")
   !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
   if(verbose) console.log(dbHeader + "Authenticated")
@@ -38,9 +39,15 @@ export function setDatabase(uuid, keyValue){
   if(verbose) console.log(dbHeader + "Setting " + uuid + " with value: " + keyValue)
   firebase
     .database()
-    .ref('users/' + uuid)
-    .set(keyValue);
-  if(verbose) console.log(dbHeader + "Set!")
+    .ref(databaseReference + uuid)
+    .set(keyValue)
+    .then(() => {
+      if(verbose) console.log(dbHeader + "Set database at: " + databaseReference + uuid
+      + " with value:\n " + JSON.stringify(keyValue))
+    })
+    .catch(error => {
+        console.log(dbHeader + "ERROR in setDatabase() in FriendWalkDB, error is: " + error)
+    });
 }
 
 /**
@@ -54,8 +61,15 @@ export function updateDatabase(uuid, keyValue) {
 if(verbose) console.log(dbHeader + "Updating database...")
 firebase
   .database()
-  .ref('users/' + uuid)
-  .update(keyValue);
+  .ref(databaseReference + uuid)
+  .update(keyValue)
+  .then(() => {
+    if(verbose) console.log(dbHeader + "Updated database at: " + databaseReference + uuid
+    + " with value:\n " + JSON.stringify(keyValue))
+  })
+  .catch(error => {
+      console.log(dbHeader + "ERROR in updateDatabase() in FriendWalkDB, error is: " + error)
+  });
 }
 
 /**
@@ -66,9 +80,18 @@ firebase
  * so each off needs that value, should be 'value', ''
  */
 export function closeListener(database) {
-  if(verbose) console.log(dbHeader + "Closing the listener " + database)
-  database.off()
-  if(verbose) console.log(dbHeader + "Closed the database")
+  if(database !== undefined) {
+     database.off()
+     if(verbose) console.log(dbHeader + "Closed all listeners on " + database)
+   } else {
+     if(verbose) console.log(dbHeader + "The Reference you are trying to close does not exist")
+   }
+  // .then(() => {
+  //   if(verbose) console.log("Listener successfully closed")
+  // })
+  // .catch(error => {
+  //     console.log("ERROR in closeListener() in FriendWalkDB, the error is: " + error)
+  // });
 }
 
 /**
@@ -80,7 +103,7 @@ export function closeListener(database) {
  * @returns {firebase.database.Reference} listener, used for closing later
  */
 export function checkIfPaired(reactState, uuid) {
-    var database = firebase.database().ref("users/" + uuid);
+    var database = firebase.database().ref(databaseReference + uuid);
     if(verbose) console.log(dbHeader + "Checking if " + uuid + " is matched");
     //TODO make the list a queue so that no one is left behind
     var snapshot = database.on('value', (snapshot) => {
@@ -92,9 +115,8 @@ export function checkIfPaired(reactState, uuid) {
       if(childData){
         reactState.setState({isMatched: true});
       }
-      //TODO CLOSE
     })
-    return database;
+    return database; //returns the reference to the listener for closing.
   };
 
 /**
@@ -106,7 +128,7 @@ export function checkIfPaired(reactState, uuid) {
  * @returns {firebase.database.Reference} listener, used for closing later
  */
 export function pairWatcher(reactState) {
-  var database = firebase.database().ref("users");
+  var database = firebase.database().ref(databaseReference);
   var snapshot = database.limitToLast(1).orderByChild("isPaired")
     .equalTo(false).on('value', (snapshot) => {
     snapshot.forEach((childSnapshot) => {
@@ -116,8 +138,9 @@ export function pairWatcher(reactState) {
           reactState.setState({walker_uuid: childSnapshot.key});
           updateDatabase(childSnapshot.val().walker_uuid, {isPaired: true})
           updateDatabase(childSnapshot.val().walker_uuid, {watcher_uuid: reactState.state.watcher_uuid})
+          closeListener(database)
         }
       })
     })
-    return database;
+    return database; //returns the reference to the listener for closing.
   };

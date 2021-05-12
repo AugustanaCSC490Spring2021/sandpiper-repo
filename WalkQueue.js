@@ -56,7 +56,7 @@ class WalkQueue extends React.Component {
           </Text>
         </View>
         <Button
-          onPress={() => this.setState(isMatched: true)}>
+          onPress={() => this.setState({isMatched: true})}>
           <Text>
           Matched!
           </Text>
