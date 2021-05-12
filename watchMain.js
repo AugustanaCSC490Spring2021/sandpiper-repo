@@ -33,6 +33,7 @@ class watchMain extends React.Component {
     console.log("MESSAGE: " + Message.messageText + " " + Message.date + " " + Message.sender);
     this.state.messageArray.push(Message);
     database.update({messages: this.state.messageArray});
+    this.input._root.clear();
   }
 
   async getMessage(){
@@ -49,8 +50,8 @@ class watchMain extends React.Component {
         //https://stackoverflow.com/questions/44969877/if-condition-inside-of-map-react
         this.state.watcher_uuid == message.sender ?
         <Card style={{backgroundColor: 'yellow'}}>
-                <Text style={styles.text}>{message.messageText}</Text>
-                <Text style={styles.text}>{message.date}</Text>
+                <Text style={{textAlign: 'right'}}>{message.messageText}</Text>
+                <Text style={{textAlign: 'right'}}>{message.date}</Text>
         </Card>
         :
         <Card style={{backgroundColor: 'red'}}>
@@ -70,7 +71,7 @@ class watchMain extends React.Component {
           {this.createCards()}
           <Form style={styles.form}>
             <Text style={styles.text}>Enter your message.</Text>
-            <Input onChangeText = {value => this.setState({messageInput: value})}></Input>
+            <Input onChangeText = {value => this.setState({messageInput: value})} ref={(ref) => { this.input = ref }}></Input>
           </Form>
           <Button style={styles.button} onPress={() => this.sendMessage()}><Text>Send</Text></Button>
           <Button style={styles.button} onPress={() => this.getMessage()}><Text>Get</Text></Button>

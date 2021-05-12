@@ -17,13 +17,13 @@ class WalkMain extends React.Component {
       walker_uuid: props.route.params.walker_uuid,
       watcher_uuid: props.route.params.watcher_uuid,
       messageArray: [],
-      messageInput: ''
+      messageInput: '',
+      startText: ''
     }
   }
 
   sendMessage() {
     var database = firebase.database().ref("users/" + this.state.walker_uuid);
-    let now = new Date();
     let Message = {
       messageText: this.state.messageInput,
       date: moment().format('YYYY-MM-DD hh:mm:ss'),
@@ -33,7 +33,9 @@ class WalkMain extends React.Component {
     console.log("MESSAGE: " + Message.messageText + " " + Message.date + " " + Message.sender);
     this.state.messageArray.push(Message);
     database.update({messages: this.state.messageArray});
-    this.setState({messageInput: ''});
+    //Issue for clearing the input of an Input part from native base
+    //https://github.com/GeekyAnts/NativeBase/issues/320
+    this.input._root.clear();
   }
 
   async getMessage(){
@@ -71,7 +73,7 @@ class WalkMain extends React.Component {
           {this.createCards()}
           <Form style={styles.form}>
             <Text style={styles.text}>Enter your message.</Text>
-            <Input onChangeText = {value => this.setState({messageInput: value})}></Input>
+            <Input onChangeText = {value => this.setState({messageInput: value})} ref={(ref) => { this.input = ref }} ></Input>
           </Form>
           <Button style={styles.button} onPress={() => this.sendMessage()}><Text>Send</Text></Button>
           <Button style={styles.button} onPress={() => this.getMessage()}><Text>Get</Text></Button>
