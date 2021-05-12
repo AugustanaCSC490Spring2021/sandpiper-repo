@@ -113,6 +113,10 @@ render() {
             name="MapWatch"
             component={MapWatch}
         />
+<<<<<<< HEAD
+=======
+
+>>>>>>> eff2a55d90ce67c396b9c187389dac5cf437030c
       </Stack.Navigator>
     </NavigationContainer>
   );

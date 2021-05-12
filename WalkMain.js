@@ -27,7 +27,7 @@ class WalkMain extends React.Component {
     }
   }
 
- 
+
 
   sendMessage() {
     var database = firebase.database().ref("users/" + this.state.walker_uuid);
