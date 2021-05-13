@@ -15,10 +15,13 @@ class WalkMain extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+     // walker_uuid: props.route.params.walker_uuid,
+     //uuid test
       walker_uuid: props.route.params.walker_uuid,
       watcher_uuid: props.route.params.watcher_uuid,
       messageArray: [],
       messageInput: '',
+
 
       location: {coords: { latitude: null, longitude: null}},
       geocode: null,
@@ -32,7 +35,6 @@ class WalkMain extends React.Component {
 
   sendMessage() {
     var database = firebase.database().ref("users/" + this.state.walker_uuid);
-    let now = new Date();
     let Message = {
       messageText: this.state.messageInput,
       date: moment().format('YYYY-MM-DD hh:mm:ss'),

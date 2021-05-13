@@ -5,7 +5,7 @@ import "firebase/database";
 
 var verbose = true //DEBUGGING
 const dbHeader = '[DATABASE DEBUG] ';
-const databaseReference = "master/";
+const databaseReference = "FriendWalkChat/";
 
 var firebaseConfig = {
   apiKey: "AIzaSyAXhoMqorexwwYImNQuFUIBqFmaXz3SMqU",
