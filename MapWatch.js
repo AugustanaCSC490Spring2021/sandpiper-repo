@@ -9,37 +9,41 @@ import { Linking } from 'react-native';
 import 'react-native-gesture-handler';
 import "firebase/auth";
 import "firebase/database";
+import MapView from "react-native-maps";
+import * as FriendWalkDB from './FriendWalkDB.js';
+
+
+var verbose = false; //DEBUGGING LOG
+const mapHeader = '[MAP DEBUG] ';
 
 class MapWatch extends React.Component {
 
     constructor(props) {
+        var listener = null
         super(props);
         this.state = {
         walker_uuid: props.route.params.walker_uuid,
         watcher_uuid: props.route.params.watcher_uuid,
-        region: null,
+        region: {
+          latitude: 0,
+          longitude: 0,
+          latitudeDelta: .05,
+          longitudeDelta: .05,
+        },
         }
   }
   
   async componentDidMount() {
-    this.grabLocation()
+    listener = this.grabLocation()
   }
 
   async componentWillUnmount() {
-    var database = firebase.database().ref("users/" + this.state.walker_uuid);
-    database.off()
+    FriendWalkDB.closeListener(listener)
   }
 
 
   async grabLocation() {
-    var database = firebase.database().ref("users/" + this.state.walker_uuid );
-    var snapshot = database.on('value', (snapshot) => {
-      console.log(dbHeader + "Testing snapshot: " + snapshot);
-      var childKey = snapshot.key;
-      var childData = snapshot.val().location_region;
-      console.log(dbHeader + "Uuid: " + childKey + " location_region " + childData);
-      this.setState({region: childData});
-    })
+    FriendWalkDB.grabLocation(this, this.state.walker_uuid);
   }
 
     

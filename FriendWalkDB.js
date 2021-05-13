@@ -148,7 +148,8 @@ export function pairWatcher(reactState) {
   
 
 export function grabLocation(reactState, walker_uuid) {
-  var database = firebase.database().ref(databaseReference);
+  var database = firebase.database().ref(databaseReference + walker_uuid);
+  console.log(databaseReference + walker_uuid)
   var snapshot = database.on('value', (snapshot) => {
       if(verbose) console.log(dbHeader + "Testing snapshot: " + snapshot);
       var childKey = snapshot.key;
