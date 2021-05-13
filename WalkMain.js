@@ -77,7 +77,9 @@ class WalkMain extends React.Component {
 
   async getMessage(){
     firebase.database().ref("users/" + this.state.walker_uuid+"/messages/").on('value', (snapshot)=>{
-      this.setState({messageArray: snapshot.val()});  
+      if (snapshot.val() != null) {
+        this.setState({messageArray: snapshot.val()});  
+      }
     })
   }
 
