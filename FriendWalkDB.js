@@ -156,8 +156,6 @@ export function grabLocation(reactState, walker_uuid) {
       var childData = snapshot.val().location_region;
       if(verbose) console.log(dbHeader + "Uuid: " + childKey + " location_region " + childData);
       reactState.setState({region: childData});
-      closeListener(database)
-
     })
     return database;
 }
