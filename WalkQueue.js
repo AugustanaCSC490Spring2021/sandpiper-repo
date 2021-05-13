@@ -26,7 +26,6 @@ class WalkQueue extends React.Component {
 
     async componentDidMount() {
       this.startPairing()
-      console.log(this.state.walker_uuid)
     }
 
     async componentDidUpdate(){

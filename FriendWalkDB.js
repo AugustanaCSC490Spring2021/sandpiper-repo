@@ -18,7 +18,7 @@ var firebaseConfig = {
   measurementId: "G-CL5F67YSNN",
 };
 
-/** 
+/**
  * Using the firebaseConfig, initializeDatabase authenticates if the firebase hasn't already been initialized
  *
  */
@@ -135,17 +135,18 @@ export function pairWatcher(reactState) {
     snapshot.forEach((childSnapshot) => {
       if(snapshot.exists()) if(!childSnapshot.val().isPaired){
         if(verbose) console.log(dbHeader + "One result: " + childSnapshot.val().walker_uuid + " " + childSnapshot.val().isPaired);
-          reactState.setState({matched: true});
-          reactState.setState({walker_uuid: childSnapshot.key});
+          console.log("Child Snap: " + childSnapshot.val().walker_uuid);
+          reactState.setState({walker_uuid: childSnapshot.val().walker_uuid});
           updateDatabase(childSnapshot.val().walker_uuid, {isPaired: true})
           updateDatabase(childSnapshot.val().walker_uuid, {watcher_uuid: reactState.state.watcher_uuid})
           closeListener(database)
+          reactState.setState({matched: true});
         }
       })
     })
     return database; //returns the reference to the listener for closing.
 };
-  
+
 
 export function grabLocation(reactState, walker_uuid) {
   var database = firebase.database().ref(databaseReference + walker_uuid);
@@ -157,7 +158,7 @@ export function grabLocation(reactState, walker_uuid) {
       if(verbose) console.log(dbHeader + "Uuid: " + childKey + " location_region " + childData);
       reactState.setState({region: childData});
       closeListener(database)
-    
+
     })
-    return database; 
+    return database;
 }

@@ -4,24 +4,26 @@ import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import * as React from 'react';
 import styles from './style.js';
+import { View } from "react-native";
 import 'react-native-gesture-handler';
+import "firebase/auth";
+import "firebase/database";
+import * as firebase from 'firebase';
 import * as Location from 'expo-location';
 import MapView from "react-native-maps";
-import * as FriendWalkDB from './FriendWalkDB.js';
-
-var verbose = false; //DEBUGGING LOG
-const mapHeader = '[MAP DEBUG] ';
 
 class MapWalk extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
       walker_uuid: props.route.params.walker_uuid,
+
       region: {
           latitude: 10,
           longitude: 20,
-          latitudeDelta: .05,
-          longitudeDelta: .05,
+          latitudeDelta: 0.045,
+          longitudeDelta: 0.045
         },
       error: '',
     }
@@ -40,14 +42,13 @@ class MapWalk extends React.Component {
 
   async componentWillUnmount() {
     this.location_listener.remove()
-  }
 
-  async componentDidUpdate(){
-    if(verbose) console.log(mapHeader + "Region: " + JSON.stringify(this.state.region))
   }
 
 
   getLocationAsync = async () => {
+    var database = firebase.database().ref("users/" + this.state.walker_uuid );
+
     this.location_listener = await Location.watchPositionAsync(
       {
         enableHighAccuracy: true,
@@ -56,36 +57,53 @@ class MapWalk extends React.Component {
       },
       newLocation => {
         let { coords } = newLocation;
-        if(verbose) console.log(mapHeader + coords);
+        console.log(coords);
         let region = {
           latitude: coords.latitude,
           longitude: coords.longitude,
-          latitudeDelta: .05,
-          longitudeDelta: .05,
+          latitudeDelta: 0.045,
+          longitudeDelta: 0.045
         };
-        this.setState({region: region});
+        this.setState({ region: region });
 
-      FriendWalkDB.updateDatabase(this.state.walker_uuid, {location_region: this.state.region});
-    })
+        database.update({location_region: this.state.region}).then(() => {
+          console.log("Document successfully updated!");
+        }).catch((error) => {console.error("Error updating document: ", error);});
+      },
+      error => console.log(error),
+
+    )
+
+
+    //return this.location;
   };
+
+  updateDatabase(userId, region){
+  console.log("Updating database oord...")
+    firebase
+      .database()
+      .ref('users/' + userId  )
+      .update({location_region: region});
+    //this.setState({region: region});
+}
+
+
+
 
   render() {
     return (
-      <Container style={stylemap.container}>
-        <Content>
-          <MapView style={stylemap.map}
-            region={this.state.region}
-            showsCompass={true}
-            showsUserLocation={true}
-            rotateEnabled={true}
-            showsUserLocation = {true}
-            followsUserLocation = {true}
-            ref={map => {
-              this.map = map;
-            }}
-              />
-          </Content>
-    </Container>
+      <View style={stylemap.container}>
+        <MapView
+          initialRegion={this.state.region}
+          showsCompass={true}
+          showsUserLocation={true}
+          rotateEnabled={true}
+          ref={map => {
+            this.map = map;
+          }}
+          style={styles.map}
+        />
+      </View>
     );
   }
 
@@ -96,11 +114,7 @@ const stylemap = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff"
-  },
-  map: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
-  },
+  }
 });
 
 

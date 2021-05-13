@@ -7,6 +7,7 @@ import styles from './style.js';
 import 'react-native-gesture-handler';
 import uuid from "react-native-uuid";
 import * as FriendWalkDB from './FriendWalkDB.js';
+import { useRoute } from '@react-navigation/native';
 
 class WatchQueue extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ async componentDidMount() {
 
 async componentDidUpdate() {
   if(this.state.matched == true){
-    this.props.navigation.navigate('Watch Main', {watcher_uuid: this.state.watcher_uuid}, {walker_uuid: this.state.walker_uuid})
+    this.props.navigation.navigate('Watch Main', {watcher_uuid: this.state.watcher_uuid, walker_uuid: this.state.walker_uuid})
   }
 }
 
