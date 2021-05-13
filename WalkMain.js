@@ -15,8 +15,6 @@ class WalkMain extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-     // walker_uuid: props.route.params.walker_uuid,
-     //uuid test
       walker_uuid: props.route.params.walker_uuid,
       watcher_uuid: props.route.params.watcher_uuid,
       messageArray: [],
@@ -27,6 +25,7 @@ class WalkMain extends React.Component {
       geocode: null,
       errorMessage: "",
     }
+    this.getMessage();
   }
 
   componentDidMount() {
@@ -76,7 +75,9 @@ class WalkMain extends React.Component {
 
   async getMessage(){
     firebase.database().ref("users/" + this.state.walker_uuid+"/messages/").on('value', (snapshot)=>{
-      this.setState({messageArray: snapshot.val()});  
+      if (snapshot.val() != null) {
+        this.setState({messageArray: snapshot.val()});  
+      }
     })
   }
 
@@ -112,7 +113,6 @@ class WalkMain extends React.Component {
           </Form>
           <Button style={styles.button} onPress={() => this.sendMessage()}><Text>Send</Text></Button>
           <Button style={styles.button} onPress={() => this.sendLocation()}><Text>Share Location</Text></Button>
-          <Button style={styles.button} onPress={() => this.getMessage()}><Text>Get</Text></Button>
 
         </Content>
         
