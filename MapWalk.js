@@ -6,11 +6,9 @@ import * as React from 'react';
 import styles from './style.js';
 import { View } from "react-native";
 import 'react-native-gesture-handler';
-import "firebase/auth";
-import "firebase/database";
-import * as firebase from 'firebase';
 import * as Location from 'expo-location';
 import MapView from "react-native-maps";
+import * as FriendWalkDB from './FriendWalkDB.js';
 
 class MapWalk extends React.Component {
 
@@ -47,8 +45,6 @@ class MapWalk extends React.Component {
 
 
   getLocationAsync = async () => {
-    var database = firebase.database().ref("users/" + this.state.walker_uuid );
-
     this.location_listener = await Location.watchPositionAsync(
       {
         enableHighAccuracy: true,
@@ -66,56 +62,43 @@ class MapWalk extends React.Component {
         };
         this.setState({ region: region });
 
-        database.update({location_region: this.state.region}).then(() => {
-          console.log("Document successfully updated!");
-        }).catch((error) => {console.error("Error updating document: ", error);});
-      },
-      error => console.log(error),
-
-    )
-
-
-    //return this.location;
-  };
-
-  updateDatabase(userId, region){
-  console.log("Updating database oord...")
-    firebase
-      .database()
-      .ref('users/' + userId  )
-      .update({location_region: region});
-    //this.setState({region: region});
-}
-
+      FriendWalkDB.updateDatabase(this.state.walker_uuid, {location_region: this.state.region})
+    }
+  )}
 
 
 
   render() {
     return (
-      <View style={stylemap.container}>
-        <MapView
-          initialRegion={this.state.region}
+    <Container style={stylemap.container}>
+      <Content>
+        <MapView style={stylemap.map}
+          region={this.state.region}
           showsCompass={true}
           showsUserLocation={true}
           rotateEnabled={true}
+          showsUserLocation = {true}
+          followsUserLocation = {true}
           ref={map => {
             this.map = map;
           }}
-          style={styles.map}
         />
-      </View>
+      </Content>
+    </Container>
+
     );
   }
-
-
 }
 
 const stylemap = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff"
-  }
+  },
+  map: {
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
+  },
 });
-
 
 export default MapWalk;

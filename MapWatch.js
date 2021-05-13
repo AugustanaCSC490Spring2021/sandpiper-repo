@@ -6,9 +6,6 @@ import * as React from 'react';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import styles from './style.js';
 import { Linking } from 'react-native';
-import 'react-native-gesture-handler';
-import "firebase/auth";
-import "firebase/database";
 import MapView from "react-native-maps";
 import * as FriendWalkDB from './FriendWalkDB.js';
 
@@ -32,7 +29,7 @@ class MapWatch extends React.Component {
         },
         }
   }
-  
+
   async componentDidMount() {
     listener = this.grabLocation()
   }
@@ -46,8 +43,8 @@ class MapWatch extends React.Component {
     FriendWalkDB.grabLocation(this, this.state.walker_uuid);
   }
 
-    
-    
+
+
     render() {
     return (
       <Container style={stylemap.container}>
