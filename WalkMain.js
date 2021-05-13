@@ -15,6 +15,8 @@ class WalkMain extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+     // walker_uuid: props.route.params.walker_uuid,
+     //uuid test
       walker_uuid: props.route.params.walker_uuid,
       watcher_uuid: props.route.params.watcher_uuid,
       messageArray: [],
@@ -75,9 +77,7 @@ class WalkMain extends React.Component {
 
   async getMessage(){
     firebase.database().ref("users/" + this.state.walker_uuid+"/messages/").on('value', (snapshot)=>{
-      if (snapshot.val() != null) {
-        this.setState({messageArray: snapshot.val()});  
-      }
+      this.setState({messageArray: snapshot.val()});  
     })
   }
 
