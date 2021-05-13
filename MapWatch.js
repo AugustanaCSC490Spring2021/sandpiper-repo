@@ -46,29 +46,36 @@ class MapWatch extends React.Component {
     
     render() {
     return (
-      <View style={stylemap.container}>
-        <MapView
-          initialRegion={this.state.region}
-          showsCompass={true}
-          showsUserLocation={true}
-          rotateEnabled={true}
-          ref={map => {
-            this.map = map;
-          }}
-          style={styles.map}
-        />
-      </View>
+      <Container style={stylemap.container}>
+        <Content>
+          <MapView style={stylemap.map}
+            region={this.state.region}
+            showsCompass={true}
+            showsUserLocation={true}
+            rotateEnabled={true}
+            showsUserLocation = {true}
+            followsUserLocation = {true}
+            ref={map => {
+              this.map = map;
+            }}
+              />
+          </Content>
+    </Container>
     );
   }
 
-  
+
 }
 
 const stylemap = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff"
-  }
+  },
+  map: {
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
+  },
 });
 
 export default MapWatch;
