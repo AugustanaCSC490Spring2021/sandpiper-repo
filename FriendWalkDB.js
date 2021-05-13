@@ -135,7 +135,6 @@ export function pairWatcher(reactState) {
     snapshot.forEach((childSnapshot) => {
       if(snapshot.exists()) if(!childSnapshot.val().isPaired){
         if(verbose) console.log(dbHeader + "One result: " + childSnapshot.val().walker_uuid + " " + childSnapshot.val().isPaired);
-          console.log("Child Snap: " + childSnapshot.val().walker_uuid);
           reactState.setState({walker_uuid: childSnapshot.val().walker_uuid});
           updateDatabase(childSnapshot.val().walker_uuid, {isPaired: true})
           updateDatabase(childSnapshot.val().walker_uuid, {watcher_uuid: reactState.state.watcher_uuid})

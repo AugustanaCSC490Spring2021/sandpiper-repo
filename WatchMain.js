@@ -19,12 +19,7 @@ class WatchMain extends React.Component {
     }
   }
 
-  async componentDidMount(){
-    console.log("WatchMain DidMount walkerUUID: " + this.state.walker_uuid)
-  }
-
   getLocation() {
-    console.log("Daniel's Test" + this.state.walker_uuid)
     this.props.navigation.navigate('MapWatch', {walker_uuid: this.state.walker_uuid});
   }
 
