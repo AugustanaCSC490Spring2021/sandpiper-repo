@@ -19,6 +19,7 @@ class watchMain extends React.Component {
       messageInput: ''
     }
     console.log(this.state.walker_uuid);
+    this.getMessage();
   }
 
   sendMessage() {
@@ -38,7 +39,10 @@ class watchMain extends React.Component {
 
   async getMessage(){
     firebase.database().ref("users/" + this.state.walker_uuid+"/messages/").on('value', (snapshot)=>{
-      this.setState({messageArray: snapshot.val()});  
+      if (snapshot.val() != null) {
+        this.setState({messageArray: snapshot.val()});  
+      }
+      
     })
   }
 
@@ -74,7 +78,6 @@ class watchMain extends React.Component {
             <Input onChangeText = {value => this.setState({messageInput: value})} ref={(ref) => { this.input = ref }}></Input>
           </Form>
           <Button style={styles.button} onPress={() => this.sendMessage()}><Text>Send</Text></Button>
-          <Button style={styles.button} onPress={() => this.getMessage()}><Text>Get</Text></Button>
 
         </Content>
         
