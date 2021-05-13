@@ -6,6 +6,7 @@ import "firebase/auth";
 import "firebase/database";
 import * as firebase from 'firebase';
 import moment from 'moment';
+import * as FriendWalkDB from './FriendWalkDB.js';
 
 class watchMain extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class watchMain extends React.Component {
   }
 
   sendMessage() {
-    var database = firebase.database().ref("users/" + this.state.walker_uuid);
+    /*var database = firebase.database().ref("users/" + this.state.walker_uuid);
     let now = new Date();
     let Message = {
       messageText: this.state.messageInput,
@@ -33,7 +34,8 @@ class watchMain extends React.Component {
     //let newMessage = new Message({text: this.state.message, date: now.getDate, sender: this.state.walker_uuid});
     console.log("MESSAGE: " + Message.messageText + " " + Message.date + " " + Message.sender);
     this.state.messageArray.push(Message);
-    database.update({messages: this.state.messageArray});
+    database.update({messages: this.state.messageArray});*/
+    FriendWalkDB.sendMessage(this.state, this.state.walker_uuid, this.state.watcher_uuid);
     this.input._root.clear();
   }
 

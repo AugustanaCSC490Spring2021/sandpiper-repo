@@ -7,6 +7,7 @@ import "firebase/database";
 import * as firebase from 'firebase';
 import moment from 'moment';
 import * as Location from 'expo-location';
+import * as FriendWalkDB from './FriendWalkDB.js';
 import { valueToNode } from '@babel/types';
 
 
@@ -37,7 +38,7 @@ class WalkMain extends React.Component {
   }
 
   sendMessage() {
-    var database = firebase.database().ref("users/" + this.state.walker_uuid);
+    /*var database = firebase.database().ref("users/" + this.state.walker_uuid);
     let Message = {
       messageText: this.state.messageInput,
       date: moment().format('YYYY-MM-DD hh:mm:ss'),
@@ -46,9 +47,10 @@ class WalkMain extends React.Component {
     //let newMessage = new Message({text: this.state.message, date: now.getDate, sender: this.state.walker_uuid});
     console.log("MESSAGE: " + Message.messageText + " " + Message.date + " " + Message.sender);
     this.state.messageArray.push(Message);
-    database.update({messages: this.state.messageArray});
+    database.update({messages: this.state.messageArray});*/
     //Issue for clearing the input of an Input part from native base
     //https://github.com/GeekyAnts/NativeBase/issues/320
+    FriendWalkDB.sendMessage(this.state, this.state.walker_uuid, this.state.walker_uuid);
     this.input._root.clear();
 <<<<<<< HEAD
   }

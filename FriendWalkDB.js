@@ -2,6 +2,7 @@ import * as React from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/database";
+import moment from 'moment';
 
 var verbose = true //DEBUGGING
 const dbHeader = '[DATABASE DEBUG] ';
@@ -144,3 +145,15 @@ export function pairWatcher(reactState) {
     })
     return database; //returns the reference to the listener for closing.
   };
+
+  export function sendMessage(reactState, walker_uuid, sender_uuid) {
+    var database = firebase.database().ref("users/" + walker_uuid);
+    let Message = {
+      messageText: reactState.messageInput,
+      date: moment().format('YYYY-MM-DD hh:mm:ss'),
+      sender: sender_uuid
+    }
+
+    reactState.messageArray.push(Message);
+    database.update({messages: reactState.messageArray});
+  }
