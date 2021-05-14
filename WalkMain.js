@@ -30,7 +30,7 @@ class WalkMain extends React.Component {
       startText: ''
 >>>>>>> Text box clears on sent message
     }
-    this.getMessage();
+    FriendWalkDB.getMessage(this);
   }
 
   componentDidMount() {
@@ -38,16 +38,6 @@ class WalkMain extends React.Component {
   }
 
   sendMessage() {
-    /*var database = firebase.database().ref("users/" + this.state.walker_uuid);
-    let Message = {
-      messageText: this.state.messageInput,
-      date: moment().format('YYYY-MM-DD hh:mm:ss'),
-      sender: this.state.walker_uuid
-    }
-    //let newMessage = new Message({text: this.state.message, date: now.getDate, sender: this.state.walker_uuid});
-    console.log("MESSAGE: " + Message.messageText + " " + Message.date + " " + Message.sender);
-    this.state.messageArray.push(Message);
-    database.update({messages: this.state.messageArray});*/
     //Issue for clearing the input of an Input part from native base
     //https://github.com/GeekyAnts/NativeBase/issues/320
     FriendWalkDB.sendMessage(this.state, this.state.walker_uuid, this.state.walker_uuid);
@@ -82,17 +72,8 @@ class WalkMain extends React.Component {
 >>>>>>> Text box clears on sent message
   }
 
-  async getMessage(){
-    firebase.database().ref("users/" + this.state.walker_uuid+"/messages/").on('value', (snapshot)=>{
-      if (snapshot.val() != null) {
-        this.setState({messageArray: snapshot.val()});  
-      }
-    })
-  }
-
   createCards() {
     if (this.state.messageArray.length != 0) {
-      console.log(this.state.messageArray);
       let cards = this.state.messageArray.map(message => (
         //Using a ternary operator for an if statement inside of map
         //https://stackoverflow.com/questions/44969877/if-condition-inside-of-map-react
