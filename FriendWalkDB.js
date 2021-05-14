@@ -147,7 +147,7 @@ export function pairWatcher(reactState) {
   };
 
   export function sendMessage(reactState, walker_uuid, sender_uuid) {
-    var database = firebase.database().ref("users/" + walker_uuid);
+    var database = firebase.database().ref(databaseReference + walker_uuid);
     let Message = {
       messageText: reactState.messageInput,
       date: moment().format('YYYY-MM-DD hh:mm:ss'),
@@ -156,4 +156,12 @@ export function pairWatcher(reactState) {
 
     reactState.messageArray.push(Message);
     database.update({messages: reactState.messageArray});
+  }
+
+  export async function getMessage(reactState) {
+    firebase.database().ref(databaseReference + reactState.state.walker_uuid + "/messages").on('value', (snapshot)=>{
+      if (snapshot.val() != null) {
+        reactState.setState({messageArray: snapshot.val()});
+      }
+    })
   }
