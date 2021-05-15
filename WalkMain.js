@@ -84,7 +84,6 @@ class WalkMain extends React.Component {
       return cards;
     }
   }
-
   render() {
     return (
       

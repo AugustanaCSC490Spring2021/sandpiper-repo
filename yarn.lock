@@ -3490,7 +3490,11 @@
   integrity sha512-UFnkg5RTq3s2X15fSkrWY9+5BKOFjihNSnJjTV2H5PtTUFbd55qnxxPw8CxSfK0bXb1IrSvCESprk2LEpqr5cg==
 =======
 =======
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
 "@react-native-community/cli-debugger-ui@^4.13.1":
   "integrity" "sha512-UFnkg5RTq3s2X15fSkrWY9+5BKOFjihNSnJjTV2H5PtTUFbd55qnxxPw8CxSfK0bXb1IrSvCESprk2LEpqr5cg=="
   "resolved" "https://registry.npmjs.org/@react-native-community/cli-debugger-ui/-/cli-debugger-ui-4.13.1.tgz"
@@ -3498,7 +3502,11 @@
 <<<<<<< HEAD
 >>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
 =======
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "serve-static" "^1.13.1"
 
@@ -3548,7 +3556,11 @@
   "integrity" "sha512-vQzsFKD9CjHthA2ehTQX8c7uIzlI9A7ejaIow1I9RlEnLraPH2QqVDmzIdbdh5Od47UPbRzamCgAP8Bnqv3qwQ=="
   "resolved" "https://registry.npmjs.org/@react-native-community/cli-server-api/-/cli-server-api-4.13.1.tgz"
   "version" "4.13.1"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "@react-native-community/cli-tools" "^4.13.0"
 <<<<<<< HEAD
@@ -3605,7 +3617,11 @@
   "integrity" "sha512-s4f489h5+EJksn4CfheLgv5PGOM0CDmK1UEBLw2t/ncWs3cW2VI7vXzndcd/WJHTv3GntJhXDcJMuL+Z2IAOgg=="
   "resolved" "https://registry.npmjs.org/@react-native-community/cli-tools/-/cli-tools-4.13.0.tgz"
   "version" "4.13.0"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "chalk" "^3.0.0"
     "lodash" "^4.17.15"
@@ -3772,7 +3788,11 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-4.0.1.tgz#d26729db850fa327b7cacc5522252194404226f5"
   integrity sha512-Qm9hBEBu18wt1PO2flE7LPb30BHMQt1eQgbV76YntdNk73XZGpn3izvGTYxbGgzXKgbCjiia0uxTd3aTNQrY/g==
 =======
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
 
 "@sinonjs/commons@^1.7.0":
   "integrity" "sha512-xkNcLAn/wZaX14RPlwizcKicDk9G3F8m2nU3L7Ukm5zBgTwiT0wsoFAHx9Jq56fJA1z/7uKGtCRu16sOUCLIHQ=="
@@ -3919,7 +3939,11 @@
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 =======
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
 
 "@types/anymatch@*":
   "integrity" "sha512-/+CRPXpBDpo2RK9C68N3b2cOvO0Cf5B9aPijHsoDQTHivnGSObdOF2BRQOYjojWTDy6nQvMjmqRXIxH55VjxxA=="
@@ -4026,7 +4050,11 @@
   resolved "https://registry.yarnpkg.com/@types/http-cache-semantics/-/http-cache-semantics-4.0.0.tgz#9140779736aa2655635ee756e2467d787cfe8a2a"
   integrity sha512-c3Xy026kOF7QOTn00hbIllV1dLR9hG9NkSrLQgCVs8NF6sBU+VGWjD3wLPhmh1TYAc7ugCFsvHYMN4VcBN1U1A==
 =======
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
 
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0", "@types/istanbul-lib-coverage@^2.0.1":
   "integrity" "sha512-sz7iLqvVUg1gIedBOvlkxPlc8/uVzyS5OwGz1cKjXzkl3FpL3al0crU8YGU1WoHkxn0Wxbw5tyi6hvzJKNzFsw=="
@@ -4073,7 +4101,11 @@
   dependencies:
     "@types/node" "*"
 =======
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
 
 "@types/long@^4.0.1":
   "integrity" "sha512-5tXH6Bx/kNGd3MgffdmP4dy2Z+G4eaXw0SE81Tq3BNadtnMR5/ySMzX4SLEzHJzSmPNn4HIdpQsBvXMUykr58w=="
@@ -4101,7 +4133,11 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-9.6.61.tgz#29f124eddd41c4c74281bd0b455d689109fc2a2d"
   integrity sha512-/aKAdg5c8n468cYLy2eQrcR5k6chlbNwZNGUj3TboyPa2hcO2QAJcfymlqPzMiRj8B6nYKXjzQz36minFE0RwQ==
 =======
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
 
 "@types/normalize-package-data@^2.4.0":
   "integrity" "sha512-f5j5b/Gf71L+dbqxIpQ4Z2WlmI/mPJ0fOkGGmFgtb6sAu97EPczzbS3/tJKxmcYDj55OX6ssqwDAWOHIYDRDGA=="
@@ -4177,7 +4213,11 @@
   "integrity" "sha512-auApPaJf3NPfe18hSoJkp8EbZzer2ISk7o8mCC3M9he/a04+gbMF97NkpD2S8riMGvm4BMRI59/SZQSaLTKpsQ=="
   "resolved" "https://registry.npmjs.org/@types/resolve/-/resolve-0.0.8.tgz"
   "version" "0.0.8"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "@types/node" "*"
 
@@ -4237,7 +4277,11 @@
   "integrity" "sha512-wK/oi5gcHi72VMTbOaQ70VcDxSQ1uX8S2tukBK9ARuGXrYM/+u4ou73roc7trXDNmCxCoerE8zruQqX/wuHszA=="
   "resolved" "https://registry.npmjs.org/@types/webpack/-/webpack-4.41.27.tgz"
   "version" "4.41.27"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "@types/anymatch" "*"
     "@types/node" "*"
@@ -4311,7 +4355,11 @@
 "@typescript-eslint/parser@^4.0.0", "@typescript-eslint/parser@^4.5.0":
   "integrity" "sha512-z/bGdBJJZJN76nvAY9DkJANYgK3nlRstRRi74WHm3jjgf2I8AglrSY+6l7ogxOmn55YJ6oKZCLLy+6PW70z15Q=="
   "resolved" "https://registry.npmjs.org/@typescript-eslint/parser/-/parser-4.22.0.tgz"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   "version" "4.22.0"
   dependencies:
     "@types/json-schema" "^7.0.3"
@@ -4331,7 +4379,11 @@
     "@typescript-eslint/types" "4.22.0"
     "@typescript-eslint/typescript-estree" "4.22.0"
 =======
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
     "debug" "^4.1.1"
 
 "@typescript-eslint/scope-manager@4.22.0":
@@ -5213,7 +5265,11 @@ aria-query@^4.2.2:
   "integrity" "sha512-o/HelwhuKpTj/frsOsbNLNgnNGVIFsVP/SW2BSF14gVl7kAfMOJ6/8wUAUvG1R1NHKrfG+2sHZTu0yauT1qBrA=="
   "resolved" "https://registry.npmjs.org/aria-query/-/aria-query-4.2.2.tgz"
   "version" "4.2.2"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "@babel/runtime" "^7.10.2"
     "@babel/runtime-corejs3" "^7.10.2"
@@ -5761,7 +5817,11 @@ babel-eslint@^10.1.0:
   "integrity" "sha512-ifWaTHQ0ce+448CYop8AdrQiBsGrnC+bMgfyKFdi6EsPLTAWG+QfyDeM6OH+FmWnKvEq5NnBMLvlBUPKQZoDSg=="
   "resolved" "https://registry.npmjs.org/babel-eslint/-/babel-eslint-10.1.0.tgz"
   "version" "10.1.0"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/parser" "^7.7.0"
@@ -5803,7 +5863,11 @@ babel-eslint@^10.1.0:
     "slash" "^3.0.0"
 
 "babel-jest@^26.6.3":
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   "integrity" "sha512-pl4Q+GAVOHwvjrck6jKjvmGhnO3jHX/xuB9d27f+EJZ/6k+6nMuPjorrYp7s++bKKdANwzElBWnLWaObvTnaZA=="
   "resolved" "https://registry.npmjs.org/babel-jest/-/babel-jest-26.6.3.tgz"
   "version" "26.6.3"
@@ -5833,7 +5897,11 @@ babel-eslint@^10.1.0:
     "slash" "^3.0.0"
 
 =======
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
 "babel-loader@8.1.0":
   "integrity" "sha512-7q7nC1tYOrqvUrN3LQK4GwSk/TQorZSOlO9C+RZDZpODgyN4ZlCqE5q9cDsyWOliN+aU9B4JX01xK9eJXowJLw=="
   "resolved" "https://registry.npmjs.org/babel-loader/-/babel-loader-8.1.0.tgz"
@@ -6017,7 +6085,11 @@ babel-eslint@^10.1.0:
     "babel-plugin-syntax-trailing-function-commas" "^7.0.0-beta.0"
 
 "babel-preset-fbjs@^3.3.0":
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   "integrity" "sha512-7QTLTCd2gwB2qGoi5epSULMHugSVgpcVt5YAeiFO9ABLrutDQzKfGwzxgZHLpugq8qMdg/DhRZDZ5CLKxBkEbw=="
   "resolved" "https://registry.npmjs.org/babel-preset-fbjs/-/babel-preset-fbjs-3.3.0.tgz"
   "version" "3.3.0"
@@ -6085,7 +6157,11 @@ babel-eslint@^10.1.0:
     "babel-plugin-syntax-trailing-function-commas" "^7.0.0-beta.0"
 
 =======
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
 "babel-preset-jest@^26.6.2":
   "integrity" "sha512-YvdtlVm9t3k777c5NPQIv6cxFFFapys25HiUmuSgHwIZhfifweR5c5Sf5nwE3MAbfu327CYSvps8Yx6ANLyleQ=="
   "resolved" "https://registry.npmjs.org/babel-preset-jest/-/babel-preset-jest-26.6.2.tgz"
@@ -7423,7 +7499,11 @@ chokidar@^2.1.8:
     "path-is-absolute" "^1.0.0"
     "readdirp" "^2.2.1"
     "upath" "^1.1.1"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   optionalDependencies:
     "fsevents" "^1.2.7"
 
@@ -8418,7 +8498,11 @@ cosmiconfig@^6.0.0:
   "integrity" "sha512-xb3ZL6+L8b9JLLCx3ZdoZy4+2ECphCMo2PwqgP1tlfVq6M6YReyzBJtvWWtbDSpNr9hn96pkCiZqUcFEc+54Qg=="
   "resolved" "https://registry.npmjs.org/cosmiconfig/-/cosmiconfig-6.0.0.tgz"
   "version" "6.0.0"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "@types/parse-json" "^4.0.0"
     "import-fresh" "^3.1.0"
@@ -10628,7 +10712,11 @@ escodegen@^2.0.0:
     "estraverse" "^5.2.0"
     "esutils" "^2.0.2"
     "optionator" "^0.8.1"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   optionalDependencies:
     "source-map" "~0.6.1"
 
@@ -11308,7 +11396,11 @@ expo-constants@~10.1.3:
   "integrity" "sha512-Eq/xeshnhSoe4ok89d5lrHvI9jq3bMe1FhJUbiHVGcGmW8mGCotwbQBIfDkkMrAKnSOwQq/Qfyg0XBxnG2XFjw=="
   "resolved" "https://registry.npmjs.org/expo-constants/-/expo-constants-10.1.3.tgz"
   "version" "10.1.3"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "@expo/config" "^3.3.35"
     "uuid" "^3.3.2"
@@ -11364,7 +11456,11 @@ expo-pwa@0.0.74:
     update-check "1.5.3"
 
 =======
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
 "expo-status-bar@~1.0.3":
   "integrity" "sha512-s7nc496D/Zn1NGiMJ5wu6HyIdXxbgGtmZZtbHm7rpbcmLdf28GmMSNHDx7M0t00BMhky7VAurTCUo+BJs8ugsw=="
   "resolved" "https://registry.npmjs.org/expo-status-bar/-/expo-status-bar-1.0.4.tgz"
@@ -11379,7 +11475,11 @@ expo-task-manager@^9.1.0:
     "@expo/config-plugins" "^1.0.18"
     unimodules-app-loader "~2.1.0"
 =======
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
 
 "expo-web-browser@~9.1.0":
   "integrity" "sha512-1UkOHWUBshY7n/R9xc4Q0LN0Dxqdvvotlp8sCM/6bUB/aE+9B+duoimKtUhlnzcvfAFWgF5y5x+bIf7j6PF7ig=="
@@ -11727,7 +11827,11 @@ fast-glob@^3.1.1, fast-glob@^3.2.4:
   "integrity" "sha512-2DtFcgT68wiTTiwZ2hNdJfcHNke9XOfnwmBRWXhmeKM8rF0TGwmC/Qto3S7RoZKp5cilZbxzO5iTNTQsJ+EeDg=="
   "resolved" "https://registry.npmjs.org/fast-glob/-/fast-glob-3.2.5.tgz"
   "version" "3.2.5"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "@nodelib/fs.stat" "^2.0.2"
     "@nodelib/fs.walk" "^1.2.3"
@@ -11779,7 +11883,11 @@ faye-websocket@^0.10.0:
   "version" "0.11.3"
   dependencies:
     "websocket-driver" ">=0.5.1"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
 
 "fb-watchman@^2.0.0":
   "integrity" "sha512-DkPJKQeY6kKwmuMretBhr7G6Vodr7bFwDYTXIkfG1gjvNpaxBTQV3PbXg6bR1c1UP4jPOX0jHUbbHANL9vRjVg=="
@@ -12219,7 +12327,11 @@ firebase@8.2.3:
   "integrity" "sha512-WdbcGSiLxiW/kGZT+EyqD9z3Md7kR35+k9qMjDn/twiIrm6Hh7Qi/Z69cqxhKW6+4uK5ghXIF28CjK67OyD9Qw=="
   "resolved" "https://registry.npmjs.org/firebase/-/firebase-8.2.3.tgz"
   "version" "8.2.3"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "@firebase/analytics" "0.6.2"
     "@firebase/app" "0.6.13"
@@ -13719,7 +13831,11 @@ html-webpack-plugin@4.5.0:
   "integrity" "sha512-MouoXEYSjTzCrjIxWwg8gxL5fE2X2WZJLmBYXlaJhQUH5K/b5OrqmV7T4dB7iu0xkmJ6JlUuV6fFVtnqbPopZw=="
   "resolved" "https://registry.npmjs.org/html-webpack-plugin/-/html-webpack-plugin-4.5.0.tgz"
   "version" "4.5.0"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "@types/html-minifier-terser" "^5.0.0"
     "@types/tapable" "^1.0.5"
@@ -15387,7 +15503,11 @@ istanbul-lib-instrument@^4.0.0, istanbul-lib-instrument@^4.0.3:
   "integrity" "sha512-BXgQl9kf4WTCPCCpmFGoJkz/+uhvm7h7PFKUYxh7qarQd3ER33vHG//qaE8eN25l07YqZPpHXU9I09l/RD5aGQ=="
   "resolved" "https://registry.npmjs.org/istanbul-lib-instrument/-/istanbul-lib-instrument-4.0.3.tgz"
   "version" "4.0.3"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "@babel/core" "^7.7.5"
     "@istanbuljs/schema" "^0.1.2"
@@ -15432,7 +15552,11 @@ iterall@^1.1.3, iterall@^1.2.1:
   integrity sha512-QZ9qOMdF+QLHxy1QIpUHUU1D5pS2CG2P69LF6L6CPjPYA/XMOmKV3PZpawHoAjHNyB0swdVTRxdYT4tbBbxqwg==
 
 =======
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
 "jest-changed-files@^26.6.2":
   "integrity" "sha512-fDS7szLcY9sCtIip8Fjry9oGf3I2ht/QT21bAHm5Dmf0mD4X3ReNUf17y+bO6fR8WgbIZTlbyG1ak/53cbRzKQ=="
   "resolved" "https://registry.npmjs.org/jest-changed-files/-/jest-changed-files-26.6.2.tgz"
@@ -15957,7 +16081,11 @@ jest-worker@^26.2.1, jest-worker@^26.5.0, jest-worker@^26.6.2:
   "integrity" "sha512-KWYVV1c4i+jbMpaBC+U++4Va0cp8OisU185o73T1vo99hqi7w8tSJfUXYswwqqrjzwxa6KpRK54WhPvwf5w6PQ=="
   "resolved" "https://registry.npmjs.org/jest-worker/-/jest-worker-26.6.2.tgz"
   "version" "26.6.2"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "@types/node" "*"
     "merge-stream" "^2.0.0"
@@ -16329,7 +16457,11 @@ jsonfile@^2.1.0:
   "integrity" "sha1-NzaitCi4e72gzIO1P6PWM6NcKug="
   "resolved" "https://registry.npmjs.org/jsonfile/-/jsonfile-2.4.0.tgz"
   "version" "2.4.0"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   optionalDependencies:
     "graceful-fs" "^4.1.6"
 
@@ -17177,7 +17309,11 @@ lru-cache@^5.1.1:
   "version" "6.0.0"
   dependencies:
     "yallist" "^4.0.0"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
 
 "magic-string@^0.25.0", "magic-string@^0.25.7":
   "integrity" "sha512-4CrMT5DOHTDk4HYDlzmwu4FVCcIYI8gauveasrdCu2IKIFOJ3f0v/8MDGJCDL9oD2ppz/Av1b0Nj345H9M+XIA=="
@@ -17478,7 +17614,11 @@ memory-cache@~0.2.0:
     "@babel/register" "^7.0.0"
     "escape-string-regexp" "^1.0.5"
 
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
 "metro-babel-transformer@0.59.0":
   "integrity" "sha512-fdZJl8rs54GVFXokxRdD7ZrQ1TJjxWzOi/xSP25VR3E8tbm3nBZqS+/ylu643qSr/IueABR+jrlqAyACwGEf6w=="
   "resolved" "https://registry.npmjs.org/metro-babel-transformer/-/metro-babel-transformer-0.59.0.tgz"
@@ -18437,7 +18577,11 @@ native-base@^2.15.2:
   "integrity" "sha512-Oa42UOlOVgzA6oNc5ai86r3DFom9Wj5JuJ3ShsHmEkqhnqWw7TBKpuIDNV8Zt9NmycH5xMdMcgxliob6jniZjw=="
   "resolved" "https://registry.npmjs.org/native-base/-/native-base-2.15.2.tgz"
   "version" "2.15.2"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "@codler/react-native-keyboard-aware-scroll-view" "1.0.1"
     "@react-native-community/datetimepicker" "^3.0.2"
@@ -19842,7 +19986,11 @@ pako@^1.0.5, pako@~1.0.5:
   "integrity" "sha512-4hLB8Py4zZce5s4yd9XzopqwVv/yGNhV1Bl8NTmCq1763HeK2+EwVTv+leGeL13Dnh2wfbqowVPXCIO0z4taYw=="
   "resolved" "https://registry.npmjs.org/pako/-/pako-1.0.11.tgz"
   "version" "1.0.11"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
 
 "parallel-transform@^1.1.0":
   "integrity" "sha512-P2vSmIu38uIlvdcU7fDkyrxj33gTUy/ABO5ZUbGowxNCopBq/OoD42bP4UmMrJoPyk4Uqf0mu3mtWBhHCZD8yg=="
@@ -20419,7 +20567,11 @@ pnp-webpack-plugin@1.6.4, pnp-webpack-plugin@^1.5.0:
   "integrity" "sha512-7Wjy+9E3WwLOEL30D+m8TSTF7qJJUJLONBnwQp0518siuMxUQUbgZwssaFX+QKlZkjHZcw/IpZCt/H0srrntSg=="
   "resolved" "https://registry.npmjs.org/pnp-webpack-plugin/-/pnp-webpack-plugin-1.6.4.tgz"
   "version" "1.6.4"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "ts-pnp" "^1.1.6"
 
@@ -21661,7 +21813,11 @@ pretty-format@^24.9.0:
   "integrity" "sha512-00ZMZUiHaJrNfk33guavqgvfJS30sLYf0f8+Srklv0AMPodGGHcoHgksZ3OThYnIvOd+8yMCn0YiEOogjlgsnA=="
   "resolved" "https://registry.npmjs.org/pretty-format/-/pretty-format-24.9.0.tgz"
   "version" "24.9.0"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "@jest/types" "^24.9.0"
     "ansi-regex" "^4.0.0"
@@ -21683,7 +21839,11 @@ pretty-format@^24.9.0:
     "react-is" "^16.12.0"
 
 "pretty-format@^25.2.0":
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   "integrity" "sha512-kbo/kq2LQ/A/is0PQwsEHM7Ca6//bGPPvU6UnsdDRSKTWxT/ru/xb88v4BJf6a69H+uTytOEsTusT9ksd/1iWQ=="
   "resolved" "https://registry.npmjs.org/pretty-format/-/pretty-format-25.5.0.tgz"
   "version" "25.5.0"
@@ -21705,7 +21865,11 @@ pretty-format@^24.9.0:
     "react-is" "^16.12.0"
 
 =======
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
 "pretty-format@^26.4.0", "pretty-format@^26.6.0", "pretty-format@^26.6.2":
   "integrity" "sha512-7AeGuCYNGmycyQbCqd/3PWH4eOoX/OiCa0uphp57NVTeAGdJGaAliecxwBDHYQCIvrW7aDBZCYeNTP/WX69mkg=="
   "resolved" "https://registry.npmjs.org/pretty-format/-/pretty-format-26.6.2.tgz"
@@ -21901,7 +22065,11 @@ protobufjs@^6.8.6:
   "integrity" "sha512-27yj+04uF6ya9l+qfpH187aqEzfCF4+Uit0I9ZBQVqK09hk/SQzKa2MUqUpXaVa7LOFRg1TSSr3lVxGOk6c0SQ=="
   "resolved" "https://registry.npmjs.org/protobufjs/-/protobufjs-6.10.2.tgz"
   "version" "6.10.2"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "@protobufjs/aspromise" "^1.1.2"
     "@protobufjs/base64" "^1.1.2"
@@ -22352,7 +22520,11 @@ react-dev-utils@^11.0.3, react-dev-utils@~11.0.1:
   "integrity" "sha512-dx0LvIGHcOPtKbeiSUM4jqpBl3TcY7CDjZdfOIcKeznE7BWr9dg0iPG90G5yfVQ+p/rGNMXdbfStvzQZEVEi4A=="
   "resolved" "https://registry.npmjs.org/react-dev-utils/-/react-dev-utils-11.0.4.tgz"
   "version" "11.0.4"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "@babel/code-frame" "7.10.4"
     "address" "1.1.2"
@@ -22642,7 +22814,11 @@ react-scripts@^4.0.3:
   "integrity" "sha512-S5eO4vjUzUisvkIPB7jVsKtuH2HhWcASREYWHAQ1FP5HyCv3xgn+wpILAEWkmy+A+tTNbSZClhxjT3qz6g4L1A=="
   "resolved" "https://registry.npmjs.org/react-scripts/-/react-scripts-4.0.3.tgz"
   "version" "4.0.3"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "@babel/core" "7.12.3"
     "@pmmmwh/react-refresh-webpack-plugin" "0.4.3"
@@ -22804,7 +22980,11 @@ read-package-json-fast@^2.0.1:
     "normalize-package-data" "^2.3.2"
     "path-type" "^2.0.0"
 
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
 "read-pkg@^5.2.0":
   "integrity" "sha512-Ug69mNOpfvKDAc2Q8DRpMjjzdtrnv9HcSMX+4VsZxD1aZ6ZzrIE7rlzXBtWTyhULSMKg076AW6WR5iZpD0JiOg=="
   "resolved" "https://registry.npmjs.org/read-pkg/-/read-pkg-5.2.0.tgz"
@@ -23676,7 +23856,11 @@ rollup-plugin-babel@^4.3.3:
   "integrity" "sha512-Lek/TYp1+7g7I+uMfJnnSJ7YWoD58ajo6Oarhlex7lvUce+RCKRuGRSgztDO3/MF/PuGKmUL5iTHKf208UNszw=="
   "resolved" "https://registry.npmjs.org/rollup-plugin-babel/-/rollup-plugin-babel-4.4.0.tgz"
   "version" "4.4.0"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "@babel/helper-module-imports" "^7.0.0"
     "rollup-pluginutils" "^2.8.1"
@@ -23735,7 +23919,11 @@ router-ips@^1.0.0:
   "resolved" "https://registry.npmjs.org/run-async/-/run-async-2.4.1.tgz"
   "version" "2.4.1"
 
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
 "run-parallel@^1.1.9":
   "integrity" "sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA=="
   "resolved" "https://registry.npmjs.org/run-parallel/-/run-parallel-1.2.0.tgz"
@@ -23787,7 +23975,11 @@ router-ips@^1.0.0:
   "version" "5.1.2"
 
 "safe-buffer@5.1.2":
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   "integrity" "sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g=="
   "resolved" "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.1.2.tgz"
   "version" "5.1.2"
@@ -23804,7 +23996,11 @@ safe-json-stringify@~1:
   integrity sha512-gH8eh2nZudPQO6TytOvbxnuhYBOvDBBLW52tz5q6X58lJcd/tkmqFR+5Z9adS8aJtURSXWThWy/xJtJwixErvg==
 
 =======
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
 "safe-regex@^1.1.0":
   "integrity" "sha1-QKNmnzsHfR6UPURinhV91IAjvy4="
   "resolved" "https://registry.npmjs.org/safe-regex/-/safe-regex-1.1.0.tgz"
@@ -23967,7 +24163,11 @@ schema-utils@^2.6.5, schema-utils@^2.6.6, schema-utils@^2.7.0, schema-utils@^2.7
   "integrity" "sha512-SHiNtMOUGWBQJwzISiVYKu82GiV4QYGePp3odlY1tuKO7gPtphAT5R/py0fA6xtbgLL/RvtJZnU9b8s0F1q0Xg=="
   "resolved" "https://registry.npmjs.org/schema-utils/-/schema-utils-2.7.1.tgz"
   "version" "2.7.1"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "@types/json-schema" "^7.0.5"
     "ajv" "^6.12.4"
@@ -27379,7 +27579,11 @@ v8-to-istanbul@^7.0.0:
   "integrity" "sha512-p0BB09E5FRjx0ELN6RgusIPsSPhtgexSRcKETybEs6IGOTXJSZqfwxp7r//55nnu0f1AxltY5VvdVqy2vZf9AA=="
   "resolved" "https://registry.npmjs.org/v8-to-istanbul/-/v8-to-istanbul-7.1.1.tgz"
   "version" "7.1.1"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "@types/istanbul-lib-coverage" "^2.0.1"
     "convert-source-map" "^1.6.0"
@@ -27392,7 +27596,11 @@ valid-url@~1.0.9:
   integrity sha1-HBRHm0DxOXp1eC8RXkCGRHQzogA=
 
 =======
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
 "validate-npm-package-license@^3.0.1":
   "integrity" "sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew=="
   "resolved" "https://registry.npmjs.org/validate-npm-package-license/-/validate-npm-package-license-3.0.4.tgz"
@@ -27420,7 +27628,11 @@ validate-npm-package-name@^3.0.0:
   "resolved" "https://registry.npmjs.org/vary/-/vary-1.1.2.tgz"
   "version" "1.1.2"
 
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
 "vendors@^1.0.0":
   "integrity" "sha512-/juG65kTL4Cy2su4P8HjtkTxk6VmJDiOPBufWniqQ6wknac6jNiXS9vU+hO3wgusiyqWlzTbVHi0dyJqRONg3w=="
   "resolved" "https://registry.npmjs.org/vendors/-/vendors-1.0.4.tgz"
@@ -27483,7 +27695,11 @@ watchpack@^1.6.1, watchpack@^1.7.4:
   "integrity" "sha512-9P3MWk6SrKjHsGkLT2KHXdQ/9SNkyoJbabxnKOoJepsvJjJG8uYTR3yTPxPQvNDI3w4Nz1xnE0TLHK4RIVe/MQ=="
   "resolved" "https://registry.npmjs.org/watchpack/-/watchpack-1.7.5.tgz"
   "version" "1.7.5"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "graceful-fs" "^4.1.2"
     "neo-async" "^2.5.0"
@@ -27779,7 +27995,11 @@ webpack@4.44.2:
   "integrity" "sha512-6KJVGlCxYdISyurpQ0IPTklv+DULv05rs2hseIXer6D7KrUicRDLFb4IUM1S6LUAKypPM/nSiVSuv8jHu1m3/Q=="
   "resolved" "https://registry.npmjs.org/webpack/-/webpack-4.44.2.tgz"
   "version" "4.44.2"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "@webassemblyjs/ast" "1.9.0"
     "@webassemblyjs/helper-module-context" "1.9.0"
@@ -28172,7 +28392,11 @@ workbox-build@^5.1.4:
   "integrity" "sha512-xUcZn6SYU8usjOlfLb9Y2/f86Gdo+fy1fXgH8tJHjxgpo53VVsqRX0lUDw8/JuyzNmXuo8vXX14pXX2oIm9Bow=="
   "resolved" "https://registry.npmjs.org/workbox-build/-/workbox-build-5.1.4.tgz"
   "version" "5.1.4"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
   dependencies:
     "@babel/core" "^7.8.4"
     "@babel/preset-env" "^7.8.4"
@@ -29189,4 +29413,8 @@ zen-observable@^0.8.0:
   "integrity" "sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q=="
   "resolved" "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   "version" "0.1.0"
+<<<<<<< HEAD
 >>>>>>> GetMessage method now fills an array with all messages from Firebase
+=======
+>>>>>>> 0938b8f4e9522be07d1a3b0bdcacd0ba7b3e30b6
+>>>>>>> 156e9096bade05aa36c2f9c8733959f79f8d2717
