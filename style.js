@@ -48,6 +48,15 @@ buttonWIP: {
 text: {
   color: '#000000'
 },
+alignRight: {
+  textAlign: 'right'
+},
+sendCard: {
+  backgroundColor: 'yellow'
+},
+receiveCard: {
+  backgroundColor: 'red'
+},
 form: {
   backgroundColor: '#FFDD00'
 },

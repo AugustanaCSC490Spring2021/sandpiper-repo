@@ -32,12 +32,12 @@ class watchMain extends React.Component {
         //Using a ternary operator for an if statement inside of map
         //https://stackoverflow.com/questions/44969877/if-condition-inside-of-map-react
         this.state.watcher_uuid == message.sender ?
-        <Card style={{backgroundColor: 'yellow'}}>
-                <Text style={{textAlign: 'right'}}>{message.messageText}</Text>
-                <Text style={{textAlign: 'right'}}>{message.date}</Text>
+        <Card style={styles.sendCard}>
+                <Text style={styles.alignRight}>{message.messageText}</Text>
+                <Text style={styles.alignRight}>{message.date}</Text>
         </Card>
         :
-        <Card style={{backgroundColor: 'red'}}>
+        <Card style={styles.receiveCard}>
                 <Text style={styles.text}>{message.messageText}</Text>
                 <Text style={styles.text}>{message.date}</Text>
         </Card>
