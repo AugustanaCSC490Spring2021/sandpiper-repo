@@ -2,10 +2,11 @@ import * as React from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/database";
+import moment from 'moment';
 
 var verbose = false //DEBUGGING LOG
 const dbHeader = '[DATABASE DEBUG] ';
-const databaseReference = "mapBranch/";
+const databaseReference = "FriendWalkChat/";
 
 var firebaseConfig = {
   apiKey: "AIzaSyAXhoMqorexwwYImNQuFUIBqFmaXz3SMqU",
@@ -159,3 +160,23 @@ export function grabLocation(reactState, walker_uuid) {
     })
     return database;
 }
+
+  export function sendMessage(reactState, walker_uuid, sender_uuid) {
+    var database = firebase.database().ref(databaseReference + walker_uuid);
+    let Message = {
+      messageText: reactState.messageInput,
+      date: moment().format('YYYY-MM-DD hh:mm:ss'),
+      sender: sender_uuid
+    }
+
+    reactState.messageArray.push(Message);
+    database.update({messages: reactState.messageArray});
+  }
+
+  export async function getMessage(reactState) {
+    firebase.database().ref(databaseReference + reactState.state.walker_uuid + "/messages").on('value', (snapshot)=>{
+      if (snapshot.val() != null) {
+        reactState.setState({messageArray: snapshot.val()});
+      }
+    })
+  }
