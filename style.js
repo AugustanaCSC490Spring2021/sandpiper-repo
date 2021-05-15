@@ -7,7 +7,8 @@ const windowHeight = Dimensions.get('window').height;
 
 export default StyleSheet.create({
 container: {
-    backgroundColor: '#002F6C'
+    backgroundColor: '#002F6C',
+    //alignItems: "center"
 },
 textBlock:{
   backgroundColor: '#FFDD00',
@@ -57,19 +58,21 @@ item: {
   },
 
 map: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
+    width: 0.8*Dimensions.get('window').width,
+    height: 0.4* Dimensions.get('window').height,
+    alignItems: "center",
+    backgroundColor: '#002F6C',
+    marginTop:12, 
   },
-containermap: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+
+map_container: {
+    backgroundColor: '#002F6C',
+    alignItems: "center"
+  },
+
+map_content: {
+    flex: 1,
+    //backgroundColor: "#fff",
+    
   },
 })

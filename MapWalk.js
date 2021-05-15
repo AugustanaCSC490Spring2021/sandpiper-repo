@@ -73,9 +73,9 @@ class MapWalk extends React.Component {
   }
 
   render() {
-    return (<Container style={stylemap.container}>
-      <Content>
-        <MapView style={stylemap.map} region={this.state.region} showsCompass={true} rotateEnabled={true} showsUserLocation={true} followsUserLocation={true} ref={map => {
+    return (<Container style={styles.container}>
+      <Content style={styles.map_content}>
+        <MapView style={styles.map} region={this.state.region} showsCompass={true} rotateEnabled={true} showsUserLocation={true} followsUserLocation={true} ref={map => {
             this.map = map;
           }}/>
       </Content>
@@ -83,15 +83,5 @@ class MapWalk extends React.Component {
   }
 }
 
-const stylemap = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff"
-  },
-  map: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height
-  }
-});
 
 export default MapWalk;

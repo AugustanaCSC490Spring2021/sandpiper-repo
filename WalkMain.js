@@ -12,7 +12,8 @@ import "firebase/database";
 import * as firebase from 'firebase';
 import moment from 'moment';
 import * as Location from 'expo-location';
-import { valueToNode } from '@babel/types';
+import MapView from "react-native-maps";
+import * as FriendWalkDB from './FriendWalkDB.js';
 
 
 class WalkMain extends React.Component {
@@ -24,11 +25,54 @@ class WalkMain extends React.Component {
       messageArray: [],
       messageInput: '',
 
+      region: {
+        latitude: 10,
+        longitude: 20,
+        latitudeDelta: 0.045,
+        longitudeDelta: 0.045
+      },
+      error: '',
     }
   }
 
 
+//MAP STUFF HERE
+  async componentDidMount() {
+    // Asking for device location permission
+    const {status} = await Location.requestForegroundPermissionsAsync();
+    if (status === "granted") {
+      this.getLocationAsync();
+    } else {
+      this.setState({error: "Locations services needed"});
+    }
+  }
 
+  async componentWillUnmount() {
+    this.location_listener.remove()
+  }
+
+  getLocationAsync = async () => {
+    this.location_listener = await Location.watchPositionAsync({
+      enableHighAccuracy: true,
+      distanceInterval: 1,
+      timeInterval: 10000
+    }, newLocation => {
+      let {coords} = newLocation;
+      console.log(coords);
+      let region = {
+        latitude: coords.latitude,
+        longitude: coords.longitude,
+        latitudeDelta: 0.045,
+        longitudeDelta: 0.045
+      };
+      this.setState({region: region});
+      FriendWalkDB.updateDatabase(this.state.walker_uuid, {location_region: this.state.region})
+    })
+  }
+  
+
+
+//CHAT STUFF HERE
   sendMessage() {
     var database = firebase.database().ref("users/" + this.state.walker_uuid);
     let now = new Date();
@@ -43,21 +87,25 @@ class WalkMain extends React.Component {
     database.update({messages: this.state.messageArray});
   }
 
-
-  sendLocation() {
-      this.props.navigation.navigate('MapWalk', {walker_uuid: this.state.walker_uuid});
-  }
+  
+  
 
   render() {
     return (
-      <Container style={styles.container}>
+      
+      <Container style={styles.map_container}>
+         <Content style={styles.map_content}>
+          <MapView style={styles.map} region={this.state.region} showsCompass={true} rotateEnabled={true} showsUserLocation={true} followsUserLocation={true} ref={map => {
+              this.map = map;
+            }}/>
+        </Content>
+        
         <Content padder style={styles.content} style={{ padding: 10 }}>
           <Form style={styles.form}>
             <Text style={styles.text}>Enter your message.</Text>
             <Input onChangeText = {value => this.setState({messageInput: value})}></Input>
           </Form>
           <Button style={styles.button} onPress={() => this.sendMessage()}><Text>Send</Text></Button>
-          <Button style={styles.button} onPress={() => this.sendLocation()}><Text>Share Location</Text></Button>
         </Content>
       </Container>
     );
