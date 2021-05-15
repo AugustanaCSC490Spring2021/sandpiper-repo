@@ -20,15 +20,11 @@ class WalkMain extends React.Component {
       watcher_uuid: props.route.params.watcher_uuid,
       messageArray: [],
       messageInput: '',
-<<<<<<< HEAD
 
 
       location: {coords: { latitude: null, longitude: null}},
       geocode: null,
       errorMessage: "",
-=======
-      startText: ''
->>>>>>> Text box clears on sent message
     }
     FriendWalkDB.getMessage(this);
   }
@@ -42,7 +38,6 @@ class WalkMain extends React.Component {
     //https://github.com/GeekyAnts/NativeBase/issues/320
     FriendWalkDB.sendMessage(this.state, this.state.walker_uuid, this.state.walker_uuid);
     this.input._root.clear();
-<<<<<<< HEAD
   }
 
   getLocationAsync = async () => {
@@ -68,8 +63,6 @@ class WalkMain extends React.Component {
       var database = firebase.database().ref("users/" + this.state.walker_uuid);
       database.update({ location: this.state.location });
     console.log(this.state.location);
-=======
->>>>>>> Text box clears on sent message
   }
 
   createCards() {
@@ -100,11 +93,7 @@ class WalkMain extends React.Component {
           {this.createCards()}
           <Form style={styles.form}>
             <Text style={styles.text}>Enter your message.</Text>
-<<<<<<< HEAD
             <Input onChangeText = {value => this.setState({messageInput: value})} ref={(ref) => { this.input = ref }}></Input>
-=======
-            <Input onChangeText = {value => this.setState({messageInput: value})} ref={(ref) => { this.input = ref }} ></Input>
->>>>>>> Text box clears on sent message
           </Form>
           <Button style={styles.button} onPress={() => this.sendMessage()}><Text>Send</Text></Button>
           <Button style={styles.button} onPress={() => this.sendLocation()}><Text>Share Location</Text></Button>
