@@ -32,9 +32,7 @@ class WatchMain extends React.Component {
     listener = FriendWalkDB.grabLocation(this, this.state.walker_uuid);
   }
 
-  async componentDidUpdate() {
-    console.log("Updating MapWatch.js's component")
-  }
+  
 
   async componentWillUnmount() {
     FriendWalkDB.closeListener(listener)

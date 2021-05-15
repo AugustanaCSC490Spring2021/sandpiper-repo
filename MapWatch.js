@@ -17,8 +17,6 @@ import {Linking} from 'react-native';
 import MapView from "react-native-maps";
 import * as FriendWalkDB from './FriendWalkDB.js';
 
-var verbose = false; //DEBUGGING LOG
-const mapHeader = '[MAP DEBUG] ';
 
 class MapWatch extends React.Component {
 
@@ -41,9 +39,7 @@ class MapWatch extends React.Component {
     listener = FriendWalkDB.grabLocation(this, this.state.walker_uuid);
   }
 
-  async componentDidUpdate() {
-    console.log("Updating MapWatch.js's component")
-  }
+  
 
   async componentWillUnmount() {
     FriendWalkDB.closeListener(listener)
