@@ -14,7 +14,6 @@ import * as Font from 'expo-font';
 import {Ionicons} from '@expo/vector-icons';
 import * as React from 'react';
 import styles from './style.js';
-import {View} from "react-native";
 import 'react-native-gesture-handler';
 import * as Location from 'expo-location';
 import MapView from "react-native-maps";
@@ -67,7 +66,6 @@ class MapWalk extends React.Component {
         longitudeDelta: 0.045
       };
       this.setState({region: region});
-
       FriendWalkDB.updateDatabase(this.state.walker_uuid, {location_region: this.state.region})
     })
   }

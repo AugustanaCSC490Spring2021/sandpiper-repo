@@ -8,6 +8,8 @@ import styles from './style.js';
 import { Linking } from 'react-native';
 import 'react-native-gesture-handler';
 import { useRoute } from '@react-navigation/native';
+import MapView from "react-native-maps";
+import * as FriendWalkDB from './FriendWalkDB.js';
 
 class WatchMain extends React.Component {
 
@@ -16,21 +18,43 @@ class WatchMain extends React.Component {
     this.state = {
       walker_uuid: props.route.params.walker_uuid,
       watcher_uuid: props.route.params.watcher_uuid,
+
+      region: {
+        latitude: 0,
+        longitude: 0,
+        latitudeDelta: .05,
+        longitudeDelta: .05
+      }
     }
   }
 
-  getLocation() {
-    this.props.navigation.navigate('MapWatch', {walker_uuid: this.state.walker_uuid});
+  async componentDidMount() {
+    listener = FriendWalkDB.grabLocation(this, this.state.walker_uuid);
   }
+
+  async componentDidUpdate() {
+    console.log("Updating MapWatch.js's component")
+  }
+
+  async componentWillUnmount() {
+    FriendWalkDB.closeListener(listener)
+  }
+
+
 
   render() {
     return (
-      <Container style={styles.container}>
-        <Content padder style={styles.content} style={{ padding: 10 }}>
-          <Button style={styles.button} onPress={() => this.getLocation()}><Text>Get Location</Text></Button>
-
-
-        </Content>
+      <Container style={styles.map_container}>
+         <Content>
+        <MapView style={styles.map} region={this.state.region} ref={map => {
+            this.map = map;
+          }}>
+          <MapView.Circle center={{
+              latitude: this.state.region.latitude,
+              longitude: this.state.region.longitude
+            }} radius={100} strokeColor={'#002F6C'} fillColor={'#002F6C'}/>
+        </MapView>
+      </Content>
       </Container>
     );
   }
