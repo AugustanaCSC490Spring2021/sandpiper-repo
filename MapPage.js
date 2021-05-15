@@ -15,8 +15,6 @@ import {
   Input,
   Form
 } from 'native-base';
-import style from "./style";
-import * as FriendWalkDB from './FriendWalkDB.js';
 
 class MapPage extends React.Component {
   constructor(props) {
@@ -92,7 +90,6 @@ class MapPage extends React.Component {
         longitudeDelta: 0.045
       };
       this.setState({region: region});
-      FriendWalkDB.updateDatabase(this.state.walker_uuid, {location_region: this.state.region})
     })
   }
 
@@ -124,11 +121,6 @@ class MapPage extends React.Component {
 const stylemap = StyleSheet.create({
   container: {
     flex: 1,
-    //backgroundColor: '#FFDD00',
-        //width: 0.8  *Dimensions.get('window').width,
-    //height: 0.4* Dimensions.get('window').height,
-    ///alignItems: "center",
-    
   },
   map: {
     width: Dimensions.get('window').width,
