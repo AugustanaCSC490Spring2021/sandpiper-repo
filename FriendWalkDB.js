@@ -6,7 +6,7 @@ import moment from 'moment';
 
 var verbose = false //DEBUGGING LOG
 const dbHeader = '[DATABASE DEBUG] ';
-const databaseReference = "FriendWalkChat/";
+const databaseReference = "users/";
 
 var firebaseConfig = {
   apiKey: "AIzaSyAXhoMqorexwwYImNQuFUIBqFmaXz3SMqU",

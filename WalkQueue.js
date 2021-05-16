@@ -44,23 +44,11 @@ class WalkQueue extends React.Component {
       <Container style={styles.container}>
         <Content padder style = {styles.content}>
         <View
-        style={{
-        flexDirection: "row",
-        height: 400,
-        width: 350,
-        padding: 50,
-        backgroundColor: '#FFDD00'
-      }}>
-          <Text>
+        style={styles.queueView}>
+          <Text style = {styles.queueText}>
           Waiting to be matched...
           </Text>
         </View>
-        <Button
-          onPress={() => this.setState({isMatched: true})}>
-          <Text>
-          Matched!
-          </Text>
-        </Button>
         </Content>
       </Container>
     );

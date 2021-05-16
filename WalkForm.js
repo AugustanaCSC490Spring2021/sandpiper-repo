@@ -100,7 +100,9 @@ class WalkForm extends React.Component {
           </Input>
         </Item>
         </Form>
-        <Button style={[styles.button, { backgroundColor: this.state.disabledSubmit ? '#474747' : '#FFDD00' }]}
+        <Button block
+          style={[styles.button,
+          { backgroundColor: this.state.disabledSubmit ? '#474747' : '#FFDD00' }]}
           disabled={this.state.disabledSubmit}
           onPress={() => this.Submit()}>
           <Text style={styles.text}>
