@@ -32,7 +32,7 @@ class WatchMain extends React.Component {
     listener = FriendWalkDB.grabLocation(this, this.state.walker_uuid);
   }
 
-  
+
 
   async componentWillUnmount() {
     FriendWalkDB.closeListener(listener)

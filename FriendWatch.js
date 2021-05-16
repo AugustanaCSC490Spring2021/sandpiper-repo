@@ -25,12 +25,8 @@ async componentDidMount() {
 }
 
 async componentDidUpdate() {
-<<<<<<< HEAD
-  if(this.state.matched == true){
-=======
   if(this.state.matched == true && this.state.walker_uuid != ''){
     console.log('Final State: ' + this.state.toString())
->>>>>>> FriendWalkChat
     this.props.navigation.navigate('Watch Main', {watcher_uuid: this.state.watcher_uuid, walker_uuid: this.state.walker_uuid})
   }
 }
