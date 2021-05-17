@@ -20,7 +20,12 @@ class MapPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      region: null,
+      region: {
+        latitude: 41.5031,
+        longitude: -90.5507,
+        latitudeDelta: .05,
+        longitudeDelta: .05
+      },
       error: '',
 
       markers: [
