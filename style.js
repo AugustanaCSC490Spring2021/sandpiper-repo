@@ -7,10 +7,10 @@ const windowHeight = Dimensions.get('window').height;
 
  //Used color scheme from: https://www.colorcombos.com/color-schemes/144/ColorCombo144.html
 const mainColor = '#FFDE00'
-const backColor = '#000066'
+const backColor = '#6599FF'
 const black = '#000000'
-const recievedText = '#CC9900'
-const sentText = '#006699'
+const recievedText = '#097054'
+const sentText = '#FF9900'
 const spareColor = '#006666'
 
 export default StyleSheet.create({
@@ -21,7 +21,7 @@ container: {
 content: {
 },
 button: {
-  borderColor: sentText,
+  borderColor: black,
   borderRadius: 10,
   borderWidth: 2,
   marginBottom:12,

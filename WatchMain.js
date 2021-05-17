@@ -28,17 +28,18 @@ class WatchMain extends React.Component {
         longitudeDelta: .05
       }
     }
-    FriendWalkDB.getMessage(this);
+    let messageListener = FriendWalkDB.getMessage(this);
   }
 
   async componentDidMount() {
-    listener = FriendWalkDB.grabLocation(this, this.state.walker_uuid);
+    let locationListener = FriendWalkDB.grabLocation(this, this.state.walker_uuid);
   }
 
 
 
   async componentWillUnmount() {
-    FriendWalkDB.closeListener(listener)
+    FriendWalkDB.closeListener(this.locationListener)
+    FriendWalkDB.closeListener(this.messageListener)
   }
 
   sendMessage() {

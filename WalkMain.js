@@ -2,9 +2,6 @@ import { Container, Content, Text, Button, Card, Input, Form } from 'native-base
 import * as React from 'react';
 import styles from './style.js';
 import 'react-native-gesture-handler';
-import "firebase/auth";
-import "firebase/database";
-import * as firebase from 'firebase';
 import moment from 'moment';
 import * as Location from 'expo-location';
 import MapView from "react-native-maps";
@@ -30,7 +27,7 @@ class WalkMain extends React.Component {
       },
       error: '',
     }
-    FriendWalkDB.getMessage(this);
+    var messageListener = FriendWalkDB.getMessage(this);
   }
 
 
@@ -47,6 +44,7 @@ class WalkMain extends React.Component {
 
   async componentWillUnmount() {
     this.location_listener.remove()
+    FriendWalkDB.closeListener(this.messageListener)
   }
 
   getLocationAsync = async () => {
@@ -103,7 +101,11 @@ class WalkMain extends React.Component {
 
   completeWalk(){
     console.log("Completed Walk");
+    FriendWalkDB.updateDatabase(this.state.walker_uuid, {completed: true})
+    this.props.navigation.navigate('FriendWalk');
   }
+
+
   render() {
     return (
       <Container style={styles.container}>

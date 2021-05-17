@@ -9,6 +9,8 @@ import uuid from "react-native-uuid";
 import { useRoute } from '@react-navigation/native';
 import * as FriendWalkDB from './FriendWalkDB.js';
 
+var disabledSubmit = true
+
 class WalkForm extends React.Component {
   constructor(props) {
     super(props);
@@ -18,7 +20,8 @@ class WalkForm extends React.Component {
       walker_destination: '',
       walker_phoneNum: '',
       walker_friendsNum: '',
-      havePaired: false,
+      isPaired: false,
+      completed: false,
       location_region:  {
           latitude: 10,
           longitude: 20,
@@ -28,21 +31,19 @@ class WalkForm extends React.Component {
       friendwalk_chat: [],
       walker_uuid: uuid.v1(),
       watcher_uuid: '',
-      isPaired: false,
-      isPinged: false,
-      disabledSubmit: true,
     };
   }
 
 
   checkToDisable() {
-    //TODO:
-    if(this.state.walker_name !== '' && this.state.disabledSubmit === true){
-      this.setState({disabledSubmit: false});
-    }
-    if(this.state.walker_name === '' && this.state.disabledSubmit === false){
-      this.setState({disabledSubmit: true});
-    }
+    if(!disabledSubmit){
+      if(this.state.walker_name == '' || this.state.walker_studentID == ''){
+        disabledSubmit = true;
+      }
+    }else{
+      if(this.state.walker_name != '' && this.state.walker_studentID != ''){
+        disabledSubmit = false
+      }}
   }
 
   Submit(){
@@ -102,8 +103,8 @@ class WalkForm extends React.Component {
         </Form>
         <Button block
           style={[styles.button,
-          { backgroundColor: this.state.disabledSubmit ? '#474747' : '#FFDD00' }]}
-          disabled={this.state.disabledSubmit}
+          { backgroundColor: disabledSubmit ? '#474747' : '#FFDD00' }]}
+          disabled={disabledSubmit}
           onPress={() => this.Submit()}>
           <Text style={styles.text}>
             Submit
