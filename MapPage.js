@@ -59,46 +59,12 @@ class MapPage extends React.Component {
 
 
 
-  async componentDidMount() {
-    // Asking for device location permission
-    const {status} = await Location.requestForegroundPermissionsAsync();
-    if (status === "granted") {
-      this.getLocationAsync();
-    } else {
-      this.setState({error: "Locations services needed"});
-    }
-  }
-
-  async componentWillUnmount() {
-    this.location_listener.remove()
-
-  }
-
-
-  getLocationAsync = async () => {
-    this.location_listener = await Location.watchPositionAsync({
-      enableHighAccuracy: true,
-      distanceInterval: 1,
-      timeInterval: 10000
-    }, newLocation => {
-      let {coords} = newLocation;
-      console.log(coords);
-      let region = {
-        latitude: coords.latitude,
-        longitude: coords.longitude,
-        latitudeDelta: 0.045,
-        longitudeDelta: 0.045
-      };
-      this.setState({region: region});
-    })
-  }
-
-
+  
 
   render() {
     return (<Container style={styles.map_container}>
       <Content style={stylemap.container} >
-        <MapView style={stylemap.map} region={this.state.region} showsCompass={true} rotateEnabled={true} showsUserLocation={true} followsUserLocation={true} ref={map => {
+        <MapView style={stylemap.map} region={this.state.region} showsCompass={true} rotateEnabled={true} showsUserLocation={true}  ref={map => {
             this.map = map;
         }}>
           {this.state.markers.map((marker, index) => (
