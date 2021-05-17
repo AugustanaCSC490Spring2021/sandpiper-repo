@@ -52,7 +52,19 @@ render() {
   }
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+            screenOptions={{
+              headerStyle: {
+                backgroundColor: '#FFDE00',
+                borderBottomColor:'#000500',
+                borderBottomWidth:5,
+              },
+              headerTitleStyle: {
+                fontWeight: 'bold',
+                fontSize:28,
+                textAlign:'left'
+              },
+            }}>
         <Stack.Screen
           name="Viking Ready"
           component={MainScreen}
@@ -90,6 +102,7 @@ render() {
           component={WatchMain}
         />
         <Stack.Screen
+            options={{ title: 'Resource Page' }}
             name="ResourceDisplay"
             component={ResourceDisplay}
         />

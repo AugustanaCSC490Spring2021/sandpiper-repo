@@ -43,7 +43,7 @@ async componentWillUnmount(){
           <View
           style={styles.queueView}>
           <Text style = {styles.queueText}>
-          Insert loading animation
+          Waiting to be matched...
           </Text>
         </View>
         </Content>

@@ -8,7 +8,7 @@ const windowHeight = Dimensions.get('window').height;
  //Used color scheme from: https://www.colorcombos.com/color-schemes/144/ColorCombo144.html
 const mainColor = '#FFDE00'
 const backColor = '#6599FF'
-const black = '#000000'
+const black = '#3b444b'
 const recievedText = '#097054'
 const sentText = '#FF9900'
 const spareColor = '#006666'
@@ -26,6 +26,8 @@ button: {
   borderWidth: 2,
   marginBottom:12,
   marginTop:12,
+  marginLeft:12,
+  marginRight:12,
   backgroundColor: mainColor
 },
 buttonWIP: {
@@ -51,7 +53,14 @@ receiveCard: {
   backgroundColor: recievedText
 },
 form: {
+  borderColor: black,
+  borderRadius: 10,
+  borderWidth: 2,
   marginTop:12,
+  marginBottom:12,
+  marginLeft:12,
+  marginRight:12,
+  paddingBottom: 20,
   backgroundColor: mainColor,
 },
 item: {
@@ -68,6 +77,9 @@ map: {
   },
 
 queueView: {
+  borderColor: black,
+  borderRadius: 10,
+  borderWidth: 2,
   height: 400,
   width: Dimensions.get('window').width - 20,
   backgroundColor: mainColor,

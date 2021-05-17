@@ -8,35 +8,40 @@ class MainScreen extends React.Component {
     return (
       <Container style={styles.container}>
         <Content padder style = {styles.content}>
-          <Button style = {styles.button}
+          <Button block 
+          style = {styles.button}
           onPress={() => this.props.navigation.navigate('ResourceDisplay', 
           {pdfUrl: 'https://www.augustana.edu/files/2018-12/Andreen_Emergency_Instruction_sm.pdf', isPDF: true})}>
             <Text style = {styles.text}>
               Andreen
             </Text>
           </Button>
-          <Button style = {styles.button}
+          <Button block 
+          style = {styles.button}
           onPress={() => this.props.navigation.navigate('ResourceDisplay', 
           {pdfUrl: 'https://www.augustana.edu/files/2018-12/Erickson_Emergency_Instruction_sm.pdf', isPDF: true})}>
             <Text style = {styles.text}>
               Erickson
             </Text>
           </Button>
-          <Button style = {styles.button}
+          <Button block 
+          style = {styles.button}
           onPress={() => this.props.navigation.navigate('ResourceDisplay', 
           {pdfUrl: 'https://www.augustana.edu/files/2018-12/Seminary_Emergency_Instruction_sm.pdf', isPDF: true})}>
             <Text style = {styles.text}>
               Seminary
             </Text>
           </Button>
-          <Button style = {styles.button}
+          <Button block 
+          style = {styles.button}
           onPress={() => this.props.navigation.navigate('ResourceDisplay', 
           {pdfUrl: 'https://www.augustana.edu/files/2018-12/SwansonTLA_Emergency_Instruction_sm.pdf', isPDF: true})}>
             <Text style = {styles.text}>
               Swanson
             </Text>
           </Button>
-          <Button style = {styles.button}
+          <Button block 
+          style = {styles.button}
           onPress={() => this.props.navigation.navigate('ResourceDisplay', 
           {pdfUrl: 'https://www.augustana.edu/files/2018-12/Westerlin_Emergency_Instruction_sm.pdf', isPDF: true})}>
             <Text style = {styles.text}>

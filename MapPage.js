@@ -46,7 +46,7 @@ class MapPage extends React.Component {
               longitude: -90.5507
             },
         },
-        {title: 'Swenson',
+        {title: 'Denkmann',
         coordinates: {
           latitude: 41.5045,
               longitude: -90.5506
