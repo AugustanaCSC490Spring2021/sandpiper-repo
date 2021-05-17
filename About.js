@@ -23,15 +23,15 @@ class MainScreen extends React.Component {
                   <View style = {styles.form}>
                     <Text style={styles.text}>
 
-                        <Text style={{ fontWeight: 'bold' }}>Developers {'\n'}</Text>
+                        <Text style={styles.textHeader}>Developers {'\n'}</Text>
 
                     April Tran, Daniel Zwiener, Michael Setlock, Michael Wardach{'\n'}
 
-                        <Text style={{ fontWeight: 'bold' }}>Consultants{'\n'}</Text>
+                        <Text style={styles.textHeader}>Consultants{'\n'}</Text>
 
           Forrest Stonedahl,  etc.{'\n'}
 
-                        <Text style={{ fontWeight: 'bold' }}>Privacy Policy{'\n'}</Text>
+                        <Text style={styles.textHeader}>Privacy Policy{'\n'}</Text>
           We will not collect any personal information without your permission. Login information is only used to verify you are an Augustana student.{'\n'}
           Location will be used for Friend Walks to keep track of you location for safety.
 {'\n'}

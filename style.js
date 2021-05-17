@@ -25,6 +25,10 @@ buttonWIP: {
 text: {
   color: '#000000'
 },
+textHeader: {
+  fontWeight: 'bold',
+  textAlign: 'center'
+},
 alignRight: {
   textAlign: 'right'
 },
