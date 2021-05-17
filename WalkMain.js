@@ -103,7 +103,7 @@ class WalkMain extends React.Component {
   completeWalk(){
     console.log("Completed Walk");
     FriendWalkDB.updateDatabase(this.state.walker_uuid, {completed: true})
-    this.props.navigation.navigate('FriendWalk');
+    this.props.navigation.navigate('Friend Walk');
   }
 
 
