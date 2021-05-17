@@ -69,10 +69,10 @@ class MapPage extends React.Component {
     }
   }
 
-  async componentWillUnmount() {
-    this.location_listener.remove()
+  //async componentWillUnmount() {
+   // this.location_listener.remove()
 
-  }
+ // }
 
 
   getLocationAsync = async () => {
@@ -98,7 +98,7 @@ class MapPage extends React.Component {
   render() {
     return (<Container style={styles.map_container}>
       <Content style={stylemap.container} >
-        <MapView style={stylemap.map} region={this.state.region} showsCompass={true} rotateEnabled={true} showsUserLocation={true} followsUserLocation={true} ref={map => {
+        <MapView style={stylemap.map} region={this.state.region} showsCompass={true} rotateEnabled={true} showsUserLocation={true} ref={map => {
             this.map = map;
         }}>
           {this.state.markers.map((marker, index) => (
