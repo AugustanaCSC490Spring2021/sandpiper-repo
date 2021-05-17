@@ -11,24 +11,32 @@ class MainScreen extends React.Component {
     return (
       <Container style={styles.container}>
         <Content padder style = {styles.content}>
-          <Button block style = {styles.buttonWIP}>
+          <Button block style = {styles.button} 
+          onPress={() => this.props.navigation.navigate('ResourceDisplay',
+          {pdfUrl: 'https://www.augustana.edu/files/2019-10/Accident%20Investigations%202019-20.doc', isPDF: true})}>
             <Text style = {styles.text}>
-              Secure in place
+              Accident Investigations
             </Text>
           </Button>
-          <Button block style = {styles.buttonWIP}>
+          <Button block style = {styles.button}
+          onPress={() => this.props.navigation.navigate('ResourceDisplay',
+          {pdfUrl: 'https://www.augustana.edu/student-life/public-safety/augie-alerts', isPDF: false})}>
             <Text style = {styles.text}>
-              Shelter in place
+              Augie Alerts
             </Text>
           </Button>
-          <Button block style = {styles.buttonWIP}>
+          <Button block style = {styles.button}
+          onPress={() => this.props.navigation.navigate('ResourceDisplay',
+          {pdfUrl: 'https://www.augustana.edu/files/2019-10/Bloodborne%20Pathogens%20Exposure%20Control%20Plan%20%2719-20.docx', isPDF: true})}>
             <Text style = {styles.text}>
-              Evacuation
+              Bloodborne Pathogens Exposure Control Plan
             </Text>
           </Button>
-          <Button block style = {styles.buttonWIP}>
+          <Button block style = {styles.button}
+          onPress={() => this.props.navigation.navigate('ResourceDisplay',
+          {pdfUrl: 'https://www.augustana.edu/files/2019-03/Chemical%20Hygiene%20Plan%202019-20_0.pdf', isPDF: true})}>
             <Text style = {styles.text}>
-              Concerning Behavior
+              Chemical Hygiene Plan
             </Text>
           </Button>
           <Button block style = {styles.button}
@@ -39,29 +47,37 @@ class MainScreen extends React.Component {
           </Button>
           <Button block style = {styles.button}
           onPress={() => this.props.navigation.navigate('ResourceDisplay',
-          {pdfUrl: 'https://www.augustana.edu/files/2019-03/Emergency%20Hazardous%20Spill%20Response%20%2719-20_0.pdf'})}>
+          {pdfUrl: 'https://www.augustana.edu/files/2019-03/Emergency%20Hazardous%20Spill%20Response%20%2719-20_0.pdf', isPDF: true})}>
             <Text style = {styles.text}>
               Hazardous Material
             </Text>
           </Button>
-          <Button block style = {styles.buttonWIP}>
+          <Button block style = {styles.button}
+          onPress={() => this.props.navigation.navigate('ResourceDisplay',
+          {pdfUrl: 'https://www.augustana.edu/files/2019-06/Hazard%20Communication%20Plan%202019-20.pdf', isPDF: true})}>
             <Text style = {styles.text}>
-              Facility Emergency
+              Hazard Communication Plan
             </Text>
           </Button>
-          <Button block style = {styles.buttonWIP}>
+          <Button block style = {styles.button}
+          onPress={() => this.props.navigation.navigate('ResourceDisplay',
+          {pdfUrl: 'https://www.augustana.edu/files/2019-12/Heat%20and%20Cold%20Injuries%20Policy%202019-20.doc', isPDF: true})}>
             <Text style = {styles.text}>
-              Weather Emergency
+              Heat/Cold Related Injuries
             </Text>
           </Button>
-          <Button block style = {styles.buttonWIP}>
+          <Button block style = {styles.button}
+          onPress={() => this.props.navigation.navigate('ResourceDisplay',
+          {pdfUrl: 'https://www.augustana.edu/files/2019-10/Personal%20Protective%20Equipment%20Program.docx', isPDF: true})}>
             <Text style = {styles.text}>
-              Medical Emergency
+              Personal Protective Equipment Program (PPE)
             </Text>
           </Button>
-          <Button block style = {styles.buttonWIP}>
+          <Button block style = {styles.button}
+          onPress={() => this.props.navigation.navigate('ResourceDisplay',
+          {pdfUrl: 'https://www.augustana.edu/files/2019-10/Slips%2C%20Trips%20and%20Falls%20Policy.doc', isPDF: true})}>
             <Text style = {styles.text}>
-              Physical Threat Emergency
+              Slips, Trips, and Falls
             </Text>
           </Button>
         </Content>

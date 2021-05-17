@@ -19,8 +19,12 @@ class MainScreen extends Component {
 // google doc fix: https://stackoverflow.com/questions/58155621/react-native-webview-for-android-not-displaying-pdf-and-word-files
 //possible better fix: https://github.com/facebook/react-native/issues/6488#issuecomment-352557454
   render() {
-      const {pdfUrl} = this.props.route.params;
-      const url = 'http://docs.google.com/gview?embedded=true&url=' + pdfUrl
+      const {pdfUrl, isPDF} = this.props.route.params;
+      let url = pdfUrl;
+      if (isPDF) {
+        url = 'http://docs.google.com/gview?embedded=true&url=' + pdfUrl;
+      }
+      
 
     return (
       <View style={{ flex: 1}}>
