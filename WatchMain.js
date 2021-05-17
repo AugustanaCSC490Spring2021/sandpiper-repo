@@ -44,7 +44,7 @@ class WatchMain extends React.Component {
   sendMessage() {
     //Issue for clearing the input of an Input part from native base
     //https://github.com/GeekyAnts/NativeBase/issues/320
-    FriendWalkDB.sendMessage(this.state, this.state.walker_uuid, this.state.walker_uuid);
+    FriendWalkDB.sendMessage(this.state, this.state.walker_uuid, this.state.watcher_uuid);
     this.input._root.clear();
   }
 
@@ -54,19 +54,15 @@ class WatchMain extends React.Component {
         //Using a ternary operator for an if statement inside of map
         //https://stackoverflow.com/questions/44969877/if-condition-inside-of-map-react
         this.state.watcher_uuid == message.sender ?
-        <div key={message.date}>  
-          <Card style={styles.sendCard}>
-                  <Text style={styles.alignRight}>{message.messageText}</Text>
-                  <Text style={styles.alignRight}>{message.date}</Text>
-          </Card>
-        </div>
-        :
-        <div key={message.date}>
-          <Card style={styles.receiveCard}>
-                  <Text style={styles.text}>{message.messageText}</Text>
-                  <Text style={styles.text}>{message.date}</Text>
+        <Card style={styles.sendCard} key={message.date}>
+                <Text style={styles.alignRight}>{message.messageText}</Text>
+                <Text style={styles.alignRight}>{message.date}</Text>
         </Card>
-        </div>
+        :
+        <Card style={styles.receiveCard} key={message.date}>
+                <Text style={styles.text}>{message.messageText}</Text>
+                <Text style={styles.text}>{message.date}</Text>
+        </Card>
       ));
       return cards;
     }
