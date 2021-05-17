@@ -14,11 +14,11 @@ class MainScreen extends React.Component {
       <Container style={styles.container}>
         <Content padder style={styles.content} style={{ padding: 10 }}>
 
-          <Button block
-            style={styles.button}
+          <Button block style={styles.button}
             onPress={() => Linking.openURL('tel:${911}')}>
             <Text style={styles.text}>
-              911 {'\n'}
+            Emergency Services{'\n'}
+                    911
             </Text>
           </Button>
           <Button block style={styles.button}
@@ -61,8 +61,7 @@ class MainScreen extends React.Component {
 
             <Text style={styles.text}>
               Dean Of Students{'\n'}
-              309-794-7533{'\n'}
-
+              309-794-7533
             </Text>
           </Button>
 

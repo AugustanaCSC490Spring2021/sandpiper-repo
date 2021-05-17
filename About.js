@@ -20,8 +20,8 @@ class MainScreen extends React.Component {
         return (
             <Container style={styles.container}>
                 <Content padder style={styles.content}>
-                  <View style = {styles.form}>
-                    <Text style={styles.text}>
+                  <View style = {styles.button}>
+                    <Text style={styles.text} >
 
                         <Text style={styles.textHeader}>Developers {'\n'}</Text>
 

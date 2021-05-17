@@ -34,7 +34,8 @@ buttonWIP: {
   backgroundColor: spareColor
 },
 text: {
-  color: black
+  color: black,
+  textAlign:"center"
 },
 textHeader: {
   fontWeight: 'bold',
@@ -57,6 +58,7 @@ item: {
   color: black,
   marginTop: 25
   },
+  
 
 map: {
     width: Dimensions.get('window').width,
