@@ -44,7 +44,12 @@ textHeader: {
   textAlign: 'center'
 },
 alignRight: {
+  color: black,
   textAlign: 'right'
+},
+alignLeft: {
+  color: black,
+  textAlign: 'left'
 },
 sendCard: {
   backgroundColor: sentText
