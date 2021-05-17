@@ -5,9 +5,13 @@ const extraHeight = Dimensions.get('window').height/30;
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-var mainColor = '#FFFF4D'
-var backColor = '#120090'
-var black = '#000000'
+ //Used color scheme from: https://www.colorcombos.com/color-schemes/144/ColorCombo144.html
+const mainColor = '#FFDE00'
+const backColor = '#000066'
+const black = '#000000'
+const recievedText = '#CC9900'
+const sentText = '#006699'
+const spareColor = '#006666'
 
 export default StyleSheet.create({
 container: {
@@ -17,6 +21,9 @@ container: {
 content: {
 },
 button: {
+  borderColor: sentText,
+  borderRadius: 10,
+  borderWidth: 2,
   marginBottom:12,
   marginTop:12,
   backgroundColor: mainColor
@@ -24,7 +31,7 @@ button: {
 buttonWIP: {
   marginBottom:12,
   marginTop:12,
-  backgroundColor: backColor
+  backgroundColor: spareColor
 },
 text: {
   color: black
@@ -37,10 +44,10 @@ alignRight: {
   textAlign: 'right'
 },
 sendCard: {
-  backgroundColor: 'yellow'
+  backgroundColor: sentText
 },
 receiveCard: {
-  backgroundColor: 'red'
+  backgroundColor: recievedText
 },
 form: {
   marginTop:12,
