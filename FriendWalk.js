@@ -12,19 +12,19 @@ class FriendWalk extends React.Component {
     return (
       <Container style={styles.container}>
         <Content padder style = {styles.content}>
-        <Button style = {styles.button}
+        <Button block style = {styles.button}
         onPress={() => this.props.navigation.navigate('Walk Form')}>
           <Text style = {styles.text}>
             Walk
           </Text>
         </Button>
-        <Button style = {styles.button}
+        <Button block style = {styles.button}
           onPress={() => this.props.navigation.navigate('Watch Queue')}>
           <Text style = {styles.text}>
             Watch
           </Text>
         </Button>
-        <Button style = {styles.buttonWIP}>
+        <Button block style = {styles.buttonWIP}>
           <Text style = {styles.text}>
             How to use Friend Walk
           </Text>

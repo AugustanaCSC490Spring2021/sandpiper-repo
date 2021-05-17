@@ -29,7 +29,6 @@ textBlockWIP:{
   padding: 15,
 },
 content: {
-  flexDirection: 'row',
   flex: 1,
 },
 button: {

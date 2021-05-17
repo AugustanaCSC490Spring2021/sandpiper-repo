@@ -14,14 +14,14 @@ class MainScreen extends React.Component {
       <Container style={styles.container}>
         <Content padder style={styles.content} style={{ padding: 10 }}>
 
-          <Button
-            style={styles.textBlock}
+          <Button block
+            style={styles.button}
             onPress={() => Linking.openURL('tel:${911}')}>
             <Text style={styles.text}>
               911 {'\n'}
             </Text>
           </Button>
-          <Button style={styles.textBlock}
+          <Button block style={styles.button}
             onPress={() => Linking.openURL('tel:${309-794-7000}')}>
             <Text style={styles.text}>
               Public Safety{'\n'}
@@ -29,7 +29,7 @@ class MainScreen extends React.Component {
             </Text>
 
           </Button>
-          <Button style={styles.textBlock}
+          <Button block style={styles.button}
             onPress={() => Linking.openURL('tel:${309-732-2677}')}>
 
             <Text style={styles.text}>
@@ -40,7 +40,7 @@ class MainScreen extends React.Component {
           </Button>
 
 
-          <Button style={styles.textBlock}
+          <Button block style={styles.button}
             onPress={() => Linking.openURL('tel:${800-273-8255}')}>
 
             <Text style={styles.text}>
@@ -48,7 +48,7 @@ class MainScreen extends React.Component {
               800-273-8255
             </Text>
           </Button>
-          <Button style={styles.textBlock}
+          <Button block style={styles.button}
             onPress={() => Linking.openURL('tel:${800-222-1222}')}>
 
             <Text style={styles.text}>
@@ -56,7 +56,7 @@ class MainScreen extends React.Component {
               800-222-1222
             </Text>
           </Button>
-          <Button style={styles.textBlock}
+          <Button block style={styles.button}
             onPress={() => Linking.openURL('tel:${309-794-7533}')}>
 
             <Text style={styles.text}>
