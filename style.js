@@ -12,22 +12,6 @@ container: {
     flex:1,
     paddingTop:20
 },
-textBlock:{
-  backgroundColor: '#FFDD00',
-  width: 'auto',
-  height: 'auto',
-  marginBottom:25,
-  alignSelf: "baseline",
-  padding: 15,
-},
-textBlockWIP:{
-  backgroundColor: '#474747',
-  width: 'auto',
-  height: 'auto',
-  marginBottom:25,
-  alignSelf: "baseline",
-  padding: 15,
-},
 content: {
   flex: 1,
 },
