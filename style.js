@@ -5,9 +5,13 @@ const extraHeight = Dimensions.get('window').height/30;
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
+var mainColor = '#FFFF4D'
+var backColor = '#120090'
+var black = '#000000'
+
 export default StyleSheet.create({
 container: {
-    backgroundColor: '#002F6C',
+    backgroundColor: backColor,
     paddingTop:20
 },
 content: {
@@ -15,15 +19,15 @@ content: {
 button: {
   marginBottom:12,
   marginTop:12,
-  backgroundColor: '#FFDD00'
+  backgroundColor: mainColor
 },
 buttonWIP: {
   marginBottom:12,
   marginTop:12,
-  backgroundColor: '#474747'
+  backgroundColor: backColor
 },
 text: {
-  color: '#000000'
+  color: black
 },
 textHeader: {
   fontWeight: 'bold',
@@ -40,10 +44,10 @@ receiveCard: {
 },
 form: {
   marginTop:12,
-  backgroundColor: '#FFDD00',
+  backgroundColor: mainColor,
 },
 item: {
-  color: '#000000',
+  color: black,
   marginTop: 25
   },
 
@@ -51,13 +55,13 @@ map: {
     width: Dimensions.get('window').width,
     height: 0.3* Dimensions.get('window').height,
     alignItems: "center",
-    backgroundColor: '#002F6C',
+    backgroundColor: backColor,
   },
 
 queueView: {
   height: 400,
   width: Dimensions.get('window').width - 20,
-  backgroundColor: '#FFDD00',
+  backgroundColor: mainColor,
   alignItems: "center",
   justifyContent: "center"
 },
