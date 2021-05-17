@@ -72,9 +72,11 @@ class WatchMain extends React.Component {
 
   render() {
     return (
-      <Container style={styles.map_container}>
-         <Content>
-        <MapView style={styles.map} region={this.state.region} ref={map => {
+      <Container style={styles.container}>
+         <Content style={styles.content}>
+        <MapView style={styles.map}
+          region={this.state.region}
+          ref={map => {
             this.map = map;
           }}>
           <MapView.Circle center={{
@@ -87,7 +89,7 @@ class WatchMain extends React.Component {
             <Text style={styles.text}>Enter your message.</Text>
             <Input onChangeText = {value => this.setState({messageInput: value})} ref={(ref) => { this.input = ref }}></Input>
         </Form>
-        <Button style={styles.button} onPress={() => this.sendMessage()}>
+        <Button block style={styles.button} onPress={() => this.sendMessage()}>
           <Text style = {styles.text}>Send</Text>
         </Button>
       </Content>

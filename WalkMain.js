@@ -106,27 +106,23 @@ class WalkMain extends React.Component {
   }
   render() {
     return (
-      <Container style={styles.map_container}>
-         <Content style={styles.map_content}>
+      <Container style={styles.container}>
+         <Content style={styles.content}>
           <MapView style={styles.map}
           region={this.state.region}
-          showsCompass={true}
-          rotateEnabled={true}
           showsUserLocation={true}
           followsUserLocation={true} ref={map => {
               this.map = map;
             }}/>
-        </Content>
-        <Content padder style={styles.content} style={{ padding: 10 }}>
           {this.createCards()}
           <Form style={styles.form}>
             <Text style={styles.text}>Enter your message.</Text>
             <Input onChangeText = {value => this.setState({messageInput: value})} ref={(ref) => { this.input = ref }}></Input>
           </Form>
-          <Button style={styles.button} onPress={() => this.sendMessage()}>
+          <Button block style={styles.button} onPress={() => this.sendMessage()}>
           <Text style = {styles.text}>Send</Text>
           </Button>
-          <Button style={styles.button} onPress={() => this.completeWalk()}>
+          <Button block style={styles.button} onPress={() => this.completeWalk()}>
           <Text style = {styles.text}>I have arrived at my destination</Text></Button>
         </Content>
       </Container>

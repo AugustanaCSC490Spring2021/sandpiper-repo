@@ -8,12 +8,9 @@ const windowHeight = Dimensions.get('window').height;
 export default StyleSheet.create({
 container: {
     backgroundColor: '#002F6C',
-    justifyContent:'center',
-    flex:1,
     paddingTop:20
 },
 content: {
-  flex: 1,
 },
 button: {
   marginBottom:12,
@@ -38,7 +35,8 @@ receiveCard: {
   backgroundColor: 'red'
 },
 form: {
-  backgroundColor: '#FFDD00'
+  marginTop:12,
+  backgroundColor: '#FFDD00',
 },
 item: {
   color: '#000000',
@@ -46,32 +44,21 @@ item: {
   },
 
 map: {
-    width: 0.8*Dimensions.get('window').width,
-    height: 0.4* Dimensions.get('window').height,
+    width: Dimensions.get('window').width,
+    height: 0.3* Dimensions.get('window').height,
     alignItems: "center",
     backgroundColor: '#002F6C',
-    marginTop:12,
-  },
-
-map_container: {
-    backgroundColor: '#002F6C',
-    alignItems: "center",
-  },
-
-map_content: {
-    flex: 1,
   },
 
 queueView: {
-  flexDirection: "row",
   height: 400,
-  width: 350,
+  width: Dimensions.get('window').width - 20,
   backgroundColor: '#FFDD00',
-  alignItems: 'center',
+  alignItems: "center",
+  justifyContent: "center"
 },
 
 queueText: {
   fontSize: 24,
-  alignItems: 'center',
 }
 })

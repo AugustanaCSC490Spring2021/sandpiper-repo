@@ -1,4 +1,4 @@
-import { Container, Content, Text, Header, Button, StyleProvider, Card } from 'native-base';
+import { Container, Content, Text, Header, Button, StyleProvider, Card, View } from 'native-base';
 import { StyleSheet, Dimensions } from "react-native";
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
@@ -19,12 +19,12 @@ class MainScreen extends React.Component {
     render() {
         return (
             <Container style={styles.container}>
-                <Content padder style={styles.content} style={{ padding: 10 }}>
-
-                    <Text style={styles.textBlock}>
+                <Content padder style={styles.content}>
+                  <View style = {styles.form}>
+                    <Text style={styles.text}>
 
                         <Text style={{ fontWeight: 'bold' }}>Developers {'\n'}</Text>
-                        
+
                     April Tran, Daniel Zwiener, Michael Setlock, Michael Wardach{'\n'}
 
                         <Text style={{ fontWeight: 'bold' }}>Consultants{'\n'}</Text>
@@ -38,6 +38,7 @@ class MainScreen extends React.Component {
 
 
                     </Text>
+                  </View>
 
                 </Content>
             </Container>
