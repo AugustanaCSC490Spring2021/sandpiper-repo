@@ -61,8 +61,8 @@ class WatchMain extends React.Component {
         </Card>
         :
         <Card style={styles.receiveCard} key={message.date}>
-                <Text style={styles.text}>{message.messageText}</Text>
-                <Text style={styles.text}>{message.date}</Text>
+                <Text style={styles.alignLeft}>{message.messageText}</Text>
+                <Text style={styles.alignLeft}>{message.date}</Text>
         </Card>
       ));
       return cards;
