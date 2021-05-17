@@ -6,6 +6,7 @@ import moment from 'moment';
 import * as Location from 'expo-location';
 import MapView from "react-native-maps";
 import * as FriendWalkDB from './FriendWalkDB.js';
+import { useRoute } from '@react-navigation/native';
 import { valueToNode } from '@babel/types';
 
 
