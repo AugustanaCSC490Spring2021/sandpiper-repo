@@ -94,7 +94,7 @@ class WatchMain extends React.Component {
         {/*Source code for scroll to bottom of ScrollView and setting maxheight of ScrollView to grow to
           https://stackoverflow.com/questions/44533225/make-scrollview-size-automatically-up-to-a-max-height
           https://stackoverflow.com/questions/46791899/react-native-scrollview-scrolltoend-on-android*/}
-        <ScrollView style={{flexGrow: 0, maxHeight: '35%'}} ref = {(ref) => { this.scroll = ref}}>
+        <ScrollView style={styles.watchScroll} ref = {(ref) => { this.scroll = ref}}>
             {this.createCards()}
         </ScrollView>
         <Form style={styles.form}>

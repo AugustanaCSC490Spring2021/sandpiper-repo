@@ -94,5 +94,14 @@ queueView: {
 
 queueText: {
   fontSize: 24,
+},
+walkScroll: {
+  flexGrow: 0, 
+  maxHeight: '30%'
+},
+
+watchScroll: {
+  flexGrow: 0, 
+  maxHeight: '35%'
 }
 })
