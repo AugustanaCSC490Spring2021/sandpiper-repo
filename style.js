@@ -39,8 +39,14 @@ text: {
   color: black,
   textAlign:"center"
 },
+textHeaderMain: {
+  fontSize: 24,
+  fontWeight: 'bold',
+  textAlign: 'center'
+},
 textHeader: {
   fontWeight: 'bold',
+  fontSize:18,
   textAlign: 'center'
 },
 alignRight: {
