@@ -19,15 +19,18 @@ class WalkCompleted extends React.Component {
     render() {
         return (
             <Container style={styles.container}>
-                <Content padder style={styles.content}>
+                <Content style={styles.content}>
                   <View style = {styles.button}>
                     <Text style={styles.text} >
-                    Walk Completed
+
+                    {"\n"}Walk {"\n"}
+                    Completed! {"\n"}
                     </Text>
                   </View>
-                  <Button
+                  <Button block
+                  style={styles.button}
                   onPress={() => this.props.navigation.navigate('Friend Walk')}>
-                  <Text>
+                  <Text style={styles.text}>
                   Done
                   </Text>
                   </Button>
