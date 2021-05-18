@@ -1,4 +1,5 @@
 import { Container, Content, Text, Button, Card, Input, Form } from 'native-base';
+import { StyleSheet, Dimensions, ScrollView, View} from "react-native";
 import * as React from 'react';
 import styles from './style.js';
 import 'react-native-gesture-handler';
@@ -110,14 +111,19 @@ class WalkMain extends React.Component {
   render() {
     return (
       <Container style={styles.container}>
-         <Content style={styles.content}>
+         <Content style={styles.content} scrollEnabled={false}>
           <MapView style={styles.map}
           region={this.state.region}
           showsUserLocation={true}
           followsUserLocation={true} ref={map => {
               this.map = map;
             }}/>
-          {this.createCards()}
+          {/*Source code for scroll to bottom of ScrollView and setting maxheight of ScrollView to grow to
+          https://stackoverflow.com/questions/44533225/make-scrollview-size-automatically-up-to-a-max-height
+          https://stackoverflow.com/questions/46791899/react-native-scrollview-scrolltoend-on-android*/}
+          <ScrollView style={{flexGrow: 0, maxHeight: '30%'}} ref = {(ref) => { this.scroll = ref}}>
+              {this.createCards()}
+          </ScrollView>
           <Form style={styles.form}>
             <Text style={styles.text}>Enter your message.</Text>
             <Input onChangeText = {value => this.setState({messageInput: value})} ref={(ref) => { this.input = ref }}></Input>
