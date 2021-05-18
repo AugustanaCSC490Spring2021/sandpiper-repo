@@ -87,12 +87,6 @@ export function closeListener(database) {
    } else {
      if(verbose) console.log(dbHeader + "The Reference you are trying to close does not exist")
    }
-  // .then(() => {
-  //   if(verbose) console.log("Listener successfully closed")
-  // })
-  // .catch(error => {
-  //     console.log("ERROR in closeListener() in FriendWalkDB, the error is: " + error)
-  // });
 }
 
 /**
@@ -146,6 +140,20 @@ export function pairWatcher(reactState) {
     })
     return database; //returns the reference to the listener for closing.
 };
+
+export function listenForComplete(reactState){
+  var uuid = reactState.state.walker_uuid
+  var database = firebase.database().ref(databaseReference + uuid);
+  var snapshot = database.on('value', (snapshot) => {
+    if(snapshot.val().completed){
+      reactState.setState({walker_completed: true});
+      closeListener(database);
+    }
+  }
+  )
+  return database;
+}
+
 
 
 export function grabLocation(reactState, walker_uuid) {
