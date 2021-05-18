@@ -15,8 +15,7 @@ import WatchQueue from './FriendWatch.js';
 import WalkMain from './WalkMain.js';
 import HowTo from './HowTo'
 import Map from './MapPage.js';
-//import MapWalk from './MapWalk.js';
-//import MapWatch from './MapWatch.js';
+import WalkCompleted from './WalkCompleted.js';
 import WatchMain from './WatchMain.js';
 import { StyleSheet, View } from "react-native";
 import * as Font from 'expo-font';
@@ -105,6 +104,10 @@ render() {
         <Stack.Screen
           name="How To"
           component={HowTo}
+          />
+          <Stack.Screen
+          name="Walk Completed"
+          component={WalkCompleted}
         />
         <Stack.Screen
             options={{ title: 'Resource Page' }}

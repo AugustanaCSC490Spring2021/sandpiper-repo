@@ -3,6 +3,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/database";
 import moment from 'moment';
+import uuid from "react-native-uuid";
 
 var verbose = false //DEBUGGING LOG
 const dbHeader = '[DATABASE DEBUG] ';
@@ -87,12 +88,6 @@ export function closeListener(database) {
    } else {
      if(verbose) console.log(dbHeader + "The Reference you are trying to close does not exist")
    }
-  // .then(() => {
-  //   if(verbose) console.log("Listener successfully closed")
-  // })
-  // .catch(error => {
-  //     console.log("ERROR in closeListener() in FriendWalkDB, the error is: " + error)
-  // });
 }
 
 /**
@@ -147,6 +142,36 @@ export function pairWatcher(reactState) {
     return database; //returns the reference to the listener for closing.
 };
 
+export function listenForComplete(reactState){
+  var uuid = reactState.state.walker_uuid
+  var database = firebase.database().ref(databaseReference + uuid);
+  var snapshot = database.on('value', (snapshot) => {
+    if(snapshot.val().completed){
+      reactState.setState({walker_completed: true});
+      closeListener(database);
+      removeEntry(uuid);
+    }
+  }
+  )
+  return database;
+}
+
+export function removeEntry(uuid){
+  if(verbose) console.log(dbHeader + "Removing Reference...")
+  firebase
+    .database()
+    .ref(databaseReference + uuid)
+    .remove()
+    .then(() => {
+      if(verbose) console.log(dbHeader + "Removed database at: " + databaseReference + uuid
+      + " with value:\n " + JSON.stringify(keyValue))
+    })
+    .catch(error => {
+        console.log(dbHeader + "ERROR in removeEntry() in FriendWalkDB, error is: " + error)
+    });
+}
+
+
 
 export function grabLocation(reactState, walker_uuid) {
   var database = firebase.database().ref(databaseReference + walker_uuid);
@@ -166,7 +191,8 @@ export function grabLocation(reactState, walker_uuid) {
     let Message = {
       messageText: reactState.messageInput,
       date: moment().format('YYYY-MM-DD hh:mm:ss'),
-      sender: sender_uuid
+      sender: sender_uuid,
+      key: uuid.v1(),
     }
 
     reactState.messageArray.push(Message);
@@ -177,6 +203,9 @@ export function grabLocation(reactState, walker_uuid) {
     firebase.database().ref(databaseReference + reactState.state.walker_uuid + "/messages").on('value', (snapshot)=>{
       if (snapshot.val() != null) {
         reactState.setState({messageArray: snapshot.val()});
+        //Source code for scrolling to end of ScrollView
+        //https://stackoverflow.com/questions/46791899/react-native-scrollview-scrolltoend-on-android
+        reactState.scroll.scrollToEnd();
       }
     })
   }

@@ -1,4 +1,5 @@
 import { Container, Content, Text, Button, Card, Input, Form } from 'native-base';
+import { StyleSheet, Dimensions, ScrollView, View} from "react-native";
 import * as React from 'react';
 import styles from './style.js';
 import 'react-native-gesture-handler';
@@ -55,7 +56,7 @@ class WalkMain extends React.Component {
       timeInterval: 10000
     }, newLocation => {
       let {coords} = newLocation;
-      console.log(coords);
+      //console.log(coords);
       let region = {
         latitude: coords.latitude,
         longitude: coords.longitude,
@@ -86,12 +87,12 @@ class WalkMain extends React.Component {
         //Using a ternary operator for an if statement inside of map
         //https://stackoverflow.com/questions/44969877/if-condition-inside-of-map-react
         this.state.walker_uuid == message.sender ?
-        <Card style={styles.sendCard} key={message.date}>
+        <Card style={styles.sendCard} key={message.key}>
                 <Text style={styles.alignRight}>{message.messageText}</Text>
                 <Text style={styles.alignRight}>{message.date}</Text>
         </Card>
         :
-        <Card style={styles.receiveCard} key={message.date}>
+        <Card style={styles.receiveCard} key={message.key}>
                 <Text style={styles.alignLeft}>{message.messageText}</Text>
                 <Text style={styles.alignLeft}>{message.date}</Text>
         </Card>
@@ -110,14 +111,19 @@ class WalkMain extends React.Component {
   render() {
     return (
       <Container style={styles.container}>
-         <Content style={styles.content}>
+         <Content style={styles.content} scrollEnabled={false}>
           <MapView style={styles.map}
           region={this.state.region}
           showsUserLocation={true}
           followsUserLocation={true} ref={map => {
               this.map = map;
             }}/>
-          {this.createCards()}
+          {/*Source code for scroll to bottom of ScrollView and setting maxheight of ScrollView to grow to
+          https://stackoverflow.com/questions/44533225/make-scrollview-size-automatically-up-to-a-max-height
+          https://stackoverflow.com/questions/46791899/react-native-scrollview-scrolltoend-on-android*/}
+          <ScrollView style={styles.walkScroll} ref = {(ref) => { this.scroll = ref}}>
+              {this.createCards()}
+          </ScrollView>
           <Form style={styles.form}>
             <Text style={styles.text}>Enter your message.</Text>
             <Input onChangeText = {value => this.setState({messageInput: value})} ref={(ref) => { this.input = ref }}></Input>

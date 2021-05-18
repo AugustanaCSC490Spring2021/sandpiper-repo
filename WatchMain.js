@@ -1,5 +1,5 @@
-import { Container, Content, Text, Header, Button, StyleProvider, Card, Input, Form } from 'native-base';
-import { StyleSheet, Dimensions } from "react-native";
+import { Container, Content, Text, Header, Button, StyleProvider, Card, Input, Form} from 'native-base';
+import { StyleSheet, Dimensions, ScrollView} from "react-native";
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import * as React from 'react';
@@ -20,7 +20,7 @@ class WatchMain extends React.Component {
       watcher_uuid: props.route.params.watcher_uuid,
       messageArray: [],
       messageInput: '',
-
+      walker_completed: false,
       region: {
         latitude: 0,
         longitude: 0,
@@ -29,17 +29,23 @@ class WatchMain extends React.Component {
       }
     }
     let messageListener = FriendWalkDB.getMessage(this);
+    let completeListener = FriendWalkDB.listenForComplete(this);
   }
 
   async componentDidMount() {
     let locationListener = FriendWalkDB.grabLocation(this, this.state.walker_uuid);
   }
 
-
+  async componentDidUpdate() {
+    if(this.state.walker_completed){
+      this.props.navigation.navigate('Walk Completed', {walker_uuid: this.state.walker_uuid});
+    }
+  }
 
   async componentWillUnmount() {
     FriendWalkDB.closeListener(this.locationListener)
     FriendWalkDB.closeListener(this.messageListener)
+    FriendWalkDB.closeListener(this.completeListener)
   }
 
   sendMessage() {
@@ -55,12 +61,12 @@ class WatchMain extends React.Component {
         //Using a ternary operator for an if statement inside of map
         //https://stackoverflow.com/questions/44969877/if-condition-inside-of-map-react
         this.state.watcher_uuid == message.sender ?
-        <Card style={styles.sendCard} key={message.date}>
+        <Card style={styles.sendCard} key={message.key}>
                 <Text style={styles.alignRight}>{message.messageText}</Text>
                 <Text style={styles.alignRight}>{message.date}</Text>
         </Card>
         :
-        <Card style={styles.receiveCard} key={message.date}>
+        <Card style={styles.receiveCard} key={message.key}>
                 <Text style={styles.alignLeft}>{message.messageText}</Text>
                 <Text style={styles.alignLeft}>{message.date}</Text>
         </Card>
@@ -85,7 +91,12 @@ class WatchMain extends React.Component {
               longitude: this.state.region.longitude
             }} radius={100} strokeColor={'#002F6C'} fillColor={'#002F6C'}/>
         </MapView>
-        {this.createCards()}
+        {/*Source code for scroll to bottom of ScrollView and setting maxheight of ScrollView to grow to
+          https://stackoverflow.com/questions/44533225/make-scrollview-size-automatically-up-to-a-max-height
+          https://stackoverflow.com/questions/46791899/react-native-scrollview-scrolltoend-on-android*/}
+        <ScrollView style={styles.watchScroll} ref = {(ref) => { this.scroll = ref}}>
+            {this.createCards()}
+        </ScrollView>
         <Form style={styles.form}>
             <Text style={styles.text}>Enter your message.</Text>
             <Input onChangeText = {value => this.setState({messageInput: value})} ref={(ref) => { this.input = ref }}></Input>
