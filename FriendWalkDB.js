@@ -148,10 +148,26 @@ export function listenForComplete(reactState){
     if(snapshot.val().completed){
       reactState.setState({walker_completed: true});
       closeListener(database);
+      removeEntry(uuid);
     }
   }
   )
   return database;
+}
+
+export function removeEntry(uuid){
+  if(verbose) console.log(dbHeader + "Removing Reference...")
+  firebase
+    .database()
+    .ref(databaseReference + uuid)
+    .remove()
+    .then(() => {
+      if(verbose) console.log(dbHeader + "Removed database at: " + databaseReference + uuid
+      + " with value:\n " + JSON.stringify(keyValue))
+    })
+    .catch(error => {
+        console.log(dbHeader + "ERROR in removeEntry() in FriendWalkDB, error is: " + error)
+    });
 }
 
 

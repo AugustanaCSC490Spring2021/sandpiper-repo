@@ -38,7 +38,7 @@ class WatchMain extends React.Component {
 
   async componentDidUpdate() {
     if(this.state.walker_completed){
-      this.props.navigation.navigate('Friend Walk', {walker_uuid: this.state.walker_uuid});
+      this.props.navigation.navigate('Walk Completed', {walker_uuid: this.state.walker_uuid});
     }
   }
 
