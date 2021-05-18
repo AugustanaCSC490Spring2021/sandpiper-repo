@@ -177,6 +177,9 @@ export function grabLocation(reactState, walker_uuid) {
     firebase.database().ref(databaseReference + reactState.state.walker_uuid + "/messages").on('value', (snapshot)=>{
       if (snapshot.val() != null) {
         reactState.setState({messageArray: snapshot.val()});
+        //Source code for scrolling to end of ScrollView
+        //https://stackoverflow.com/questions/46791899/react-native-scrollview-scrolltoend-on-android
+        reactState.scroll.scrollToEnd();
       }
     })
   }

@@ -1,5 +1,5 @@
-import { Container, Content, Text, Header, Button, StyleProvider, Card, Input, Form } from 'native-base';
-import { StyleSheet, Dimensions } from "react-native";
+import { Container, Content, Text, Header, Button, StyleProvider, Card, Input, Form} from 'native-base';
+import { StyleSheet, Dimensions, ScrollView} from "react-native";
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import * as React from 'react';
@@ -85,7 +85,12 @@ class WatchMain extends React.Component {
               longitude: this.state.region.longitude
             }} radius={100} strokeColor={'#002F6C'} fillColor={'#002F6C'}/>
         </MapView>
-        {this.createCards()}
+        {/*Source code for scroll to bottom of ScrollView and setting maxheight of ScrollView to grow to
+          https://stackoverflow.com/questions/44533225/make-scrollview-size-automatically-up-to-a-max-height
+          https://stackoverflow.com/questions/46791899/react-native-scrollview-scrolltoend-on-android*/}
+        <ScrollView style={{flexGrow: 0, maxHeight: '35%'}} ref = {(ref) => { this.scroll = ref}}>
+            {this.createCards()}
+        </ScrollView>
         <Form style={styles.form}>
             <Text style={styles.text}>Enter your message.</Text>
             <Input onChangeText = {value => this.setState({messageInput: value})} ref={(ref) => { this.input = ref }}></Input>
