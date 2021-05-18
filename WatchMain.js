@@ -20,7 +20,7 @@ class WatchMain extends React.Component {
       watcher_uuid: props.route.params.watcher_uuid,
       messageArray: [],
       messageInput: '',
-
+      walker_completed: false,
       region: {
         latitude: 0,
         longitude: 0,
@@ -29,17 +29,23 @@ class WatchMain extends React.Component {
       }
     }
     let messageListener = FriendWalkDB.getMessage(this);
+    let completeListener = FriendWalkDB.listenForComplete(this);
   }
 
   async componentDidMount() {
     let locationListener = FriendWalkDB.grabLocation(this, this.state.walker_uuid);
   }
 
-
+  async componentDidUpdate() {
+    if(this.state.walker_completed){
+      this.props.navigation.navigate('Friend Walk', {walker_uuid: this.state.walker_uuid});
+    }
+  }
 
   async componentWillUnmount() {
     FriendWalkDB.closeListener(this.locationListener)
     FriendWalkDB.closeListener(this.messageListener)
+    FriendWalkDB.closeListener(this.completeListener)
   }
 
   sendMessage() {
