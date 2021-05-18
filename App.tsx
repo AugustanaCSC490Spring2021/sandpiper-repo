@@ -13,6 +13,7 @@ import WalkForm from './WalkForm.js';
 import WalkQueue from './WalkQueue.js';
 import WatchQueue from './FriendWatch.js';
 import WalkMain from './WalkMain.js';
+import HowTo from './HowTo'
 import Map from './MapPage.js';
 //import MapWalk from './MapWalk.js';
 //import MapWatch from './MapWatch.js';
@@ -100,6 +101,10 @@ render() {
         <Stack.Screen
           name="Watch Main"
           component={WatchMain}
+        />
+        <Stack.Screen
+          name="How To"
+          component={HowTo}
         />
         <Stack.Screen
             options={{ title: 'Resource Page' }}

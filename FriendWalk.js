@@ -24,7 +24,8 @@ class FriendWalk extends React.Component {
             Watch
           </Text>
         </Button>
-        <Button block style = {styles.buttonWIP}>
+        <Button block style = {styles.button}
+        onPress={() => this.props.navigation.navigate('How To')}>
           <Text style = {styles.text}>
             How to use Friend Walk
           </Text>
