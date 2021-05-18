@@ -3,6 +3,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/database";
 import moment from 'moment';
+import uuid from "react-native-uuid";
 
 var verbose = false //DEBUGGING LOG
 const dbHeader = '[DATABASE DEBUG] ';
@@ -190,7 +191,8 @@ export function grabLocation(reactState, walker_uuid) {
     let Message = {
       messageText: reactState.messageInput,
       date: moment().format('YYYY-MM-DD hh:mm:ss'),
-      sender: sender_uuid
+      sender: sender_uuid,
+      key: uuid.v1(),
     }
 
     reactState.messageArray.push(Message);

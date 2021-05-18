@@ -87,12 +87,12 @@ class WalkMain extends React.Component {
         //Using a ternary operator for an if statement inside of map
         //https://stackoverflow.com/questions/44969877/if-condition-inside-of-map-react
         this.state.walker_uuid == message.sender ?
-        <Card style={styles.sendCard} key={message.date}>
+        <Card style={styles.sendCard} key={message.key}>
                 <Text style={styles.alignRight}>{message.messageText}</Text>
                 <Text style={styles.alignRight}>{message.date}</Text>
         </Card>
         :
-        <Card style={styles.receiveCard} key={message.date}>
+        <Card style={styles.receiveCard} key={message.key}>
                 <Text style={styles.alignLeft}>{message.messageText}</Text>
                 <Text style={styles.alignLeft}>{message.date}</Text>
         </Card>
