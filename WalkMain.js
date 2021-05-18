@@ -55,7 +55,7 @@ class WalkMain extends React.Component {
       timeInterval: 10000
     }, newLocation => {
       let {coords} = newLocation;
-      console.log(coords);
+      //console.log(coords);
       let region = {
         latitude: coords.latitude,
         longitude: coords.longitude,
